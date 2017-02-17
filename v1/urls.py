@@ -70,5 +70,5 @@ urlpatterns = [
     url(r'^Video\sDemonstrations', Video_Demonstrations.as_view()),
     url(r'^Web-based\sonline\stesting\sservice\s_\sFree\squiz\smaker\sClassMarker',Web_based_online_testing_service_Free_quiz_maker_ClassMarker.as_view()),
     url(r'^Welcome', welcome.as_view()),
-    url(r'^index',BasePage.as_view()),
+    url(r'',BasePage.as_view()),
 ]
