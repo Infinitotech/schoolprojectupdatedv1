@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div id="content" class="clearfix">
+<div class="innerWrapper">
+<!--[if IE 6]>
+<div class="alert-box error editor">
+	<p class="bold">You are using Internet Explorer Version 6 which will not work with ClassMarker administration pages.</p>
+	<p>Please upgrade to a modern web browser to use ClassMarker.</p>
+	<p>Your Test takers can still use Internet explorer 6 however.</p>
+	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
+</div>
+<![endif]-->
+<div class="col-span-7"><p class="breadcrumb3"><a href="https://www.classmarker.com/a/tests/" class="first"><span>Tests</span></a><a href="https://www.classmarker.com/a/tests/test/?test_id=743527"><span>Edit Test</span></a><span>Edit Question Settings</span></p></div><div class="col-span-3"><ul class="menu-sections">
+<li class="test"><a href="https://www.classmarker.com/a/tests/#tests"><span>Tests</span></a></li>
+<li class="group"><a class="sect" href="https://www.classmarker.com/a/tests/#groups"><span>Groups</span></a></li>
+<li class="link"><a class="sect" href="https://www.classmarker.com/a/tests/#links"><span>Links</span></a></li></ul>
+</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<hr><div class="col-span-7">
+<h4 class="test-name name"><a href="https://www.classmarker.com/a/tests/test/?test_id=743527" class="graylink">abc</a></h4>
+</div>
+<div class="col-span-3 col-btns">
+<a href="https://www.classmarker.com/a/tests/test/?test_id=743527" class="btn btn-analytics">Back to test</a>
+</div>
+<div class="clear"></div>
+<form action="https://www.classmarker.com/a/tests/qb/settings/updateSettings.php" method="post"><input type="hidden" name="token" value="J9QNQEHEQV"> <input type="hidden" name="change_settings" value="change"> <input type="hidden" name="test_id" value="743527"> <div class="page editor">
+<div class="settings-box">
+<div class="accordion-toggle closed">
+<h3 class="form-field-title">Points</h3>
+<div class="settings-status">Set all question points</div><div class="caret">&nbsp;</div>
+</div>
+<div class="accordion-fold">
+<div class="field-group">
+<input type="text" name="points" maxlength="3" size="4" class="tab warn_change_points"> points <span class="showTooltip tooltip" title="Leave blank for no changes.">Tip</span>
+</div>
+<div id="warn_change_points"></div>
+</div>
+</div>
+<div class="settings-box">
+<div class="accordion-toggle closed">
+<h3 class="form-field-title">Categories</h3>
+<div class="settings-status">Change all question categories</div><div class="caret">&nbsp;</div>
+</div>
+<div class="accordion-fold">
+<div class="field-group">
+<select name="cat_id" class="tab">
+<option value="nochange"> -- Don't change categories -- </option><option value="0">Generic</option> </select>
+</div>
+</div>
+</div>
+<div class="settings-box">
+<div class="accordion-toggle closed">
+<h3 class="form-field-title">Randomize</h3>
+<div class="settings-status">Set Multiple choice random answer settings </div><div class="caret">&nbsp;</div>
+</div>
+<div class="accordion-fold">
+<div class="field-group">
+<select name="random" class="tab">
+<option value="nochange" selected="selected"> -- Don't change randomization -- </option>
+<option value="0">No</option>
+<option value="1">Yes</option>
+</select> <span class="showTooltip tooltip" title="Only applies to Multiple choice &amp; Multiple response style questions.">Tip</span>
+</div>
+</div>
+</div>
+<div class="settings-box">
+<div class="accordion-toggle closed">
+<h3 class="form-field-title">Grading Scale</h3>
+<div class="settings-status">Set Multiple response grading scale settings </div><div class="caret">&nbsp;</div>
+</div>
+<div class="accordion-fold">
+<div class="field-group">
+<select name="grade_style" class="tab edit_grade_scale_dropdown">
+<option value="nochange" selected="selected"> -- Don't change Scoring style -- </option>
+<option value="full">Full - Full points for correct answer, zero points if any error is made</option>
+<option value="partial">Partial - remove points for incorrect responses</option>
+<option value="partial2">Partial - do not remove points for incorrect responses</option>
+</select> <span class="showTooltip tooltip" title="Only applies to Multiple response style questions.">Tip</span>
+</div>
+</div>
+</div>
+<div class="clearheight"></div>
+<input type="submit" class="btn btn-create" onclick="return confirm(&#39;You are about to update settings for all questions in this Test. If these questions are used in other tests, these changes will be reflected in those tests as well.&#39;);" value="Update Questions in this Test">
+<a class="btn btn-cancel" href="https://www.classmarker.com/a/tests/test/?test_id=743527">Cancel</a>
+</div>
+<div class="aside editor">
+<div class="aside-message">
+<p><strong>Tips</strong></p>
+<p>Editing settings here will affect all questions in this test.</p>
+<p>If these questions are used in other tests, these changes will be reflected in those tests as well.</p> </div>
+</div>
+</form>
+</div> 
+<img src="./ClassMarker - Welcome_files/icon_loading_circleV3.gif" alt="Hidden Loading Image" class="hide" width="20" height="20">
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,172 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+<div id="content" class="clearfix">
+<div class="innerWrapper">
+<!--[if IE 6]>
+<div class="alert-box error editor">
+	<p class="bold">You are using Internet Explorer Version 6 which will not work with ClassMarker administration pages.</p>
+	<p>Please upgrade to a modern web browser to use ClassMarker.</p>
+	<p>Your Test takers can still use Internet explorer 6 however.</p>
+	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
+</div>
+<![endif]-->
+<div class="col-span-7"><p class="breadcrumb3"><span class="first">Dashboard</span></p></div><div class="col-span-3"><ul class="menu-sections">
+<li class="test"><a href="ClassMarker - My tests.html"><span>Tests</span></a></li>
+<li class="group"><a class="sect" href="ClassMarker - Group.html"><span>Groups</span></a></li>
+<li class="link"><a class="sect" href="ClassMarker - links.html"><span>Links</span></a></li></ul>
+</div><div class="clearheight20"></div><div class="clearheight20"></div>
+
+<div class="col-span-7 margin primary">
+<ul class="cmtableTabs"><li class="tabon"><a href="Welcome">Recent Tests Taken</a></li><li class="taboff"><a href="ClassMarker - Recent results.html">Recent Group Results </a></li><li class="taboff"><a href="ClassMarker - Recent results(links).html">Recent Link Results</a></li></ul>
+<div class="table narrow-row">
+<div class="row spacerrow"></div>
+<div class="row editor headrow">
+<p><strong>You have no Recent Test results to display here at present.</strong></p>
+You can also access Test results under the <a href="https://www.classmarker.com/a/tests/#tests">Tests</a> section. <span class="showTooltip tooltip" title="Any tests taken in the last 30 days will appear on this page.">Tip</span>
+</div>
+</div>
+<div class="clearheight30"></div>
+<h4 class="intro-steps-text">How ClassMarker Works</h4>
+<div class="clearheight5"></div>
+<div class="col-span-10 intro-steps-img">
+<img width="513" height="204" src="./ClassMarker - Welcome_files/step123.png" alt="Step 1. Create Step 2. Assign Step 3. View Results">
+</div>
+<ul class="editor col-span-10 intro-steps-text">
+<li><a href="Add new test">Create</a> a Test</li>
+<li><a href="Assign test step 1">Assign</a> to <br>Groups or Links</li>
+<li><a href="Overall test results">Analyze</a> Results</li>
+</ul>
+<div class="clearheight30"></div>
+<div class="dotted"></div>
+<div class="clearheight30"></div>
+<h4 class="intro-steps-text">Learn More</h4>
+<div class="intro-steps-text">
+<p><a href="Overview" class="video5 write-video margleft">ClassMarker Help Videos</a></p>
+<p><a href="Overview" class="step-by-step margleft">Step by Step User Manual</a></p></div>
+<div class="clearheight100"></div>
+</div> 
+ 
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		/* Get stats */
+		$.ajax({
+			url: "/a/tests/rpc/statsCount.rpc.php?a=a998ca50e849c46437828d07c45005b3",
+			cache: true,
+			dataType: "json"
+		}).done(function( json_stats ) {
+			$.each(json_stats, function(key, val) {
+				$('#'+key).html(val);
+			});
+		});
+		/* Help video */
+		$('#obj_video5').jqm({ajax: '/misc/tour.rpc.php?id=video5', trigger: '.video5'});
+	});
+</script>
+<div class="jqmWindowWide clearHtml jqmID1" id="obj_video5"></div>
+<div class="col-span-3 secondary">
+<div class="box stats-box first">
+<div class="table narrow-row">
+<div class="row title"><h2>My Data
+<span class="showTooltip tooltip" title="Data count updated every 20 minutes.">Tip</span></h2></div>
+<ul>
+<li class="row">
+<p class="name test-name left "><a href="My tests">Tests</a></p>
+<p class="right col" id="tests_count">1</p>
+</li>
+<li class="row">
+<p class="name question-name left "><a href="Question bank">Questions</a></p>
+<p class="right col" id="questions_count">1</p>
+</li>
+<li class="row">
+<p class="name category-name left "><a href="Categories">Categories</a></p>
+<p class="right col" id="categories_count">1</p>
+</li>
+<li class="row">
+<p class="name media-name left "><a href="Files">Files</a></p>
+<p class="right col" id="uploads_count">0</p>
+</li>
+<li class="row">
+<p class="name certificate-name left "><a href="Certificates">Certificates</a></p>
+<p class="right col" id="certificates_count">0</p>
+</li>
+</ul>
+</div>
+<div class="box stats-box">
+<div class="table narrow-row">
+<ul>
+<li class="row">
+<p class="name group-name left "><a href="Group">Groups</a></p>
+<p class="right col" id="rg_count">1</p>
+</li>
+<li class="row">
+<p class="name results-name left "><a href="Group">Results</a></p>
+<p class="right col" id="rg_results_count">0</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="box stats-box">
+<div class="table narrow-row">
+<ul>
+<li class="row">
+<p class="name link-name left "><a href="links">Links</a></p>
+<p class="right col" id="nrg_count">1</p>
+</li>
+<li class="row">
+<p class="name results-name left "><a href="links">Results</a></p>
+<p class="right col" id="nrg_results_count">0</p>
+</li>
+<li class="row">
+<p class="name theme-name left "><a href="Themes">Themes</a></p>
+<p class="right col" id="themes_count">0</p>
+</li>
+<li class="row">
+<p class="name accesslist-name left "><a href="Access Lists">Access Lists</a></p>
+<p class="right col" id="access_lists_count">0</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="box stats-box">
+<div class="table narrow-row">
+<ul>
+<li class="row">
+<p class="name test-name left "><a href="Overall test results">Statistics by Test</a></p>
+<p class="right col">&nbsp;</p>
+</li>
+<li class="row">
+<p class="name group-name left "><a href="Overall test results by group">Statistics by Group</a></p>
+<p class="right col">&nbsp;</p>
+</li>
+<li class="row">
+<p class="name link-name left "><a href="Overall test results by link">Statistics by Links</a></p>
+<p class="right col">&nbsp;</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="box stats-box">
+<div class="table narrow-row">
+<ul>
+<li class="row">
+<p class="name search-name left "><a href="https://www.classmarker.com/a/users/search/">Search Users</a></p>
+<p class="right col">&nbsp;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div> 
+<img src="{% static 'css_js/icon_loading_circleV3.gif' %}" alt="Hidden Loading Image" class="hide" width="20" height="20">
+</div>
+
+
+
+{% endblock %}

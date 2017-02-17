@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="content" class="clearfix">
+<div class="innerWrapper">
+<!--[if IE 6]>
+<div class="alert-box error editor">
+	<p class="bold">You are using Internet Explorer Version 6 which will not work with ClassMarker administration pages.</p>
+	<p>Please upgrade to a modern web browser to use ClassMarker.</p>
+	<p>Your Test takers can still use Internet explorer 6 however.</p>
+	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
+</div>
+<![endif]-->
+<div class="col-span-7"><p class="breadcrumb3"><a href="My tests" class="first"><span>Tests</span></a><span>New Test</span></p></div><div class="col-span-3"><ul class="menu-sections">
+<li class="test"><a href="My tests"><span>Tests</span></a></li>
+<li class="group"><a class="sect" href="Group"><span>Groups</span></a></li>
+<li class="link"><a class="sect" href="links"><span>Links</span></a></li></ul>
+</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<hr>
+<form action="https://www.classmarker.com/a/tests/test/new/insertNewTest.php" method="post" id="dosubmit_tn">
+<div class="field-group">
+<label class="form-field-title" for="test_name1">Test name:</label>
+<input size="40" class="input showTooltip checkEmpty" id="test_name1" type="text" name="test_name" maxlength="255" original-title="The &#39;Test name&#39; is seen by your test takers.">
+</div>
+<input type="hidden" value="0" name="cat_id"> <div class="field-group">
+<a href="https://www.classmarker.com/a/tests/test/new/#" id="submit_tn" class="btn btn-create tab">Start Adding Questions</a>
+</div>
+</form>
+<hr>
+<div class="clearheight60"></div>
+<div class="clearheight60"></div>
+</div> 
+<img src="./ClassMarker - Welcome_files/icon_loading_circleV3.gif" alt="Hidden Loading Image" class="hide" width="20" height="20">
+</div>
+
+{% endblock %}

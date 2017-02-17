@@ -1,0 +1,532 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div id="content" class="clearfix"><section>
+	<div class="innerWrapper">
+
+
+		<div class="col-span-7"><p class="breadcrumb3"><span class="first">Tests</span></p></div><div class="col-span-3"><ul class="menu-sections">
+				<li class="test current"><a href="https://www.classmarker.com/a/tests/#tests"><span>Tests</span></a></li>
+				<li class="group"><a class="sect" href="https://www.classmarker.com/a/tests/#groups"><span>Groups</span></a></li>
+				<li class="link"><a class="sect" href="https://www.classmarker.com/a/tests/#links"><span>Links</span></a></li></ul>
+			</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<ul class="cmtableTabs"><li class="tabon"><a href="https://www.classmarker.com/a/tests/#tests">Tests</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/qb/?all=1">Question Bank</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/categories/">Categories</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/files/">Files</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/certificates/">Certificates</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/community/">Community</a></li></ul>
+			<div class="table">
+				<div class="table-utility row ">
+					<div class="col-span-1">
+						<div class="dropdown dropdown-x hide_if_no_data">
+							<a class="dropdown-toggle no_anchor" href="https://www.classmarker.com/a/tests/#"> Options </a>
+							<ul class="dropdown-menu">
+								<li><a href="https://www.classmarker.com/a/tests/#" class="expandAll">Expand All</a></li>
+								<li><a href="https://www.classmarker.com/a/tests/#" class="collapseAll">Collapse All</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-span-7">
+						<span id="cat_filter" class="search_filter hide_if_no_data"></span><select id="cat_select" name="cat_id" class="cats_in_qb_filter">
+	<option value="-1">Category Filter</option>
+	<option value="-1">- All -</option>
+	
+	<option value="0">Generic</option>
+	
+</select>
+						<span class="hide_if_no_data  not-ie67"><input type="text" id="test_search" placeholder="Search Test Name" class="hide_if_no_data"> <span class="only-ie little">Search Test Name</span></span>
+					</div>
+					<div class="col-span-2 col-btns">
+						<a class="btn btn-create" href="https://www.classmarker.com/a/tests/test/new/"> New Test <span class="caret">&nbsp;</span></a>
+					</div>
+				</div>
+
+				<!-- TESTS LIST: START -->
+				<ul class="table-body"><li>
+	<div class="row accordion-toggle scrollTop closed test_container">
+		<div class="col-span-6">
+			<h4 class="test-name name">Chemistry</h4>
+		</div>
+		<div class="col-span-4 col-btns">
+			<a href="https://www.classmarker.com/a/tests/test/?test_id=742198" class="edit-test">Edit</a>
+			<a href="https://www.classmarker.com/a/assign/groups/?test_id=742198" class="assign-test">Assign</a>
+
+			<div class="dropdown">
+				<a class="view-analytics no_anchor" href="https://www.classmarker.com/a/tests/#">Statistics <span class="caret">&nbsp;</span></a>
+				<ul class="dropdown-menu">
+					<li><a class="" href="https://www.classmarker.com/a/results/tests/test/?test_id=742198">By Group</a></li>
+					<li><a class="" href="https://www.classmarker.com/a/results/questions/?test_id=742198">By Question</a></li>
+									</ul>
+			</div>
+		</div>
+		<span class="caret">&nbsp;</span>
+	</div>
+	<div class="accordion-fold subrow-container test_groups"> <!-- hidden for now -->
+		<div class="row hint">Assigned 2 times:</div>
+		<ul class="groups_links_list hover-row">
+			
+			<li class="row">
+				<div class="col-span-6">
+					<p class="group-name name"><a href="https://www.classmarker.com/a/users/group/?rg_id=308307" class="graylink">my class</a></p>
+				</div>
+				<div class="col-span-1 icon-calendar-green">
+					<span class="showTooltipHTML" title="Available to Start">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				</div>
+				<div class="col-span-3 col-btns littledark">
+					<a class="" href="https://www.classmarker.com/a/assign/rgmanage/?show=1&amp;test_id=742198&amp;rg_id=308307">Settings</a>
+					| <a href="https://www.classmarker.com/test/start/?test_id=742198&amp;rg_id=308307" class="showTooltip" title="Preview taking this test with these applied settings.">Preview</a>					<a href="https://www.classmarker.com/a/results/tests/test/rgusers/?test_id=742198&amp;rg_id=308307&amp;return=t" class="btn btn-noresults ">Results</a>
+				</div>
+			</li>
+			
+			
+			<li class="row">
+				<div class="col-span-6">
+					<p class="link-name name"><a href="https://www.classmarker.com/a/assign/nrgmanage/?show=1&amp;test_id=742198&amp;nrg_id=353919" class="graylink">arslan</a></p>
+										<div class="linksinafold show-direct-links editor clear hide" id="a44584e563e09a1b"><p><strong>Three options for giving access to this test:</strong></p>
+						<p>Email test link to users <span class="showTooltip tooltip" title="Use this format to send this link to your test takers via email. You can also post this link to facebook, twitter or if using a blog or content management system.">tip</span>
+							<br><input class="textinput" type="text" size="40" value="https://www.classmarker.com/online-test/start/?quiz=a44584e563e09a1b" onclick="javascript:this.focus();this.select();" readonly="readonly"></p>
+
+						<p>Add the test link on your website <span class="showTooltip tooltip" title="Insert this HTML code into your website to link directly to this test.">tip</span>
+							<br><input class="textinput" type="text" size="40" value="&lt;a href=&quot;https://www.classmarker.com/online-test/start/?quiz=a44584e563e09a1b&quot; title=&quot;Take our online test&quot;&gt;Take our online test&lt;/a&gt;" onclick="javascript:this.focus();this.select();" readonly="readonly"></p>
+
+						<p>Embed test into your website <span class="showTooltipHTML tooltip" title="Insert this iFrame HTML code to embed this test directly in your website.&lt;br&gt;&lt;/span&gt;Only use \&#39;one\&#39; test per \&#39;web page\&#39;.">tip</span>
+							<br><input class="textinput" type="text" size="40" value="&lt;iframe src=&quot;https://www.classmarker.com/online-test/start/?quiz=a44584e563e09a1b&amp;iframe=1&quot; frameborder=&quot;0&quot; style=&quot;width:100%;max-width:700px;&quot; height=&quot;800&quot;&gt;&lt;/iframe&gt;" onclick="javascript:this.focus();this.select();" readonly="readonly"></p>
+					</div>
+									</div>
+				<div class="col-span-1 icon-calendar-green">
+					<span class="showTooltipHTML" title="Available to Start">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				</div>
+				<div class="col-span-3 col-btns littledark">
+					<a href="https://www.classmarker.com/a/tests/#" class="open_embed_links" id="a44584e563e09a1b" data-ext_test_id="a44584e563e09a1b">Links</a> | 				<a class="" href="https://www.classmarker.com/a/assign/nrgmanage/?show=1&amp;test_id=742198&amp;nrg_id=353919">Settings</a>
+					| <a href="https://www.classmarker.com/online-test/start/?quiz=a44584e563e09a1b&amp;nrg_id=353919" class="showTooltip" title="Preview taking this test with these applied settings.">Preview</a>					<a href="https://www.classmarker.com/a/results/tests/test/nrgusers/?test_id=742198&amp;nrg_id=353919&amp;return=t" class="btn btn-noresults">Results</a>
+				</div>
+			</li>
+			
+		</ul>
+		<div class="row assign">
+			<a href="https://www.classmarker.com/a/assign/groups/?test_id=742198" class="btn btn-assign alt-a">Assign</a>
+		</div>
+	</div>
+</li></ul>
+				<!-- TESTS LIST: END -->
+
+				<div class="table-utility row bellow">
+
+					<div class="col-span-8">
+						<div class="dropdown dropdown-x hide_if_no_data_bottom">&nbsp;</div>
+					</div>
+
+					<div class="col-span-2 col-btns hide_if_no_data_bottom">&nbsp;</div>
+
+				</div>
+			</div>
+
+</div></section></div>
+ 
+ 
+<script type="text/template" id="testBaseTemplate">
+	<div class="innerWrapper">
+
+
+		<div class="col-span-7"><p class="breadcrumb3"><span class="first">Tests</span></p></div><div class="col-span-3"><ul class="menu-sections">
+				<li class="test current"><a href="/a/tests/#tests"><span>Tests</span></a></li>
+				<li class="group"><a class="sect" href="/a/tests/#groups"><span>Groups</span></a></li>
+				<li class="link"><a class="sect" href="/a/tests/#links"><span>Links</span></a></li></ul>
+			</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<ul class="cmtableTabs"><li class="tabon"><a href="/a/tests/#tests">Tests</a></li><li class="taboff"><a href="/a/tests/qb/?all=1">Question Bank</a></li><li class="taboff"><a href="/a/tests/categories/">Categories</a></li><li class="taboff"><a href="/a/tests/files/">Files</a></li><li class="taboff"><a href="/a/tests/certificates/">Certificates</a></li><li class="taboff"><a href="/a/tests/community/">Community</a></li></ul>
+			<div class="table">
+				<div class="table-utility row ">
+					<div class="col-span-1">
+						<div class="dropdown dropdown-x hide_if_no_data">
+							<a class="dropdown-toggle no_anchor" href="#"> Options </a>
+							<ul class="dropdown-menu">
+								<li><a href="#" class="expandAll">Expand All</a></li>
+								<li><a href="#" class="collapseAll">Collapse All</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-span-7">
+						<span id="cat_filter" class="search_filter hide_if_no_data"></span>
+						<span class="hide_if_no_data  not-ie67"><input type="text" id="test_search" placeholder="Search Test Name" class="hide_if_no_data" /> <span class="only-ie little">Search Test Name</span></span>
+					</div>
+					<div class="col-span-2 col-btns">
+						<a class="btn btn-create" href="/a/tests/test/new/"> New Test <span class="caret">&nbsp;</span></a>
+					</div>
+				</div>
+
+				<!-- TESTS LIST: START -->
+				<ul class="table-body"></ul>
+				<!-- TESTS LIST: END -->
+
+				<div class="table-utility row bellow">
+
+					<div class="col-span-8">
+						<div class="dropdown dropdown-x hide_if_no_data_bottom">
+							<a class="dropdown-toggle no_anchor" href="#"> Options </a>
+							<ul class="dropdown-menu">
+								<li><a href="#" class="expandAll">Expand All</a></li>
+								<li><a href="#" class="collapseAll">Collapse All</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-span-2 col-btns hide_if_no_data_bottom">
+						<a class="btn btn-create" href="/a/tests/test/new/"> New Test <span class="caret">&nbsp;</span></a>
+					</div>
+
+				</div>
+			</div>
+
+</script>
+ 
+ 
+<script type="text/template" id="testEmptyTemplate">
+	<li>
+		<div class="row single-hover-row">
+			<div class="col-span-10">
+				<p class="test-name name">You have not created any Tests yet. Learn about Tests in the <a href="/a/help/">Help Section</a>.</p>
+			</div>
+		</div>
+	</li>
+</script>
+ 
+ 
+<script type="text/template" id="testTemplate">
+	<div class="row accordion-toggle scrollTop closed test_container">
+		<div class="col-span-6">
+			<h4 class="test-name name"><%= name %></h4>
+		</div>
+		<div class="col-span-4 col-btns">
+			<a href="/a/tests/test/?test_id=<%= id %>" class="edit-test">Edit</a>
+			<a href="/a/assign/groups/?test_id=<%= id %>" class="assign-test">Assign</a>
+
+			<div class="dropdown">
+				<a class="view-analytics no_anchor" href="#">Statistics <span class="caret">&nbsp;</span></a>
+				<ul class="dropdown-menu">
+					<li><a class="" href="/a/results/tests/test/?test_id=<%= id %>">By Group</a></li>
+					<li><a class="" href="/a/results/questions/?test_id=<%= id %>">By Question</a></li>
+									</ul>
+			</div>
+		</div>
+		<span class="caret">&nbsp;</span>
+	</div>
+	<div class="accordion-fold subrow-container test_groups"> <!-- hidden for now -->
+		<div class="row hint">Assigned <%= assign_count %> times:</div>
+		<ul class="groups_links_list hover-row">
+			<% _.each(groups, function(group) { %>
+			<li class="row">
+				<div class="col-span-6">
+					<p class="group-name name"><a href="/a/users/group/?rg_id=<%= group['id'] %>" class="graylink"><%= group['name'] %></a></p>
+				</div>
+				<div class="col-span-1 icon-calendar<% if (group['available'] == 1) { %>-green<% } %>">
+					<span class="showTooltipHTML" title="<%= group['display_dates'] %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				</div>
+				<div class="col-span-3 col-btns littledark">
+					<a class="" href="/a/assign/rgmanage/?show=1&amp;test_id=<%= id %>&amp;rg_id=<%= group['id'] %>">Settings</a>
+					| <a href="/test/start/?test_id=<%= id %>&amp;rg_id=<%= group['id'] %>" class="showTooltip" title="Preview taking this test with these applied settings.">Preview</a>					<a href="/a/results/tests/test/rgusers/?test_id=<%= id %>&amp;rg_id=<%= group['id'] %>&amp;return=t" <% if (group['results'] == 0) { %>class="btn btn-noresults "<% } else {  %>class="btn btn-results "<% } %>>Results</a>
+				</div>
+			</li>
+			<% }); %>
+			<% _.each(links, function(link) { %>
+			<li class="row">
+				<div class="col-span-6">
+					<p class="link-name name"><a href="/a/assign/nrgmanage/?show=1&amp;test_id=<%= id %>&amp;nrg_id=<%= link['id'] %>" class="graylink"><%= link['name'] %></a></p>
+										<div class="linksinafold show-direct-links editor clear hide" id="<%= link['ext_test_id'] %>"><p><strong>Three options for giving access to this test:</p></strong>
+						<p>Email test link to users <span class="showTooltip tooltip" title="Use this format to send this link to your test takers via email. You can also post this link to facebook, twitter or if using a blog or content management system.">tip</span>
+							<br /><input class="textinput" type="text" size="40" value="https://www.classmarker.com/online-test/start/?quiz=<%= link['ext_test_id'] %>"  onclick="javascript:this.focus();this.select();" readonly="readonly"/></p>
+
+						<p>Add the test link on your website <span class="showTooltip tooltip" title="Insert this HTML code into your website to link directly to this test.">tip</span>
+							<br /><input class="textinput" type="text" size="40" value="&lt;a href=&quot;https://www.classmarker.com/online-test/start/?quiz=<%= link['ext_test_id'] %>&quot; title=&quot;Take our online test&quot;&gt;Take our online test&lt;/a&gt;" onclick="javascript:this.focus();this.select();" readonly="readonly"/></p>
+
+						<p>Embed test into your website <span class="showTooltipHTML tooltip" title="Insert this iFrame HTML code to embed this test directly in your website.<br/>Only use \'one\' test per \'web page\'.">tip</span>
+							<br /><input class="textinput" type="text" size="40" value="&lt;iframe src=&quot;https://www.classmarker.com/online-test/start/?quiz=<%= link['ext_test_id'] %>&amp;iframe=1&quot; frameborder=&quot;0&quot; style=&quot;width:100%;max-width:700px;&quot; height=&quot;800&quot;&gt;&lt;/iframe&gt;" onclick="javascript:this.focus();this.select();" readonly="readonly"/></p>
+					</div>
+									</div>
+				<div class="col-span-1 icon-calendar<% if (link['available'] == 1) { %>-green<% } %>">
+					<span class="showTooltipHTML" title="<%= link['display_dates'] %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				</div>
+				<div class="col-span-3 col-btns littledark">
+					<a href="#" class="open_embed_links" id="<%= link['ext_test_id'] %>" data-ext_test_id="<%= link['ext_test_id'] %>">Links</a> | 				<a class="" href="/a/assign/nrgmanage/?show=1&amp;test_id=<%= id %>&amp;nrg_id=<%= link['id'] %>">Settings</a>
+					| <a href="https://www.classmarker.com/online-test/start/?quiz=<%= link['ext_test_id'] %>&amp;nrg_id=<%= link['id'] %>" class="showTooltip" title="Preview taking this test with these applied settings.">Preview</a>					<a href="/a/results/tests/test/nrgusers/?test_id=<%= id %>&amp;nrg_id=<%= link['id'] %>&amp;return=t" <% if (link['results'] == 0) { %>class="btn btn-noresults"<% } else {  %>class="btn btn-results"<% } %>>Results</a>
+				</div>
+			</li>
+			<% }); %>
+		</ul>
+		<div class="row assign">
+			<a href="/a/assign/groups/?test_id=<%= id %>" class="btn btn-assign alt-a">Assign</a>
+		</div>
+	</div>
+</script>
+ 
+ 
+<script type="text/template" id="testGroupsTemplate">
+
+</script>
+ 
+ 
+<script type="text/template" id="categoryTemplate">
+	<option value="-1">Category Filter</option>
+	<option value="-1">- All -</option>
+	<% _.each(categories, function(category) { %>
+	<option value="<%= category.id %>"><%= category.name %></option>
+	<% }); %>
+</script>
+ 
+ 
+<script type="text/template" id="groupsBaseTemplate">
+
+	<div class="innerWrapper">
+
+		<div class="col-span-7"><p class="breadcrumb3"><span class="first">Groups</span></p></div><div class="col-span-3"><ul class="menu-sections">
+				<li class="test"><a href="/a/tests/#tests"><span>Tests</span></a></li>
+				<li class="group current"><a class="sect" href="/a/tests/#groups"><span>Groups</span></a></li>
+				<li class="link"><a class="sect" href="/a/tests/#links"><span>Links</span></a></li></ul>
+			</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<ul class="cmtableTabs"><li class="tabon"><a href="/a/tests/#groups">Groups</a></li></ul>
+		<div class="table">
+			<div class="table-utility row">
+				<div class="col-span-1">
+					<div class="dropdown dropdown-x hide_if_no_data">
+						<a class="dropdown-toggle no_anchor" href="#"> Options </a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="expandAll">Expand All</a></li>
+							<li><a href="#" class="collapseAll">Collapse All</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-span-7">
+					<span class="hide_if_no_data not-ie67"><input type="text" id="group_search" class="search_filter hide_if_no_data" placeholder="Search Group Name" /> <span class="only-ie little">Search Group Name</span></span>
+
+				</div>
+				<div class="col-span-2 col-btns">
+					<a class="btn btn-create" href="/a/users/group/new/"> New Group <span class="caret">&nbsp;</span></a>
+				</div>
+			</div>
+
+			<!-- GROUPS LIST: START -->
+			<ul class="table-body"></ul>
+			<!-- GROUPS LIST: END -->
+
+			<div class="table-utility row bellow">
+				<div class="col-span-8">
+					<div class="dropdown dropdown-x hide_if_no_data_bottom">
+						<a class="dropdown-toggle no_anchor" href="#"> Options </a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="expandAll">Expand All</a></li>
+							<li><a href="#" class="collapseAll">Collapse All</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-span-2 col-btns hide_if_no_data_bottom">
+					<a class="btn btn-create" href="/a/users/group/new/"> New Group <span class="caret">&nbsp;</span></a>
+				</div>
+			</div>
+		</div>
+</script>
+ 
+ 
+<script type="text/template" id="groupEmptyTemplate">
+
+		<div class="row editor single-hover-row">
+			<p class="group-name name">You have not created any Groups yet.</p>
+			<div class="clearheight"></div>
+			<div class="namepad">
+				<a href="#" id="tog_ghelp" class="showcont">About Groups</a>
+				<div class="hide" id="dotog_ghelp">
+					<div class="clearheight"></div>
+					<ol>
+						<li>Register members into Groups to take tests you assign to them.</li>
+						<li>Each member will receive their own username and password and can login via the ClassMarker Homepage.</li>
+					</ol>
+					<p>Learn more about Groups in the <a href="/a/help/manual/">Help Section</a>.</p>
+				</div>
+			</div>
+		</div>
+
+</script>
+ 
+ 
+<script type="text/template" id="groupTemplate">
+
+		<div class="row accordion-toggle scrollTop group_container closed">
+			<div class="col-span-6">
+				<h4 class="group-name name"><%= name %></h4>
+			</div>
+
+			<div class="col-span-4 col-btns">
+				<a href="/a/users/group/?rg_id=<%= id %>" class="edit-group">Members (<%= members %>)</a>
+				<a href="/a/assign/tests/" class="assign-to-group">Assign</a>
+				<div class="dropdown">
+					<a class="view-analytics no_anchor" href="#">Statistics <span class="caret">&nbsp;</span></a>
+					<ul class="dropdown-menu">
+						<li><a class="" href="/a/results/groups/rgtests/?rg_id=<%= id %>">By Test</a></li>
+						<li><a class="" href="/a/results/groups/rgusers/?rg_id=<%= id %>">By Member</a></li>
+											</ul>
+				</div>
+			</div>
+			<span class="caret">&nbsp;</span>
+		</div>
+		<div class="accordion-fold subrow-container group_tests">
+			<div class="row hint"><%= test_count %> tests assigned:</div>
+			<ul class="hover-row">
+				<% _.each(tests, function(test) { %>
+				<li class="row">
+					<div class="col-span-6">
+						<p class="test-name name"><a href="/a/tests/test/?test_id=<%= test['id'] %>" class="graylink"><%= test['name'] %></a></p>
+					</div>
+					<div class="col-span-1 icon-calendar<% if (test['available'] == 1) { %>-green<% } %>">
+						<span class="showTooltipHTML" title="<%= test['display_dates'] %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					</div>
+					<div class="col-span-3 col-btns littledark">
+						<a class="" href="/a/assign/rgmanage/?show=1&amp;test_id=<%= test['id'] %>&amp;rg_id=<%= id %>">Settings</a>
+						| <a href="/test/start/?test_id=<%= test['id'] %>&amp;rg_id=<%= id %>" class="showTooltip" title="Preview taking this test with these applied settings.">Preview</a>
+						<a href="/a/results/tests/test/rgusers/?test_id=<%= test['id'] %>&amp;
+						rg_id=<%= id %>&amp;return=g" <% if (test['results'] == 0) { %>class="btn btn-noresults"<% } else {  %>class="btn btn-results"<% } %>>Results</a>
+					</div>
+				</li>
+				<% }); %>
+			</ul>
+			<div class="row assign">
+				<a href="/a/assign/tests/" class="btn btn-assign alt-a">Assign a Test</a>
+			</div>
+		</div>
+
+</script>
+ 
+ 
+<script type="text/template" id="linksBaseTemplate">
+	<div class="innerWrapper">
+
+
+		<div class="col-span-7"><p class="breadcrumb3"><span class="first">Links</span></p></div><div class="col-span-3"><ul class="menu-sections">
+				<li class="test"><a href="/a/tests/#tests"><span>Tests</span></a></li>
+				<li class="group"><a class="sect" href="/a/tests/#groups"><span>Groups</span></a></li>
+				<li class="link current"><a class="sect" href="/a/tests/#links"><span>Links</span></a></li></ul>
+			</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<ul class="cmtableTabs"><li class="tabon"><a href="/a/tests/#links">Links</a></li><li class="taboff"><a href="/a/tests/themes/">Themes</a></li><li class="taboff"><a href="/a/users/accesslists/">Access Lists</a></li></ul>
+		<div class="table">
+			<div class="table-utility row">
+				<div class="col-span-1">
+					<div class="dropdown dropdown-x hide_if_no_data">
+						<a class="dropdown-toggle no_anchor" href="#"> Options </a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="expandAll">Expand All</a></li>
+							<li><a href="#" class="collapseAll">Collapse All</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-span-7">
+					<span class="hide_if_no_data not-ie67"><input type="text" id="link_search" class="search_filter" placeholder="Search Link Name" /> <span class="only-ie little">Search Link Name</span></span>
+				</div>
+				<div class="col-span-2 col-btns">
+					<a class="btn btn-create" href="/a/assign/tests/">New Link <span class="caret">&nbsp;</span></a>
+				</div>
+			</div>
+
+			<!-- LINKS LIST: START -->
+			<ul class="table-body">
+			</ul>
+			<!-- LINKS LIST: START -->
+
+			<div class="table-utility row bellow">
+
+				<div class="col-span-5">
+					<div class="dropdown dropdown-x hide_if_no_data_bottom">
+						<a class="dropdown-toggle no_anchor" href="#"> Options </a>
+						<ul class="dropdown-menu">
+							<li><a href="#" class="expandAll">Expand All</a></li>
+							<li><a href="#" class="collapseAll">Collapse All</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-span-5 col-btns hide_if_no_data_bottom">
+					<a class="btn btn-create" href="/a/assign/tests/">New Link <span class="caret">&nbsp;</span></a>
+				</div>
+			</div>
+</script>
+ 
+ 
+<script type="text/template" id="linkEmptyTemplate">
+
+		<div class="row editor single-hover-row">
+			<p class="link-name name">You have not created any Links yet.</p>
+			<div class="clearheight"></div>
+			<div class="namepad">
+				<a href="#" id="tog_ghelp" class="showcont">About Links</a>
+				<div class="hide" id="dotog_ghelp">
+					<div class="clearheight"></div>
+					<ol>
+						<li>Create a Link (URL) to your test or embed tests in your website.</li>
+						<li>Optionally add Branding and Password protection.</li>
+					</ol>
+					<p>Learn more about Links in the <a href="/a/help/manual/">Help Section</a>.</p>
+				</div>
+			</div>
+		</div>
+
+</script>
+ 
+ 
+<script type="text/template" id="linkTemplate">
+
+	<%
+	if (typeof test_id !== 'undefined') {
+	//Some old Links from pre 2009 may not have test in links, so we need to skip them.
+	%>
+
+		<div class="row accordion-toggle scrollTop link_container closed">
+			<div class="col-span-6">
+				<h4 class="link-name name"><%= name %> </h4>
+			</div>
+			<div class="col-span-4 col-btns">
+				<div class="dropdown">
+					<a class="view-analytics no_anchor" href="#">Statistics <span class="caret">&nbsp;</span></a>
+					<ul class="dropdown-menu">
+                        <li><a class="" href="/a/results/questions/?test_id=<%= test_id %>&amp;nrg_id=<%= id %>">By Question</a></li>
+											</ul>
+				</div>
+
+			</div>
+			<span class="caret">&nbsp;</span>
+		</div>
+
+		<div class="accordion-fold subrow-container link_tests">
+			<div class="row hint">Assigned test:</div>
+			<ul>
+				<li class="row single-hover-row">
+					<div class="col-span-6">
+						<p class="test-name name"><a href="/a/tests/test/?test_id=<%= test_id %>" class="graylink"><%= test_name %></a></p>
+												<div class="linksinafold show-direct-links editor clear hide">
+						<p><strong>Three options for giving access to this test:</p></strong>
+						<p>Email test link to users <span class="showTooltip tooltip" title="Use this format to send this link to your test takers via email. You can also post this link to facebook, twitter or if using a blog or content management system.">tip</span>
+						<br /><input id='qa-test-url' class="textinput" type="text" size="40" value="https://www.classmarker.com/online-test/start/?quiz=<%= ext_test_id %>"  onclick="javascript:this.focus();this.select();" readonly="readonly"/></p>
+
+						<p>Add the test link on your website <span class="showTooltip tooltip" title="Insert this HTML code into your website to link directly to this test.">tip</span>
+						<br /><input class="textinput" type="text" size="40" value="&lt;a href=&quot;https://www.classmarker.com/online-test/start/?quiz=<%= ext_test_id %>&quot; title=&quot;Take our online test&quot;&gt;Take our online test&lt;/a&gt;" onclick="javascript:this.focus();this.select();" readonly="readonly"/></p>
+
+						<p>Embed test into your website <span class="showTooltipHTML tooltip" title="Insert this iFrame HTML code to embed this test directly in your website.<br/>Only use 'one' test per 'web page'.">tip</span>
+						<br /><input class="textinput" type="text" size="40" value="&lt;iframe src=&quot;https://www.classmarker.com/online-test/start/?quiz=<%= ext_test_id %>&amp;iframe=1&quot; frameborder=&quot;0&quot; style=&quot;width:100%;max-width:700px;&quot; height=&quot;800&quot;&gt;&lt;/iframe&gt;" onclick="javascript:this.focus();this.select();" readonly="readonly"/></p>
+						</div>
+											</div>
+					<div class="col-span-1 icon-calendar<% if (available == 1) { %>-green<% } %>">
+						<span class="showTooltipHTML" title="<%= display_dates %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					</div>
+
+					<div class="col-span-3 col-btns littledark">
+						<a href="#" class="ex_link">Links</a> | 						<a class="" href="/a/assign/nrgmanage/?show=1&amp;test_id=<%= test_id %>&amp;nrg_id=<%= id %>">Settings</a>
+						| <a href="https://www.classmarker.com/online-test/start/?quiz=<%= ext_test_id %>&amp;nrg_id=<%= id %>" class="showTooltip" title="Preview taking this test with these applied settings.">Preview</a>
+						<a href="/a/results/tests/test/nrgusers/?test_id=<%= test_id %>&amp;nrg_id=<%= id %>&amp;return=l" <% if (results == 0) { %>class="btn btn-noresults"<% } else {  %>class="btn btn-results"<% } %>>Results</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	<% } %>
+</script>
+ 
+<div><div>
+</div> 
+<img src="./ClassMarker - Welcome_files/icon_loading_circleV3.gif" alt="Hidden Loading Image" class="hide" width="20" height="20">
+</div>
+
+
+
+{% endblock %}

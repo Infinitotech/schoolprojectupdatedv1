@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div id="content" class="clearfix">
+<div class="innerWrapper">
+<!--[if IE 6]>
+<div class="alert-box error editor">
+	<p class="bold">You are using Internet Explorer Version 6 which will not work with ClassMarker administration pages.</p>
+	<p>Please upgrade to a modern web browser to use ClassMarker.</p>
+	<p>Your Test takers can still use Internet explorer 6 however.</p>
+	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
+</div>
+<![endif]-->
+<div class="col-span-7"><p class="breadcrumb3"><a href="https://www.classmarker.com/a/tests/" class="first"><span>Tests</span></a><span>Files</span></p></div><div class="col-span-3"><ul class="menu-sections">
+<li class="test"><a href="https://www.classmarker.com/a/tests/#tests"><span>Tests</span></a></li>
+<li class="group"><a class="sect" href="https://www.classmarker.com/a/tests/#groups"><span>Groups</span></a></li>
+<li class="link"><a class="sect" href="https://www.classmarker.com/a/tests/#links"><span>Links</span></a></li></ul>
+</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<ul class="cmtableTabs"><li class="taboff"><a href="https://www.classmarker.com/a/tests/#tests">Tests</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/qb/?all=1">Question Bank</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/categories/">Categories</a></li><li class="tabon"><a href="https://www.classmarker.com/a/tests/files/">Files</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/certificates/">Certificates</a></li><li class="taboff"><a href="https://www.classmarker.com/a/tests/community/">Community</a></li></ul><div class="table">
+<div class="row">
+<div class="page"><div class="alert-box editor alert-confirmation ">
+<div class="clearheight10"></div>Upgraded accounts can upload files to ClassMarker to use with their tests, themes and certificates.<div class="clearheight"></div>
+<span class="little"><a href="https://www.classmarker.com/a/tests/files/#" class="upgradeRpc">Upgraded Account Features</a></span>
+</div>
+<a href="https://www.classmarker.com/a/tests/files/?showuploads#uploads">View my uploaded files</a></div><div class="aside">
+<div class="editor">
+<h4>Instructions</h4>
+<h5>Allowed image types:</h5>
+<p>.jpg .jpeg .gif .png </p>
+<h5>Allowed document types:</h5>
+<p>
+.doc .docx .odt .rtf .txt .pdf .ppt <br>.pptx .pps .ppsx .odp .xls .xlsx .csv .ods </p>
+<h5>Allowed video types:</h5>
+<p>.mp4 </p>
+<h5>Allowed audio types:</h5>
+<p>.mp3 </p>
+<h5>File names</h5>
+<p>File names can only contain alphanumeric characters, spaces, underscores and dashes. Apostrophes aren't allowed for example.
+</p>
+<h5>Max file sizes</h5>
+<p>Images: 200KB<br>
+Documents: 2MB<br>
+Video files: 5MB<br>
+Audio files: 2MB</p>
+<h5>Image dimensions</h5>
+<p>Keep under 600px wide<br>
+No height restrictions
+</p>
+<p>Images larger than 200Kb can slow down page loading times and ultimately
+affect test times. Optimize images before uploading them to give your
+users an acceptable download time for your test pages.</p>
+<p>Remember you can also link to Externally
+hosted Images and Documents by using the below button when editing your tests:</p>
+<p>Use the <span class="write-image">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> button to access your files when adding and editing questions.</p>
+<div class="alert-box editor "><strong>Note: Internet Explorer 8 or below is not supported for playing uploaded or external audio and video files or Soundcloud.com. Use YouTube.com, Vimeo.com instead.</strong></div> </div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+	$('.uploadform').submit(function() {
+
+
+
+
+	if ($('#upload_file').val() == ''){
+		alert('Please select a file to upload.');
+		disabledGenericSubmitLink = false;
+		$('.loadingGif').hide();
+		return false;
+	}
+	if ($.trim($('#ref_name').val()) == ''){
+		alert('Please add your \'File reference name\' to this item.');
+		disabledGenericSubmitLink = false;
+		$('.loadingGif').hide();
+		return false;
+	}
+
+	var ext = $.trim($('#upload_file').val()).split('.').pop().toLowerCase();
+	var allow = new Array('jpg','jpeg','gif','png','doc','docx','odt','rtf','txt','pdf','ppt','pptx','pps','ppsx','odp','xls','xlsx','csv','ods','mp4','mp3');
+	if ($.inArray(ext, allow) == -1) {
+		alert('You cannot upload this type of file.\n\nCheck the allowed file types listed on this page and try again.');
+		disabledGenericSubmitLink = false;
+		$('.loadingGif').hide();
+		return false;
+	}
+
+	/* if a document, change file upload size to be larger, sizes and extension types are also validated on server side as well. */
+	var docs_allow = new Array('doc','docx','odt','rtf','txt','pdf','ppt','pptx','pps','ppsx','odp','xls','xlsx','csv','ods');
+	if ($.inArray(ext, docs_allow) != -1){//change max file upload limit if a document
+		$('#mfs').val('2097152');
+	}
+
+	$('#complete').hide();
+	$('#error').hide();
+
+	$('.loadingDiv').show();
+
+
+
+	return true;
+
+	});
+});
+
+</script>
+<div class="jqmWindow jqmID1" id="delete_asset_jqm"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+		$('#delete_asset_jqm').jqm({ajax: '/a/tests/rpc/deleteAsset.rpc.php?1481731766', trigger: 'a.deleteasset'});
+		$("#upload_file").change(function() {
+			var extension = $("#upload_file").val().split('.').pop();
+
+			var image_types = new Array();
+						image_types.push('jpg');
+						image_types.push('jpeg');
+						image_types.push('gif');
+						image_types.push('png');
+			
+			var document_types = new Array();
+						document_types.push('doc');
+						document_types.push('docx');
+						document_types.push('odt');
+						document_types.push('rtf');
+						document_types.push('txt');
+						document_types.push('pdf');
+						document_types.push('ppt');
+						document_types.push('pptx');
+						document_types.push('pps');
+						document_types.push('ppsx');
+						document_types.push('odp');
+						document_types.push('xls');
+						document_types.push('xlsx');
+						document_types.push('csv');
+						document_types.push('ods');
+			
+			var video_types = new Array();
+						video_types.push('mp4');
+			
+			var audio_types = new Array();
+						audio_types.push('mp3');
+			
+			if(image_types.indexOf(extension) != -1) {
+				$('#mfs').val(204800);
+			}
+			if(document_types.indexOf(extension) != -1) {
+				$('#mfs').val(2097152);
+			}
+			if(video_types.indexOf(extension) != -1) {
+				$('#mfs').val(5242880);
+			}
+			if(audio_types.indexOf(extension) != -1) {
+				$('#mfs').val(2097152);
+			}
+		});
+});
+</script>
+</div> 
+<img src="./ClassMarker - Welcome_files/icon_loading_circleV3.gif" alt="Hidden Loading Image" class="hide" width="20" height="20">
+</div>
+
+
+{% endblock %}

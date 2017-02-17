@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="content" class="clearfix">
+<div class="innerWrapper">
+<!--[if IE 6]>
+<div class="alert-box error editor">
+	<p class="bold">You are using Internet Explorer Version 6 which will not work with ClassMarker administration pages.</p>
+	<p>Please upgrade to a modern web browser to use ClassMarker.</p>
+	<p>Your Test takers can still use Internet explorer 6 however.</p>
+	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
+</div>
+<![endif]-->
+<div class="col-span-7"><p class="breadcrumb3"><a href="https://www.classmarker.com/a/" class="first"><span>Dashboard</span></a><span>Recent Link Results</span></p></div><div class="col-span-3"><ul class="menu-sections">
+<li class="test"><a href="https://www.classmarker.com/a/tests/#tests"><span>Tests</span></a></li>
+<li class="group"><a class="sect" href="https://www.classmarker.com/a/tests/#groups"><span>Groups</span></a></li>
+<li class="link"><a class="sect" href="https://www.classmarker.com/a/tests/#links"><span>Links</span></a></li></ul>
+</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<ul class="cmtableTabs"><li class="taboff"><a href="https://www.classmarker.com/a/">Recent Tests Taken</a></li><li class="taboff"><a href="https://www.classmarker.com/a/results/?rg_search=1&amp;filter=takenwithin&amp;within=24">Recent Group Results </a></li><li class="tabon"><a href="https://www.classmarker.com/a/results/?nrg_search=1&amp;filter=takenwithin&amp;within=24">Recent Link Results</a></li></ul> <div class="table narrow-row">
+<div class="row">
+<form action="https://www.classmarker.com/a/results/" method="get">
+<input type="hidden" name="nrg_search" value="1">
+<div class="col-span-5">
+<h4>1. Select Links To Search:</h4>
+<p class="clear">
+<span class="search_groups_left">
+<input name="nrg_check_all_groups" id="nallgroups" value="all" type="checkbox">
+</span>
+<span class="search_groups_right">
+<label for="nallgroups">All Links</label>
+</span>
+</p>
+<p><a href="https://www.classmarker.com/a/results/?nrg_search=1&amp;filter=takenwithin&amp;within=24#" id="tog_links" class="littlelink showcont hideme">Show Links</a></p>
+<div class="hide" id="dotog_links"><p class="clear">
+<span class="search_groups_left">
+<input name="nrg_id-353919" value="353919" id="nrg353919" type="checkbox">
+</span>
+<span class="search_groups_right">
+<label for="nrg353919">arslan</label>
+</span>
+</p></div>
+</div>
+<div class="col-span-4">
+<h4>2. Search Filter:</h4>
+<table>
+<tbody><tr><td><input name="filter" value="takenwithin" id="rf" type="radio" checked="checked"></td><td class="black"><label for="rf">Finished within the last:</label> <select name="within"><option value="0">- Select -</option><option value="1">1 hour</option><option value="3">3 hours</option><option value="8">8 hours</option><option value="12">12 hours</option><option value="24" selected="selected">1 day</option><option value="48">2 days</option><option value="72">3 days</option><option value="168">1 week</option><option value="336">2 weeks</option></select></td></tr>
+<tr><td></td><td class="explain findmore">Find older results under the <a href="https://www.classmarker.com/a/tests/">Tests</a> section.</td></tr>
+<tr><td></td><td><hr class="recentfilter"></td></tr>
+<tr><td><input name="filter" value="requiresgrading" id="rge" type="radio"></td><td class="black"><label for="rge">That require grading</label></td></tr>
+<tr><td></td><td><hr class="recentfilter"></td></tr>
+<tr><td><input name="filter" value="inprogress" id="ip" type="radio"></td><td class="black"><label for="ip">Are currently in progress</label></td></tr>
+<tr><td colspan="2"><div class="clearheight"></div></td></tr>
+<tr><td></td><td><input type="submit" value="Search" class="btn btn-create showLoading"></td></tr>
+</tbody></table>
+<div class="clearheight"></div>
+</div>
+</form>
+</div><a id="nrganchor"></a><div class="row">
+<div class=" col-span-7">
+<p>No recent Link results found.</p>
+<p><a href="https://www.classmarker.com/a/results/?nrg_search=1&amp;filter=takenwithin&amp;within=24#" id="tog_more_results" class="showcont">Find more results</a></p>
+<div class="hide" id="dotog_more_results">
+<p class="explain">Try using another filter to find recent results or view all results from the <a href="https://www.classmarker.com/a/tests/">Tests</a> section.</p>
+<p class="explain">Note: If you have recently previewed a Test while being logged in as an administrator,
+that result is not saved, only your users results will be saved for reviewing.</p>
+</div>
+</div>
+</div></div></div><div class="result-overlay">
+<a href="https://www.classmarker.com/a/results/?nrg_search=1&amp;filter=takenwithin&amp;within=24#" class="close-result-overlay close overlay-right scroll_top_results">&nbsp;</a>
+<div class="result-overlay-navigation">
+<div class="col-span-4 result-overlay-user-previous">&nbsp;</div>
+<div class="col-span-2 center-div">
+<a class="btn btn-actions btn-white setup-print-result-overlay" href="https://www.classmarker.com/a/results/?nrg_search=1&amp;filter=takenwithin&amp;within=24#">Print Result</a></div>
+<div class="col-span-4 result-overlay-user-next">&nbsp;</div>
+<div class="clearheight5"></div><hr>
+</div>
+<div class="clear"></div>
+<div class="result-overlay-content"></div>
+<div class="result-overlay-navigation">
+<hr><div class="clearheight5"></div>
+<div class="col-span-4 result-overlay-user-previous">&nbsp;</div>
+<div class="col-span-2 center-div">
+<a class="btn btn-actions btn-white setup-print-result-overlay" href="https://www.classmarker.com/a/results/?nrg_search=1&amp;filter=takenwithin&amp;within=24#">Print Result</a>
+<br><br><a href="https://www.classmarker.com/a/results/?nrg_search=1&amp;filter=takenwithin&amp;within=24#" class="anchor_scroll_top_results backtotop">Top ^</a>
+</div>
+<div class="col-span-4 result-overlay-user-next">&nbsp;</div>
+</div>
+<a href="https://www.classmarker.com/a/results/?nrg_search=1&amp;filter=takenwithin&amp;within=24#" class="close-result-overlay close overlay-right">&nbsp;</a>
+</div><div class="alert-box editor hide show_grade_refresh">
+<a href="javascript:location.reload();">Refresh</a> this page to view modified scores from your recent grading.
+</div></div> 
+<img src="./ClassMarker - Welcome_files/icon_loading_circleV3.gif" alt="Hidden Loading Image" class="hide" width="20" height="20">
+
+
+{% endblock %}

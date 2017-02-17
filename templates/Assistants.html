@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div id="content" class="clearfix">
+<div class="innerWrapper">
+<!--[if IE 6]>
+<div class="alert-box error editor">
+	<p class="bold">You are using Internet Explorer Version 6 which will not work with ClassMarker administration pages.</p>
+	<p>Please upgrade to a modern web browser to use ClassMarker.</p>
+	<p>Your Test takers can still use Internet explorer 6 however.</p>
+	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
+</div>
+<![endif]-->
+<div class="col-span-7"><p class="breadcrumb3"><a href="https://www.classmarker.com/a/myaccount" class="first"><span>My Account</span></a><span>Assistants</span></p></div><div class="col-span-3"><ul class="menu-sections">
+<li class="test"><a href="https://www.classmarker.com/a/tests/#tests"><span>Tests</span></a></li>
+<li class="group"><a class="sect" href="https://www.classmarker.com/a/tests/#groups"><span>Groups</span></a></li>
+<li class="link"><a class="sect" href="https://www.classmarker.com/a/tests/#links"><span>Links</span></a></li></ul>
+</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<div class="table">
+<div class="table-utility row "><div class="col-span-5">&nbsp;</div><div class="col-span-5 col-btns">
+<a class="btn btn-create" href="https://www.classmarker.com/a/myaccount/assistants/?new=1">New Assistant <span class="caret">&nbsp;</span></a>
+</div>
+</div><div class="row single-hover-row">
+<p class="member-name name">You have no Assistants at present.</p>
+</div></div><div class="col-span-5 editor">
+<h5>What are Assistants?</h5>
+Assistants can:
+<ul>
+<li>Have Link Test results emailed to them</li>
+<li>Optional: Log in to view results or help manage your account</li>
+</ul>
+</div><script type="text/javascript">
+	$(document).ready(function() {
+		$( "#filter_assistants" ).change(function () {
+			$( '.all' ).hide();
+			$('.'+$( this ).val()).show();
+   		});
+	});
+</script>
+<div class="generic-overlay">
+<div class="generic-overlay-content"></div>
+<div class="clearheight30"></div>
+</div></div> 
+<img src="./ClassMarker - Welcome_files/icon_loading_circleV3.gif" alt="Hidden Loading Image" class="hide" width="20" height="20">
+</div>
+
+{% endblock %}

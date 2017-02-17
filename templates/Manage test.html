@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div id="content" class="clearfix">
+<div class="innerWrapper">
+<!--[if IE 6]>
+<div class="alert-box error editor">
+	<p class="bold">You are using Internet Explorer Version 6 which will not work with ClassMarker administration pages.</p>
+	<p>Please upgrade to a modern web browser to use ClassMarker.</p>
+	<p>Your Test takers can still use Internet explorer 6 however.</p>
+	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
+</div>
+<![endif]-->
+<div class="col-span-7"><p class="breadcrumb3"><a href="https://www.classmarker.com/a/tests/" class="first"><span>Tests</span></a><span>Edit Test</span></p></div><div class="col-span-3"><ul class="menu-sections">
+<li class="test"><a href="https://www.classmarker.com/a/tests/#tests"><span>Tests</span></a></li>
+<li class="group"><a class="sect" href="https://www.classmarker.com/a/tests/#groups"><span>Groups</span></a></li>
+<li class="link"><a class="sect" href="https://www.classmarker.com/a/tests/#links"><span>Links</span></a></li></ul>
+</div><div class="clearheight20"></div><div class="clearheight20"></div>
+<hr>
+<div class="masthead clearfix">
+<div class="col-span-8">
+<div id="wrapEdit_tn">
+<form class="genericForm" id="dosubmit_testname" method="post" action="https://www.classmarker.com/a/tests/test/editTestName.rpc.php">
+<input name="div_id" type="hidden" value="tn">
+<input name="test_id" type="hidden" value="743527">
+<div class="misc_cat hide">
+<div class="field-group">
+<label class="form-field-title" for="editText_tn">Test Name:</label> <input size="40" type="text" id="editText_tn" class="hide" name="test_name" maxlength="255" value="abc">
+</div>
+<div class="field-group">
+<label class="form-field-title" for="catid">Category:</label> <select id="catid" name="cat_id">
+<option value="0" selected="selected">Generic</option> </select> <a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#" id="createCatRpc">New category</a> <span class="showTooltip tooltip" title="Categorizing your Tests and questions allows you to easily keep these items organized. You can also view results by category to help better analyze problem areas.">Tip</span>
+</div>
+</div>
+<div id="editLink_tn"><h2 id="showText_tn" class="bbcodeInWrapper test-name name edit-name show-edit-symbol">abc<span class="edit-symbol"></span></h2></div>
+<div class="misc_testname tab hide"><br>
+<a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#" class="ie_btn ajaxSubmitBtn hide btn btn-create notextchange" id="submit_testname">Update</a>
+<a class="ie_btn ajaxCancelBtn hide btn btn-cancel notextchange">Cancel</a>
+<div class="clearheight30"></div>
+</div>
+</form>
+</div>
+</div>
+<div class="col-span-2 test-settings-summary">
+<h3>Assigned</h3>
+<span class="little"><a class="trigger-generic-array" href="https://www.classmarker.com/a/tests/rpc/misc.rpc.php?test_id=743527&amp;view_group_link_assignment=1" data-index="2">Groups (0),
+Links (0)</a></span>
+</div>
+</div>
+<div class="clearheight30"></div>
+<div class="menuB">
+<div class="actions btn btn-create">
+<a id="toggroup_01_testintro" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Test Introduction</a>
+<a id="toggroup_01_duplicate" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Duplicate</a>
+<a id="toggroup_01_paper" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Paper</a>
+<a id="toggroup_01_settings" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Settings</a>
+<a id="toggroup_01_deletetest" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Delete</a>
+</div>
+<div class="delay_hide_sceditor test-message editor hide" id="dotoggroup_01_testintro" style="display: none;">
+<h3>Test Introduction <span class="showTooltip tooltip" title="Introduction text will be displayed before users start this Test. Introduction text is optional.">&nbsp;</span></h3>
+<div>
+<form id="dosubmit_testintro" class="genericPostForm" method="post" action="https://www.classmarker.com/a/tests/test/editTestComments.rpc.php">
+<input name="test_id" type="hidden" value="743527">
+<textarea rows="3" cols="70" class="fullBBcodeEditor showTooltip" id="test_msg" title="This Test introduction text is optional and is displayed to users before they start the Test." name="test_comments" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 550px;" id="editor_test_msg"><div class="sceditor-toolbar" unselectable="on"><div class="sceditor-group"><a class="sceditor-button sceditor-button-bold" data-sceditor-command="bold" unselectable="on" title="Bold"><div unselectable="on">Bold</div></a><a class="sceditor-button sceditor-button-italic" data-sceditor-command="italic" unselectable="on" title="Italic"><div unselectable="on">Italic</div></a><a class="sceditor-button sceditor-button-underline" data-sceditor-command="underline" unselectable="on" title="Underline"><div unselectable="on">Underline</div></a><a class="sceditor-button sceditor-button-strike" data-sceditor-command="strike" unselectable="on" title="Strikethrough"><div unselectable="on">Strikethrough</div></a><a class="sceditor-button sceditor-button-color" data-sceditor-command="color" unselectable="on" title="Font Color"><div unselectable="on">Font Color</div></a><a class="sceditor-button sceditor-button-size" data-sceditor-command="size" unselectable="on" title="Font Size"><div unselectable="on">Font Size</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-orderedlist" data-sceditor-command="orderedlist" unselectable="on" title="Numbered list"><div unselectable="on">Numbered list</div></a><a class="sceditor-button sceditor-button-bulletlist" data-sceditor-command="bulletlist" unselectable="on" title="Bullet list"><div unselectable="on">Bullet list</div></a><a class="sceditor-button sceditor-button-table" data-sceditor-command="table" unselectable="on" title="Insert a table"><div unselectable="on">Insert a table</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-link" data-sceditor-command="link" unselectable="on" title="Insert a link"><div unselectable="on">Insert a link</div></a><a class="sceditor-button sceditor-button-yt" data-sceditor-command="yt" unselectable="on" title="Insert Image, Document, Audio or Video"><div unselectable="on">Insert Image, Document, Audio or Video</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><iframe id="qa_frame_editor_test_msg" frameborder="0" src="javascript:false" style="width: 540px; height: 93px;" src="./ClassMarker - Welcome_files/saved_resource.html"></iframe><textarea style="display: none; width: 540px; height: 93px;" dir="ltr"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div>
+<div id="msgDivMain"></div><br>
+<p><input type="submit" id="submit_testintro" class="btn btn-create btnSubmit" value="Update"></p>
+</form>
+</div>
+</div>
+<div class="test-message hide editor" id="dotoggroup_01_assign">
+<div class="page pagecontent editor">
+<h3>Assign Test</h3>
+<p>Tests must be assigned to a Group or Link before they can be taken.</p>
+<a href="https://www.classmarker.com/a/assign/groups/?test_id=743527" class="btn btn-assign">Assign Test</a>
+</div>
+<div class="clearheight"></div>
+</div>
+<div class="test-message hide editor" id="dotoggroup_01_duplicate">
+<h3>What would you like to do?</h3>
+<div class="table noborder">
+<div class="row noborder ">
+<div class="col-span-4 editor">
+<p class="bold">Assign this Test again:</p>
+<ul class="littledark">
+<li>Each Test can be assigned multiple times with customized settings applied each time.</li>
+<li>There is NO need to duplicate your Test, simply assign it to a different Group or Link.</li>
+</ul>
+</div>
+<div class="col-span-1">
+&nbsp;
+</div>
+<div class="col-span-5 editor">
+<p class="bold">Copy this Test:</p>
+<ul class="littledark">
+<li>Duplicate and make slight variations of this Test.</li>
+<li>For example, you can duplicate this Test and then add or delete Questions without affecting the original version.</li>
+</ul>
+</div>
+</div>
+<div class="row noborder nopad">
+<div class="col-span-4 editor">
+<p><a class="btn btn-create" href="https://www.classmarker.com/a/assign/groups/?test_id=743527">Assign</a></p>
+</div>
+<div class="col-span-1">
+&nbsp;
+</div>
+<div class="col-span-5 editor">
+<p><a class="anchor_scroll_confirmduplicate open_anchor_element btn btn-create" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Duplicate</a></p>
+</div>
+</div>
+</div>
+<div class="clearheight"></div>
+<div class="scroll_confirmduplicate hide">
+<h4>Duplicate Test</h4>
+<div class="alert-box error editor ">You can only Duplicate this Test if it has "Fixed Questions" in it. You have "0 Fixed Questions" set in this Test.<br><br><strong>Note:</strong> If you only use "Random Questions", create a new Test instead, then select the same Random Questions settings in the new Test.</div> </div>
+</div>
+<div class="test-message hide editor" id="dotoggroup_01_paper">
+<div class="page pagecontent editor">
+<h3>Paper Testing</h3>
+<p>You can print Tests to paper, in addition to providing online, if required.</p>
+<a href="https://www.classmarker.com/a/tests/test/print/?test_id=743527" class="btn btn-assign">Prepare Test for printing</a>
+</div>
+<div class="clearheight"></div>
+</div>
+<div class="test-message hide editor" id="dotoggroup_01_settings">
+<h3>Apply Settings when Assigning Tests</h3>
+<p>You customize the settings listed below when you assign your Test to be taken:</p>
+<ul>
+<li>Availability</li>
+<li>Attempts Allowed</li>
+<li>Time Limit</li>
+<li>Pass Mark</li>
+<li>Randomize Fixed Questions set in this Test</li>
+<li>Results View</li>
+<li>Custom Feedback</li>
+<li>Email results</li>
+<li>Certificates</li>
+<li>Themes</li>
+<li>And more</li>
+</ul>
+<div class="clearheight"></div>
+<p>This allows you to easily assign your Test to multiple Groups and Links, each time with different settings.</p>
+<div class="clearheight"></div>
+</div>
+<div class="test-message hide editor" id="dotoggroup_01_deletetest">
+<div class="page pagecontent editor">
+<h3>Delete Test</h3>
+<form action="https://www.classmarker.com/a/tests/test/deleteTest.rpc.php" method="post" class="genericPostForm" id="usedForIeResubmit_deleteTest">
+<input type="hidden" name="test_id" value="743527">
+<h2 class="test-name name">abc</h2>
+<ul>
+<li>Deleting this Test is Permanent!</li>
+<li>Questions in this Test will remain in your Question Bank</li>
+</ul>
+<div id="msgDiv743527" class="hide"></div>
+<p><input type="submit" id="checkDelete" class="submitBtn btn btn-delete" value="Delete this Test"></p>
+</form>
+</div>
+<div class="clearheight"></div>
+</div>
+</div>
+<div class="clearheight5"></div>
+<div class="questions-title" id="scrollToShowCount">
+<div class="col-span-3"><h3><span id="total_questions_count">0</span> Questions</h3></div>
+<div class="col-span-2 "><span id="num_static_questions">0</span> Fixed Questions<br>
+<span class="little"><span id="static_points">0</span> Points</span> <span class="add-symbol"> + </span></div>
+<div class="col-span-5 ">0 Random Questions<br>
+<span class="little">Points <span class="showTooltip tooltip tooltiptextlevel" title="Points dependent on the Questions that are randomly selected from your Question Bank each time this Test starts.">&nbsp;</span></span>
+</div>
+</div>
+<div class="clearheight5"></div><ul class="cmtableTabs"><li class="tabon"><a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Test Questions</a></li></ul>
+<div class="table">
+<div class="table-utility row above">
+<div class="col-span-5">
+&nbsp; </div>
+<div class="col-span-4 col-btns">
+<div class="dropdown">
+<a class="btn btn-analytics dropdown-toggle no_anchor" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Fixed Questions <span class="caret">&nbsp;</span> </a>
+<ul class="dropdown-menu"><li><a href="https://www.classmarker.com/a/tests/qb/manage/?test_id=743527&amp;qtype=mcsa">Add New</a></li><li><a href="https://www.classmarker.com/a/tests/qb/import">Import New</a></li>
+<li class="divider"><a href="https://www.classmarker.com/a/tests/qb/?all=1&amp;edit_test_mode=1&amp;test_id=743527">Select From Your Question Bank</a></li></ul>
+</div><div class="dropdown">
+<a class="btn btn-results dropdown-toggle no_anchor" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Random Questions <span class="caret">&nbsp;</span> </a>
+<ul class="dropdown-menu"><li><a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#" title="Have Questions selected at random from your &#39;Question bank&#39; each time this Test is taken." class="anchor_scroll_autoselect open_anchor_element showTooltipEast highlight_autoselected">Edit settings <span class="tooltip">Tip</span></a></li></ul>
+</div> </div>
+<div class="col-span-1 col-btns">
+<div class="dropdown">
+<a class="btn btn-actions">Options <span class="caret">&nbsp;</span> </a>
+<ul class="dropdown-menu"><li><a href="https://www.classmarker.com/a/tests/test/order/?test_id=743527" title="Set the order Fixed Questions are given in." class="showTooltipEast">Set Question Order <span class="tooltip">Tip</span></a></li>
+<li><a href="https://www.classmarker.com/a/tests/qb/settings/?test_id=743527" title="Edit settings for all Fixed Questions in this Test at once." class="showTooltipEast">Edit Question Settings <span class="tooltip">Tip</span></a></li>
+<li class="divider"><a href="https://www.classmarker.com/a/tests/rpc/misc.rpc.php?show_layover=1&amp;view_question_cats_in_test=1&amp;test_id=743527" title="View number of Fixed Questions per Category set in this Test." class="showTooltipEast trigger-generic-array not-ie67" data-index="1">View Categories Used <span class="tooltip">Tip</span></a></li>
+<li><a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#" title="Export the Fixed Questions in this Test." class="showTooltipEast qbankExport">Export Questions <span class="tooltip">Tip</span></a></li>
+</ul>
+</div> </div>
+</div>
+<ul class="table-body ">
+<li class="scroll_autoselect  hide ">
+<div class="row test-question"><h4 class="question-name name">Random Questions</h4></div>
+<div class="row editor dohighlight_autoselected"><div class="confirmation"><strong>0</strong> Random Questions will be selected from your Question Bank and included in this Test from the following categories:</div><ul></ul>
+<div class="alert-box alert-default">
+<a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#random_settings" id="tog_randomexplain" class="hideme showcont">Learn about Fixed vs Random questions</a>
+<div class="hide" id="dotog_randomexplain">
+<p>Tip: All Questions you add to your Tests are always added to your <a href="https://www.classmarker.com/a/tests/qb/">Question Bank</a> for re-use.</p>
+<ul class="littledark">
+<li><strong>Fixed</strong> Questions will be given each time this Test is taken.</li>
+<li><strong>Random</strong> Questions will be selected from your <strong>Question Bank</strong> (not from Fixed Questions in this Test) each time this Test is taken.</li>
+<li>You can set either <strong>Fixed</strong> or <strong>Random</strong> Questions in your Test, or use both.</li>
+<li>The same Question will never appear twice in the same Test.</li>
+<li>You can select to randomize the <strong>order</strong> of any <strong>Fixed</strong> Questions in this Test when <strong>Assigning</strong> it to be taken.</li>
+</ul>
+</div>
+</div><div class="clearheight"></div><p><a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#random_settings" id="tog_drandom" class="hideme btn btn-results">Edit Random Question Settings</a></p>
+</div>
+<div class="row hide random-questions-forms dual" id="dotog_drandom">
+<div class="col-span-4">
+<h5>Option 1</h5>
+<p class="explain">Total No. of questions from selected categories. <span class="showTooltipHTML tooltip" title="Each time the Test is started, select the total number of questions to be randomly chosen from selected categories.&lt;br/&gt;&lt;br/&gt;Questions will display in random order irrespective of their categories.">Tip</span></p>
+<p><a class="" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#" id="tograndomoptionleft">Use this option</a></p>
+<form class="hide" action="https://www.classmarker.com/a/tests/test/editRandomQuestions.rpc.php" id="dotograndomoptionleft" method="post">
+<input type="hidden" name="random_option" value="option1">
+<input type="hidden" name="test_id" value="743527">
+<input type="hidden" name="order_by_cat_id" value="0">
+<div class="field-group">
+<label class="form-field-title showTooltip" for="num_rand_id">Nº of Questions</label>
+<input class="input showTooltip input_number_cats" type="number" title="How many random questions in total you want to add from selected categories below?" maxlength="3" min="0" max="300" size="3" name="num_random" id="num_rand_id" value="">
+</div>
+<div class="field-group"><div><input class="input tab-auto-cats" type="checkbox" id="c1_0" name="cat_id_0" value="0">
+<label for="c1_0">Generic <span class="right little">1 Avail</span></label></div><br></div>
+<div class="field-group">
+<span class="form-field-title">Include:</span><select name="static_questions_position"><option value="0" selected="selected">Randomly mixed in</option><option value="1">At end of Test</option><option value="2">At start of Test</option></select> <span title="Choose where randomly selected questions will display in relation to any Fixed questions set in this Test." class="showTooltip tooltip">&nbsp;</span>
+</div>
+<span class="tab">
+<input type="submit" class="btn btn-create">
+</span>
+</form>
+</div>
+<div class="col-span-2">
+<div class="or">or </div> &nbsp;
+</div>
+<style type="text/css">#sortable div span{float:left;}</style>
+<div class="col-span-4 ">
+<h5>Option 2</h5>
+<p class="explain">Specific No. of questions per selected category. <span class="showTooltipEast tooltip" title="Each time the Test is started, select a specific number of questions per category to be randomly chosen.&lt;br/&gt;&lt;br/&gt;Allows ordering and grouping questions by category.">Tip</span></p>
+<p><a class="" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#" id="tograndomoptionright">Use this option</a></p>
+<form class="hide" action="https://www.classmarker.com/a/tests/test/editRandomQuestions.rpc.php" id="dotograndomoptionright" method="post">
+<input type="hidden" name="random_option" value="option2">
+<input type="hidden" name="test_id" value="743527">
+<div class="field-group"><div id="sortable" class="ui-sortable"><div><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+<input class="input showTooltip input_number_cats" title="How many random questions from this category?" maxlength="3" size="2" type="number" min="0" max="1" name="cat_id_0" value="" id="c2_0">
+<label class="titlename" for="c2_0">Generic</label> <span class="right little">1 Avail</span><br></div></div></div><div class="field-group">
+<span class="form-field-title">Order:</span>
+<input type="radio" name="order_by_cat_id" value="0" id="rqo1" checked="checked"> <label for="rqo1">In random order</label><br>
+<input type="radio" name="order_by_cat_id" value="1" id="rqo2" class="tab"> <label for="rqo2">Grouped by category</label>
+</div>
+<div class="field-group">
+<span class="form-field-title">Include:</span><select name="static_questions_position"><option value="0" selected="selected">Randomly mixed in</option><option value="1">At end of Test</option><option value="2">At start of Test</option></select> <span title="Choose where randomly selected questions will display in relation to any Fixed questions set in this Test.
+					 	 Note: If selecting to order questions &#39;Grouped by category&#39; above, you can only choose Fixed questions to display either at the Start or End of Test (not mixed in)." class="showTooltip tooltip">&nbsp;</span>
+</div>
+ 
+<span class="tab">
+<input type="submit" class="btn btn-create" id="remove_empty_random_cat_inputs">
+</span>
+</form>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<a id="bottom"></a>
+<div class="clearheight"></div>
+<div class="table">
+<div class="row test-question"><h4 class="question-name name">Fixed vs Random Questions</h4></div>
+<div class="row">
+<p><strong>Fixed Questions</strong> are given each time this Test is taken. Add and remove fixed questions in your Test any time.</p>
+<p><strong>Random Questions</strong> are selected from your Questions bank each time this Test is taken. Edit Random Question settings any time.</p>
+<p>You can set either <strong>Fixed</strong> or <strong>Random</strong> Questions in your Test, or use both.</p>
+<p>After setting your Questions, you can Assign your Test to be taken.</p>
+</div>
+</div>
+<script type="text/javascript">
+var web_root = '/a/';
+asset_image_toggle_max_width = 600; asset_image_allow_toggle = false;
+$(document).ready(function() {
+	$("#sortable").sortable();
+	$('#duplicate2').click(function(){
+		$('#duplicate3').show();
+	});
+	$('#duplicate1').click(function(){
+		$('#duplicate3').hide();
+	});
+	$('.dselected').click(function(){
+		$('#dselected_id').attr('checked', 'checked');
+	});
+});
+</script>
+<div class="generic-overlay">
+<div class="generic-overlay-content"></div>
+<div class="clearheight30"></div>
+</div><div class="jqmWindowWide jqmID3 jqDrag jqmID1" id="qbankExportDiv"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#qbankExportDiv').jqm({ajax: '/a/tests/rpc/qbankExport.rpc.php?test_id=743527', trigger: 'a.qbankExport'});
+	});
+</script>
+</div> 
+<img src="./ClassMarker - Welcome_files/icon_loading_circleV3.gif" alt="Hidden Loading Image" class="hide" width="20" height="20">
+</div>
+
+
+
+{% endblock %}

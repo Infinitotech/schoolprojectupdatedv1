@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.classmarker.com/online-testing/terms/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Terms and conditions ClassMarker</title>
+<script async="" src="./ClassMarker - Welcome_files/analytics.js.download"></script><script id="twitter-wjs" src="./ClassMarker - Welcome_files/widgets.js.download"></script><script id="facebook-jssdk" src="./ClassMarker - Welcome_files/sdk.js.download"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+<meta name="description" content="Terms and conditions. Create online quizzes free quiz maker.">
+<meta name="keywords" content="Online testing, Create online quizzes, free quiz maker, web based tests, online quiz maker, testing, test maker,  assesments, quiz software, quizzes, exams, free, classmarker, schools, teachers, students, instant marking, multiple choice, fill in the blank">
+<link rel="shortcut icon" href="https://www.classmarker.com/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./ClassMarker - Welcome_files/cmhome.css" media="all">
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="all" href="/css3/home/ie8.css?v=121" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="all" href="/css3/home/ie7.css?v=121" />
+<![endif]-->
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" media="all" href="/css3/home/ie6.css?v=121" />
+<![endif]-->
+<script type="text/javascript">
+		var web_root = "/";
+		var webpath_img = "/img3/";
+</script>
+<script type="text/javascript" src="./ClassMarker - Welcome_files/jquery-1.9.1.min.js.download"></script><script type="text/javascript" src="./ClassMarker - Welcome_files/cmall.js.download"></script>
+<script type="text/javascript" charset="utf-8" async="" src="./ClassMarker - Welcome_files/button.3943c052be33b5e812dac6838df9cb3d.js.download"></script></head>
+<body><div class="slicknav_menu"><a href="https://www.classmarker.com/online-testing/terms/#" aria-haspopup="true" tabindex="0" class="slicknav_btn slicknav_collapsed"><span class="slicknav_menutxt">MENU</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
+<li><a href="https://www.classmarker.com/" role="menuitem" tabindex="-1">Home</a></li>
+<li><a href="https://www.classmarker.com/online-testing/how-to-create-online-quiz/" role="menuitem" tabindex="-1">Take a Tour</a></li>
+<li><a href="https://www.classmarker.com/online-testing/price/" role="menuitem" tabindex="-1">Pricing</a></li>
+<li><a href="https://www.classmarker.com/online-testing/faq/" role="menuitem" tabindex="-1">FAQ</a></li>
+<li><a href="https://www.classmarker.com/online-testing/contact-us/" role="menuitem" tabindex="-1">Contact Us</a></li>
+</ul></div>
+<div id="header">
+<div class="col-full">
+<div class="h1">
+<a href="https://www.classmarker.com/">
+<img alt="ClassMarker Online quiz maker" src="./ClassMarker - Welcome_files/free-quiz-maker.jpg" width="205" height="31">
+<span>ClassMarker Online quiz maker</span>
+</a>
+</div>
+<div class="header-buttons"><a href="https://www.classmarker.com/a/" class="register">My Dashboard</a>
+<a href="https://www.classmarker.com/login/logout/" class="login">Log Out</a></div> </div>
+<div class="nav">
+<div class="col-full">
+<ul id="menu">
+<li><a href="https://www.classmarker.com/">Home</a></li>
+<li><a href="https://www.classmarker.com/online-testing/how-to-create-online-quiz/">Take a Tour</a></li>
+<li><a href="https://www.classmarker.com/online-testing/price/">Pricing</a></li>
+<li><a href="https://www.classmarker.com/online-testing/faq/">FAQ</a></li>
+<li><a href="https://www.classmarker.com/online-testing/contact-us/">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="top-heading hide">
+<div class="col-full">
+<h1>Terms and conditions</h1>
+</div>
+</div>
+<div id="main" class="white-bg">
+<div class="col-full">
+<div class="terms-box">
+<h2>Terms and Conditions</h2>
+<p><span class="littledark">Effective Date: 5 January 2016</span></p>
+<p>By accessing and using this Website (as defined below) or any portion thereof, You accept and
+agree to be bound by these Terms and accordingly You should review them carefully.
+If You do not accept these Terms, You must not access or use the Website.</p>
+<p>Our <a href="https://www.classmarker.com/online-testing/privacy/">Privacy Policy</a> and all other notices, communications and terms specific to certain Services
+(<strong>Additional Information</strong>) We provide through the Website will form part of these Terms. To the
+extent of any inconsistency or conflict between the Privacy Policy, the Additional Information
+and these Terms, the Privacy Policy will prevail followed by these Terms and then the Additional
+Information.</p>
+<p>By using this Website, You represent, acknowledge and agree that You are at least 18 years of age,
+or if You are under 18 years of age (a <strong>Minor</strong>), that You are using the Website with the consent
+of Your parent or legal guardian and that You have received Your parent's or legal guardian's
+permission to use the Website and agree to its Terms. If You are a parent or legal guardian of a
+Minor, You hereby agree to bind the Minor to these Terms and to fully indemnify and hold Us harmless
+if the Minor breaches any of these Terms.</p>
+<h3>1. Definitions</h3>
+<p>
+<strong>Account</strong> means an account registered through the Website.</p>
+<p>
+<strong>Application</strong> means a method of accessing the Website other than
+navigating to the Website using a web browser.</p>
+<p>
+<strong>Content</strong> means data, information, text, blogs, images, movies,
+animations and any other digital media whether currently existing or
+not that may be displayed, delivered through or otherwise embodied in
+the Website.</p>
+<p>
+<strong>Credit Pack</strong> means a Service where Members pay a Fee and are
+issued a limited number of Credits based on the number of tests that
+they (or Related Users) wish to take.</p>
+<p>
+<strong>Credits</strong> means the allocated number of credits a Member
+receives based on the type of Credit Pack or Professional Plan
+purchased.
+</p>
+<p>
+<strong>Direct Communication</strong> means email, SMS, instant message or any
+other direct electronic communication.</p>
+<p>
+<strong>Fee</strong> means any fee required to become or maintain the status of
+Paid Member.</p>
+<p>
+<strong>Instructor</strong> means a Member who has registered an administrator
+account on the Website to create and administer tests, polls and
+learning content.</p>
+<p>
+<strong>Intellectual Property</strong> means all present and future rights to
+trade marks, domain names, logos, patents, inventions, copyrights and
+all similar rights in any part of the world whether registered or
+unregistered.</p>
+<p>
+<strong>Material</strong> means any Content submitted to the Website by You.</p>
+<p>
+<strong>Member</strong> means a Registered Member or Paid Member.</p>
+<p>
+<strong>Paid Member</strong> means a Registered Member that has complied with
+the requirements in clause 5(a).</p>
+<p>
+<strong>Professional Plan</strong> means a Service where Members pay a Fee and
+are issued a limited number of Credits to be used any given month of
+for the Professional Plan Term. The number of monthly Credits
+purchased will be reset each month according to clause 7(a).</p>
+<p>
+<strong>Professional Plan Term</strong> means (a) where the Member has a
+non-recurring Professional Plan subscription, 12 months from the date
+on which a Member purchases a Professional Plan; or (b) where the
+Member has a recurring Professional Plan subscription, the term will
+commence on the date on which a Member purchases a Professional Plan
+and end on the date on which a member cancels their Professional Plan
+subscription.</p>
+<p>
+<strong>Registered Member</strong> means a person, or organisation that has
+registered an Account.</p>
+<p>
+<strong>Related User</strong> means a User who is registered by an Instructor
+or taken tests under an instructor account.
+</p>
+<p>
+<strong>Terms</strong> means these website terms and conditions between You and
+Us.</p>
+<p>
+<strong>Tools</strong> means online calculators and other analytical tools,
+templates, formulas or software available through the Website which
+can analyse user provided data and generate reports and other outputs
+based on that data.</p>
+<p>
+<strong>Transaction</strong> means any purchase of or payment for Services or
+Tools facilitated via the Website.</p>
+<p>
+<strong>Our, We, Us</strong> means ClassMarker Pty Ltd (ACN 140 552 389).</p>
+<p>
+<strong>Service</strong> means any services offered by Us through the Website.</p>
+<p>
+<strong>User</strong> means any person who uses the Website, including to take
+tests.</p>
+<p>
+<strong>Website</strong> means Content, Material, information, features, Tools
+and Services and Applications We make available through URL at
+www.classmarker.com, whether currently existing or developed
+in the future.</p>
+<p>
+<strong>Yearly Professional Plan </strong>means a Professional Plan that is 12
+calendar months.
+</p>
+<p>
+<strong>Yearly Professional Plans Term</strong> means 12 calendar months from
+the date on which a Member purchases a Yearly Professional Plan.
+</p>
+<p>
+<strong>You, Your</strong> mean the customer or user of the Website, including
+a Member or User.
+</p>
+<h3>2. Access and use of the Website</h3>
+<ol class="star loweralpha">
+<li>You may access and use the Website subject to these Terms (including the payment of any applicable Fees).</li>
+<li>You acknowledge and accept that access to and use of parts of the Website, Tools, and Services offered on the Website may:
+<ol class="star">
+<li>be restricted;</li>
+<li>be subject to disclaimers, terms and conditions in addition to these Terms; and/or</li>
+<li>require payment of a Fee.</li>
+</ol></li>
+<li>The imposition or removal of any access or use restrictions for any part of the Website is at Our sole discretion.</li>
+</ol>
+<h3>3. Privacy</h3>
+<p>We are committed to protecting Your privacy. Please refer to Our <a href="https://www.classmarker.com/online-testing/privacy/">Privacy Policy</a> for further details on how We collect and protect Your information.</p>
+<h3>4. Registering an Account and becoming a Registered Member</h3>
+<ol class="star loweralpha">
+<li>To register an Account, You must:
+<ol class="star">
+<li>enter a valid and operating email address, a password and all
+other information requested in the registration section of the
+Website; and</li>
+<li>signify Your acceptance of these Terms.</li>
+</ol>
+</li>
+<li>Accepting these Terms is an important part of the registration
+process and You should carefully read these terms before
+registering an Account on the Website.</li>
+<li>You must keep Your Account password confidential. You are
+responsible for any activities or transactions made using Your
+Account and We are not liable for any damage or loss which results
+from unauthorised access to Your Account. You must immediately
+notify Us of any unauthorised access or use of Your Account of
+which become aware via the “Contact Us” section of the Site.</li>
+<li>Your Account is not transferable.</li>
+<li>Registering an Account and becoming a Registered Member is free.</li>
+</ol>
+<h3>5. Paid Members</h3>
+<ol class="star loweralpha">
+<li>
+To become a Paid Member, You must:
+<ol class="star">
+<li>be a Registered Member;</li>
+<li>review and accept any additional terms and conditions which apply
+specifically to Paid Members and are displayed during the Paid
+Member registration process or elsewhere on the Website; and</li>
+<li>pay any Fee(s) applicable to Your Paid Member tier.</li>
+</ol>
+</li>
+<li>Any terms and conditions which specifically relate to Paid Members
+will apply in addition to these Terms.</li>
+<li>To maintain Your status as a Paid Member You must pay any Fee as
+required by Us. Failure to pay Fees within the required time may
+result in the forfeiture of Your Paid Member status and all related
+access and use privileges for the Website.</li>
+</ol>
+<h3>6. Member Services</h3>
+<ol class="star loweralpha">
+<li>We offer a limited discounted Fee for Services to Members that provide or are directly associated
+with Not-For-Profit educational services, with optional upgrades to extra Services
+(Educational Account). Instructors opening an Educational Account must not share the
+Educational Account with other Instructors.</li>
+<li>Members that are businesses or other For-Profit organisations or individuals are not eligible to
+open an Educational Account. </li>
+<li>We may change Our prices or institute new charges for any Services provided via the Website at
+any time. Where you have a recurring subscription, all pricing changes will be notified to you
+and we will provide you time to cancel your recurring subscription. Where you are on a yearly
+plan and credit pack that is non-recurring, all pricing changes will be posted on the Website.
+You are solely responsible for regularly reviewing pricing information as posted from time to time.</li>
+</ol>
+<h3>7. Monthly Credits </h3>
+<ol class="star loweralpha">
+<li>Members who have purchased Professional Plans will have their Credit limit reset on a monthly
+basis during the Professional Plan Term. The Credit limit will be reset in each successive month
+on the same day of the month that the Professional Plan was purchased unless a purchase was made
+after the 28th of any month in which case credits will be reset on the 1st of each following month
+of the Professional Plan Term. For example, if a Professional Plan was purchased on the 25th
+calendar day of any given month, Credits will be reset on the 25th calendar of each following
+month of the Professional Plan Term. </li>
+<li>Members must purchase extra Credits if they wish to continue testing but exceed their monthly
+Credit limit of their purchased Professional Plan during any calendar month for the Professional
+Plan Term.</li>
+</ol>
+<h3>8. Refunds</h3>
+<ol class="star loweralpha">
+<li>To the maximum extent permitted by law, You will not be entitled to recover any Fees if Your
+Account is suspended or terminated in accordance with this Agreement.</li>
+<li>If You terminate Your Account and request a refund:
+<ol class="star">
+<li>We only agree to fully refund the total value of any Yearly Professional Plan You purchased
+if You request a refund within 30 days of purchase. No refunds of Yearly Professional Plans
+will be given otherwise.</li>
+<li>We only agree to fully refund the total value of the first month of any Professional Plan
+subscription (paid monthly) You purchased, if You request a refund within 30 days of purchase.
+No refunds of Monthly Professional Plan subscriptions will be given otherwise.</li>
+<li>We only agree to fully refund the total value of a Credit Pack if You have used less than
+20 Credits and You request the refund within 30 days of purchase.</li>
+<li>If a Paid Member uses more than 20 Credits in a Credit Pack, We agree to refund the value
+of the remaining Credits or unused Credits if such Paid Member requests the refund within
+30 days of purchase.</li>
+</ol>
+</li>
+</ol>
+<h3>9. Instructor</h3>
+<ol class="star loweralpha">
+<li>If You are an Instructor, You represent and warrant that:
+<ol class="star">
+<li>You are legally authorized to use and disclose Your Related Users' personal information
+when registering such Related Users via the Website.</li>
+<li>You shall ensure that all Related Users have read and agree to be bound by these Terms
+prior to using the Website or any portion thereof.</li>
+<li>You shall fully indemnify and hold Us harmless against any expenses, costs,
+loss (including consequential loss) or damage that We may suffer or incur as a result
+of or in connection with any action, claim or allegation bought against Us by a Related User
+arising, whether directly or indirectly, from any of Your acts or omissions.</li>
+</ol></li>
+<li>As part of Our Services, We may offer functionality which enables Instructors to sell
+Materials to their Related Users. Instructors will be able to set their own prices for any such
+Materials that they sell, but agree to pay Us a commission in the amount of ten percent (10%)
+on all sales completes through the Website. All such commissions will be due and payable
+immediately on completion of the sale and will be automatically deducted from fees paid by
+applicable Related Users for such Materials.</li>
+</ol>
+<h3>10. Your Conduct</h3>
+<ol class="star loweralpha">
+<li>You must not:
+<ol class="star">
+<li>use the Website in breach of any applicable laws or regulations; </li>
+<li>solicit personal information (including name, email address, address, phone number, IP address, or any other information that could, directly or indirectly, identify a child) from a child under 13 years of age;</li>
+<li>violate the privacy rights of any person, including but not limited to submitting personal information about a person without their consent (or their parent's consent in the case of a child under 13 years of age);</li>
+<li>use the Website (or Content obtained from the Website):
+<ol class="star loweralpha">
+<li>to transmit (or authorise the transmission of) "junk mail," "chain letters,"
+unsolicited emails, instant messaging, "spimming," or "spamming";</li>
+<li>to impersonate any person or entity; </li>
+<li>to solicit money, passwords or personal information from any person;</li>
+<li>to harm, abuse, harass, stalk, threaten or otherwise offend others; or</li>
+<li>for any unlawful purpose;</li>
+</ol>
+</li>
+<li>use the Website to upload, post, transmit or otherwise make available
+(or attempt to upload, post, transmit or otherwise make available) any Content that:
+<ol class="star loweralpha">
+<li>is not Your original work, or which in any way violates or infringes
+(or could reasonably be expected to violate or infringe) the Intellectual Property
+or other rights of another person;</li>
+<li>contains, promotes, or provides information about unlawful activities or conduct;</li>
+<li>is, or could reasonably be expected to be, defamatory, obscene, offensive,
+threatening, abusive, pornographic, vulgar, profane, indecent or otherwise unlawful,
+including Content that racially or religiously vilifies, incites violence or hatred,
+or is likely to offend, insult or humiliate others based on race, religion, ethnicity,
+gender, age, sexual orientation or any physical or mental disability;</li>
+<li>exploits another person in any manner;</li>
+<li>contains nudity, excessive violence, or sexual acts or references;</li>
+<li>includes an image or personal information of another person or persons unless
+You have their express written consent;</li>
+<li>poses or creates a privacy or security risk to any person;</li>
+<li>You know or suspect (or ought reasonably to have known or suspected) to be false,
+misleading or deceptive; contains viruses, worms, Trojan horses, spyware, malware
+or other computer codes, files or programs designed to interrupt, limit or destroy
+the functionality of other computer software or hardware;</li>
+<li>directly advertises, promotes or solicits any goods or services or commercial
+activities (except where permitted or authorised by Us);</li>
+<li>contains financial, legal, medical or other professional advice;</li>
+<li>interferes with, disrupt, or create an undue burden on the Website;</li>
+<li>use any robot, spider, or other device or process to retrieve, index, or in any way
+reproduce, modify or circumvent the navigational structure, security or presentation
+of the Website;</li>
+<li>use the Website with the assistance of any automated scripting tool or software;</li>
+<li>frame (except when embedding your exams in your website for Users to take) or
+mirror any part of the Website without Our prior written authorisation;</li>
+<li>use code or other devices containing any reference to the Website to direct other
+persons to any other web page;</li>
+<li>except to the extent expressly permitted by law, modify, adapt, sublicense,
+translate, sell, reverse engineer, decipher, decompile or otherwise disassemble
+any portion of the Website or cause any other person to do so; or</li>
+<li>delete any attributions or legal or proprietary notices on the Website.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3>11. Content</h3>
+<ol class="star loweralpha">
+<li>We derive Content from sources which We believe are accurate and up to date as of the time of
+publication and use reasonable commercial endeavours to update such Content, however, We do
+not make any representation or warranty as to the currency, reliability, accuracy or completeness
+of any Content provided via the Website.</li>
+<li>You indemnify and release Us from all liability for any claim or loss that directly or indirectly
+results from Your reliance on any Content provided on the Website.</li>
+<li>We may engage third parties to author, design or provide Content for inclusion in the Website.
+You acknowledge and agree that in relation to all the Website Content contributed by third parties:
+<ol class="star">
+<li>any views or opinions expressed in that Content are the views and opinions of that third
+party and not Ours; and</li>
+<li>despite any attribution of authorship or lack thereof, the responsibility and liability
+for ensuring the accuracy, legality, completeness and currency of Content lies exclusively
+with the third party who provided it.</li>
+</ol>
+</li>
+</ol>
+<h3>12. Tools</h3>
+<ol class="star loweralpha">
+<li>The Website may enable You to upload, post or submit Material using online Tools.</li>
+<li>You acknowledge and accept that when using Tools:
+<ol class="star">
+<li>the processing outputs generated by Tools are dependent on the accuracy and suitability
+of the data You provide and input into the Tool;</li>
+<li>any Tools provided on the Website utilise processes and calculations which are intended to
+have a general application and accordingly may not be suitable for Your specific
+requirements; and</li>
+<li>all Tools, and any output generated by Tools, are intended to provide guidance only and
+any reliance You place on the outputs and results generated by Tools is entirely at Your
+own risk.</li>
+</ol>
+</li>
+<li>All data and information You upload to a Tool will be handled in accordance with Our
+<a href="https://www.classmarker.com/online-testing/privacy/">Privacy Policy</a>.</li>
+</ol>
+<h3>13. Transactions</h3>
+<ol class="star loweralpha">
+<li>All Transactions in respect to the payment of Fees will be conducted via a third party's website.
+These Transactions are covered by these Terms and any additional third party terms or conditions.
+Please ensure that You have read the terms and conditions of the third party responsible for
+conducting the Transaction.</li>
+<li>By completing a Transaction, You agree to pay all amounts related to the Transaction including all
+taxes. We may suspend or terminate Your Account and/or access to the Website if Your offered
+payment method (e.g., credit card) cannot be processed. By providing a payment method,
+You expressly authorize Us and/or Our third party payment processor to charge the applicable Fees
+to said payment method at regular intervals if required by Your particular Paid Membership and
+utilized Services. You are liable for paying any and all applicable sales and use taxes.</li>
+<li>You acknowledge and accept that Transactions occurring through the Internet have inherent risks
+and We are not responsible for any unauthorised:
+<ol class="star">
+<li>interception, modification or diversion of a Transaction request or delivery of a Tool;</li>
+<li>access or copying of details relating to a Transaction
+(including personal or financial information); or</li>
+<li>failure to deliver a Tool, where that failure is not directly caused by Our deliberate actions.</li>
+</ol>
+</li>
+<li>We reserve the right to modify, suspend, reject or cancel any Transaction for any reason.</li>
+</ol>
+<h3>14. Communications from Us</h3>
+<p>All Direct Communications from Us to You will be in accordance with Our
+<a href="https://www.classmarker.com/online-testing/privacy/">Privacy Policy</a>.
+If You expressly consent and agree to accept and receive electronic communications from Us then
+You agree that We may send You electronic communications, including via e-mail, text message, calls,
+and push notifications to Your mobile device. These electronic communications are part of Your
+relationship with Us. Unless otherwise prescribed by law, You agree that any notices, agreements,
+disclosures or other communications that We send You via email will satisfy any legal communication
+requirements, including that such communications be in writing. Standard carrier data charges may
+apply to Your use of certain Services and/or use of text messaging and You are solely responsible
+for such charges.</p>
+<h3>15. Material</h3>
+<ol class="star loweralpha">
+<li>You may submit, upload, add or post Material to the Website for the purpose of designing and
+creating tests and exams for Users or in the case of Users taking test.</li>
+<li>At the time of submitting Material to the Website, You grant Us a non-exclusive, irrevocable,
+royalty free and worldwide right to use and deal with Your Material for the purpose of designing
+tests for You to give to Users and Related Users for the duration that Your Account is open.</li>
+<li>At the time of submitting Material to the Website, You grant Users and Members a perpetual,
+non-exclusive, irrevocable, royalty free and worldwide right to use and deal with Your Material
+that You have authorised to be shared with Users and Members for the purpose of taking tests.</li>
+<li>We do not retain ownership in any Material provided by You.</li>
+<li>By uploading, transmitting, posting or otherwise making available any Material via the Website, You:
+<ol class="star">
+<li>warrant that You have the right to grant the above mentioned licences referred to in this clause 15.</li>
+<li>warrant that any Material does not infringe any third party's Intellectual Property;</li>
+<li>warrant that the Material does not breach the Terms; and</li>
+<li>unconditionally waive all moral rights (as defined by the Copyright Act 1968 (Cth))
+which You may have in respect of the Material.</li>
+</ol>
+</li>
+<li>Any Material that You do not want to share with other Members or Users, must not be set to
+'Shared' on the Website. All Material are set as 'Private' by default and not shared.</li>
+<li>Materials that are set to be shared with other Members or Users will stay on the Website
+unless We remove it in accordance with these Terms.</li>
+<li>We reserve the right, at Our absolute discretion, to remove any Material at any time.</li>
+<li>We reserve the right (but have no obligation) to:
+<ol class="star">
+<li>review, modify, reformat, reject or remove any Material which You upload, post,
+transmit or otherwise make available (or attempt to upload, post, transmit or otherwise
+make available) that, in Our opinion, violates the Terms or otherwise has the potential
+to harm, endanger or violate the rights of any person; and</li>
+<li>monitor use of the Website, and store or disclose any information that We collect,
+including in order to investigate compliance with the Terms or for the purposes
+of any police investigation or governmental request.</li>
+</ol>
+</li>
+<li>We are not responsible for, and accept no liability with respect to, any Material uploaded, posted,
+transmitted or otherwise made available on the Website by any person other than Us. For the
+avoidance of doubt, We will not be taken to have uploaded, posted, transmitted or otherwise made
+Material available on the Website simply by facilitating others to post, transmit or other make
+Material available. Furthermore, We do not endorse any opinion, advice or statement made by any
+person other than Us.</li>
+<li>If You send or transmit any communications, comments, questions, suggestions, or related materials
+to Us, whether by letter, email, telephone, or otherwise (collectively, “Feedback”), suggesting or
+recommending changes to the Website or any Services, Materials or Tools offered through the Website,
+including, without limitation, new features or functionality relating thereto, all such Feedback is,
+and will be treated as, non-confidential and non-proprietary. You hereby assign all right, title,
+and interest in, and We are free to use, without any attribution or compensation to You, any ideas,
+know-how, concepts, techniques, or other Intellectual Property and proprietary rights contained in
+the Feedback, whether or not patentable, for any purpose whatsoever, including but not limited to,
+developing, manufacturing, having manufactured, licensing, marketing, and selling, directly or
+indirectly, products and services using such Feedback. You understand and agree that We are not
+obligated to use, display, reproduce, or distribute any such ideas, know-how, concepts, or
+techniques contained in the Feedback, and You have no right to compel such use, display,
+reproduction, or distribution. </li>
+<li>Closing Your Account
+<ol class="star">
+<li>Instructors may close their Account and/ or its Registered Member Accounts at any time
+by following the "Close Account Instructions" found on your My Account Page of our Website.</li>
+<li>Subject to the above, Registered Users do not have a "Close Account" option.</li>
+<li>When an Instructor's Account is deleted, its Registered Member Accounts will also be deleted.</li>
+</ol>
+</li>
+</ol>
+<h3>16. Suspension and Termination</h3>
+<ol class="star loweralpha">
+<li>We reserve the right, without notice to You and at Our complete discretion, to suspend,
+terminate or refuse to register Your Account, if We believe You:
+<ol class="star">
+<li>have breached any part of these Terms;</li>
+<li>are likely to breach any part of these Terms;</li>
+<li>fail to pay a Fee;</li>
+<li>have acted against Our business interests or reputation; or</li>
+<li>are using the Website in such a way as to cause issues for other users of the Website. </li>
+</ol>
+</li>
+<li>You will not be entitled to recover any Fees if Your Account is closed in accordance with this clause 16.</li>
+</ol>
+<h3>17. Intellectual Property</h3>
+<ol class="star loweralpha">
+<li>By accessing and using the Website, You acknowledge and agree:
+<ol class="star">
+<li>We either are the licensee of or own all right, title and interest in the
+Intellectual Property utilised by or embodied in the Website and You will not hinder,
+impede, invalidate or challenge Our ownership or right to use or register any part of
+such Intellectual Property in any way, or do any act which may diminish the value of
+such Intellectual Property;</li>
+<li>any use, downloading, copying, adaption, modification, communication or reproduction of
+any part of Website or the Intellectual Property utilised by or embodied in the Website
+is strictly prohibited unless necessary for and incidental to Your access and use of Website; and</li>
+<li>You must not otherwise copy, upload, communicate, modify, transmit, reproduce, distribute
+or in any way exploit any of the Website, the Content, the Services, or any
+Intellectual Property therein or thereto.</li>
+</ol>
+</li>
+<li>Certain software, including open source software, and other Content provided or available through
+the Website may be stated to be subject to special or additional rules or conditions which will
+form part of these Terms.</li>
+</ol>
+<h3>18. Modifying, updating, suspending and terminating the Website</h3>
+<ol class="star loweralpha">
+<li>While We use reasonable endeavours to ensure that the Website is available continuously,
+We do not make any representations or warranties that Your access will be uninterrupted, timely,
+secure or error free. Your access to the Website may be suspended without notice in the case of
+system failure, maintenance or repair or any reason beyond Our control. </li>
+<li>We reserve the right to modify or update the Website (including any Content, Tools or Services
+offered via the Website) or suspend or terminate access to the Website or any part of the Website
+at any time and at Our absolute discretion, without notice or liability to You.</li>
+<li>We may change these Terms at any time by posting the updated Terms on the Website and, if You
+have registered for an Account, by notifying You via email. Any change or modification to the
+Website or these Terms is effective immediately upon them being posted on the Website. If any
+such change or modification is unacceptable to You, You must not use the Website. If following
+any such change or modification You continue to use the Website or any part thereof, then You
+will be deemed to have accepted those changes or modifications; if You do not agree with any of
+the updated Terms, You must stop using the Website.</li>
+</ol>
+<h3>19. Advertising and Hyperlinks</h3>
+<ol class="star loweralpha">
+<li>We may feature or display third party advertising. By featuring or displaying such advertising,
+We do not in any way represent that We recommend or endorse the relevant advertiser, its products or services.</li>
+<li>If You contact a third party using functionality provided on the Website, including via e-mail,
+We do not accept any responsibility for any communications or transactions between You and the relevant third party. </li>
+<li>We have no control over and are not responsible for the content of any third-party:
+<ol class="star">
+<li>site for which a hyperlink is provided or displayed on the Website;</li>
+<li>site framed within the Website; or</li>
+<li>advertisements displayed on the Website.</li>
+</ol>
+</li>
+<li>We expressly disclaim (and do not endorse or verify) the accuracy or reliability of content on third-party websites.</li>
+<li>Hyperlinks are provided on the Website for Your convenience only and may not be current or operational.
+Our use or inclusion of a hyperlink on the Website is not an endorsement, approval or recommendation
+of the linked website or its content.</li>
+<li>We are not responsible for the content or privacy practices associated with third-party websites and
+accessing these sites You should read their terms, conditions and privacy statements. Your use of
+or reliance on any third-party website is at Your own risk absolutely.</li>
+</ol>
+<h3>20. Back-Up; Data Deletion</h3>
+<ol class="star loweralpha">
+<li>We will make every reasonable effort to protect and backup data for Registered Members on a regular
+basis, however, We do not guarantee the existence, accuracy, or regularity of Our backup services
+and, therefore, Members are solely responsible for independent backup of data stored on the Website
+in relation to that Member's Account.</li>
+<li>If You choose to delete Your Materials, testing data or the data of Your Related Users, You are
+solely responsible for ensuring that such data is properly backed-up prior to deletion. We are
+not responsible for any Materials or data that are lost as a result of Your voluntary deletion.</li>
+<li>Test takers may request that their testing data be deleted by Us. Upon receipt of such request,
+We will provide the applicable Instructor with ten (10) business days to export and/or backup such
+data before We delete it.</li>
+</ol>
+<h3>21. Disclaimer</h3>
+<ol class="star loweralpha">
+<li>To the maximum extent permitted by law, the Website and all Content on the Website is provided
+on an "as-is, as-available" basis, and We exclude and disclaim to the maximum extent permitted
+by law all guarantees, conditions, warranties or terms of any kind, either express, implied or
+statutory, in nature. Further, We explicitly disclaim the following:
+<br>
+ALL CONTENT, TOOLS OR OTHER DATA ON THE WEBSITE IS PROVIDED AS
+<span class="underline">GENERAL GUIDANCE ONLY</span> AND SHOULD
+NOT BE USED FOR ANY SPECIFIC PURPOSE OR IN SUBSTITUTION FOR SPECIALISED INDEPENDENT ADVICE.
+</li>
+<li>If You have a question or concern about the appropriateness or application of anything on the
+Website You must seek advice from a relevantly qualified business consultant.</li>
+<li>We make no representation and give no warranty or undertaking (express or implied) as to the
+currency, accuracy, completeness, effectiveness or reliability of the Website or Content for
+any particular purpose or specific business or that the Website can be used in relation to any
+business in substitution for proper specialised independent advice.</li>
+<li>We disclaim any and all responsibility or liability for any loss, damage, injury or other claim
+whatsoever for any outcome arising from Your reliance upon the Website or the Website's inability
+to meet Your needs.</li>
+<li>The use of and Your reliance upon the Website is entirely at Your own risk. When using Website
+information will be transmitted over a medium which may be beyond Our jurisdiction or control.
+Information and files available from the Website cannot be guaranteed to be secure, free from
+computer viruses or other faults or defects and You should scan and check such data accordingly.
+We do not warrant and cannot ensure the security of any Material or Content You may transmit to the Website.</li>
+<li>We will not be responsible for any delay, failure, interruption, or corruption of any data or
+other information transmitted in connection with use of the Website which is beyond Our direct control.
+For the avoidance of doubt We do not accept responsibility for any interference or damage to
+Your computer system which may arise in connection with Your use of the Website.</li>
+</ol>
+<h3>22. Liability</h3>
+<ol class="star loweralpha">
+<li>To the fullest extent permitted by law:
+<ol class="star">
+<li>ALL GUARANTEES, CONDITIONS AND WARRANTIES CONCERNING THE WEBSITE (WHETHER AS TO QUALITY,
+OUTCOME, FITNESS, CARE, SKILL OR OTHERWISE) EXPRESSED OR IMPLIED BY STATUTE, COMMON LAW,
+EQUITY, TRADE, CUSTOM OR USAGE OR OTHERWISE ARE EXPRESSLY EXCLUDED AND IN RESPECT OF THOSE
+GUARANTEES, CONDITIONS, WARRANTIES OR TERMS WHICH CANNOT BE EXCLUDED BY LAW BUT WHICH CAN
+BE LIMITED BY LAW, OUR LIABILITY TO YOU IS LIMITED TO THOSE APPLICABLE REMEDIES CONTAINED
+IN THE AUSTRALIAN CONSUMER LAW (CTH) AND WHICH ARE SET OUT IN PARAGRAPH (b). YOU AGREE
+THAT SUCH REMEDIES ARE YOUR ONLY REMEDY IN RESPECT OF SUCH GUARANTEES, CONDITIONS,
+WARRANTIES OR TERMS; </li>
+<li>IN NO EVENT WILL WE, OUR OFFICERS, EMPLOYEES, AGENTS, CONTRACTORS, LICENSORS, SUPPLIERS,
+OR ANY OTHER THIRD PARTIES MENTIONED ON THE WEBSITE BE LIABLE FOR ANY LOSS, COSTS OR
+DAMAGES (INCLUDING, WITHOUT LIMITATION, ECONOMIC OR CONSEQUENTIAL LOSS, LOST PROFITS
+OR SPECIAL DAMAGES) RESULTING FROM THE USE OF OR INABILITY TO USE THE WEBSITE, WHETHER
+ARISING UNDER STATUTE OR IN CONTRACT, TORT OR ANY OTHER LEGAL DOCTRINE, AND WHETHER OR NOT
+WE ARE OR OUGHT TO HAVE BEEN AWARE OF, OR ADVISED OF THE POSSIBILITY OF SUCH LOSS, COSTS
+OR DAMAGES;</li>
+<li>WE ARE NOT LIABLE TO YOU OR TO ANY THIRD PARTY FOR ANY PERSONAL INJURY, INCLUDING DEATH,
+CAUSED BY ACCESS TO, USE OR MISUSE OF THE WEBSITE; AND</li>
+<li>REMEDIES UNDER THESE TERMS ARE EXCLUSIVE AND ARE LIMITED TO THOSE EXPRESSLY PROVIDED FOR
+IN THESE TERMS.</li>
+</ol>
+</li>
+<li>To the fullest extent permitted by law, to the extent that Our liability for breach of any
+implied warranty or condition cannot be excluded by law, Our liability will be limited to:
+<ol class="star">
+<li>in the case of services supplied or offered by Us:
+<ol class="star loweralpha">
+<li>the re-supply of those services; or</li>
+<li>the payment of the cost of having those services re-supplied; and</li>
+</ol>
+</li>
+<li>in the case of goods supplied or offered by Us:
+<ol class="star loweralpha">
+<li>the replacement of the goods or the supply of equivalent goods;</li>
+<li>the repair of the goods;</li>
+<li>the payment of the cost of having the goods replaced; or</li>
+<li>the payment of the cost of having the goods repaired.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>In relation to any express warranty or condition set out in the Terms in connection with
+goods or services supplied or offered by Us via the Website, Our liability to You will be limited
+to the amount(s) paid by You (if any) in respect of those goods or services.</li>
+</ol>
+<h3>23. Indemnity</h3>
+<ol class="star loweralpha">
+<li>You agree to fully indemnify and hold Us harmless against any expenses, costs,
+loss (including consequential loss) or damage that We may suffer or incur as a result of or in
+connection with Your use of, access to or conduct in connection with the Website including any
+breach by You of the Terms.</li>
+</ol>
+<h3>24. General</h3>
+<ol class="star loweralpha">
+<li>To the extent that any part of these Terms are invalid, unenforceable, illegal, void or voidable
+for any reason, then these Terms will be construed and be binding as if the invalid, unenforceable,
+illegal, void or voidable part had been deleted from them or read down to the extent necessary
+to overcome the difficulty.</li>
+<li>Our waiver of any breach or a failure to enforce or to insist on the observance of a condition of
+these Terms will not be a waiver of any other or of any subsequent breach.</li>
+<li>We will not be responsible or liable for failure to perform any obligation under these Terms if
+such failure is caused by the occurrence of any matter beyond its reasonable control including,
+without limitation, industrial disputes, internet and communications outages, fire, flood, war,
+explosion, accident or act of God.</li>
+<li>These Terms are governed by and construed in accordance with the law of the State of
+New South Wales and the Commonwealth of Australia, and You irrevocably submit to the
+jurisdiction of the courts of that State and of the Commonwealth of Australia.
+The United Nations Convention on Contracts for the International Sale of Goods and any
+laws based on the Uniform Computer Information Transactions Act (UCITA) shall not apply to these Terms.</li>
+</ol>
+<div class="clearheight"></div>
+<h3>United States of America Federal Agencies</h3>
+<p>Use by U.S.A. federal agencies will follow the <a href="https://www.classmarker.com/online-testing/terms/usa-federal-agencies/">Amended terms found here</a>.</p>
+<div class="clearheight"></div>
+<h3>Privacy</h3>
+<p>View our <a href="https://www.classmarker.com/online-testing/privacy/">Privacy</a> page.</p>
+<div class="clearheight"></div>
+<div class="clearheight"></div>
+<div class="col180"><a href="https://www.classmarker.com/online-testing/award-winning/"><img src="./ClassMarker - Welcome_files/the-best-online-testing-website-2014.jpg" alt="ClassMarker is Award winning 2014"></a></div>
+<div class="col180"><script src="./ClassMarker - Welcome_files/siteSeal.do"></script><span id="ss_SZ130-65_image_en_V0001_S001"><a href="https://www.globalsign.com/ssl/" rel="nofollow" target="_blank" title="SSL"><img alt="SSL Certificate" id="ss_img" src="./ClassMarker - Welcome_files/gs_noscript_130-65_en.gif"></a></span><script type="text/javascript" src="./ClassMarker - Welcome_files/gs_image_130-65_en.js.download" defer="defer"></script></div>
+<div class="clearheight5"></div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div class="col-full">
+<ul class="footer-list1">
+<li><a href="https://www.classmarker.com/">Home</a></li>
+<li><a href="https://www.classmarker.com/online-testing/?trk=footer">About ClassMarker</a></li>
+<li><a href="https://www.classmarker.com/online-testing/terms/?trk=footer">Terms</a> / <a href="https://www.classmarker.com/online-testing/privacy/?trk=footer">Privacy</a></li>
+<li></li>
+<li><a href="https://www.classmarker.com/online-testing/quiz-features/?trk=footer#online-quiz-security">Security</a></li>
+<li><a href="https://www.classmarker.com/online-testing/blog/?trk=footer">Blog</a></li>
+<li><a href="https://www.classmarker.com/online-testing/sitemap/?trk=footer">Site map</a></li>
+</ul>
+<ul class="footer-list2">
+<li><a href="https://www.classmarker.com/online-testing/manual/?trk=footer">User Manual / Screenshots</a></li>
+<li><a href="https://www.classmarker.com/online-testing/create-language-tests/?trk=footer">Quiz Language Support</a></li>
+<li><a href="https://www.classmarker.com/online-testing/integrate/?trk=footer">Quiz Maker API</a></li>
+<li><a href="https://www.classmarker.com/online-testing/partners/?trk=footer">Partners</a></li>
+<li><a href="https://www.classmarker.com/register/?trk=footer">Register</a></li>
+<li><a href="https://www.classmarker.com/online-testing/contact-us/?trk=footer">Contact Us</a></li>
+</ul>
+<div class="footer-content">
+<div class="social_toolbox">
+<div class="fb-like" data-href="https://www.facebook.com/classmarker" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+<div class="cm-twitter">&nbsp;<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./ClassMarker - Welcome_files/follow_button.3748f7cda49448f6c6f7854238570ba0.en.html" style="position: static; visibility: visible; width: 62px; height: 20px;" data-screen-name="ClassMarker"></iframe>
+<iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./ClassMarker - Welcome_files/tweet_button.3748f7cda49448f6c6f7854238570ba0.en.html" style="position: static; visibility: visible; width: 60px; height: 20px;"></iframe></div>
+</div>
+<h4>
+<a href="https://www.classmarker.com/">
+<img alt="Hosted online testing quiz maker" src="./ClassMarker - Welcome_files/free-quiz-make.png" width="152" height="21">
+<span>ClassMarker</span>
+</a>
+</h4>
+<p>Copyright © 2006 - 2017 ClassMarker Pty Ltd. All rights reserved.</p>
+</div>
+</div>
+</div> 
+<script type="text/javascript" src="./ClassMarker - Welcome_files/jquery.slicknav.min.js.download"></script>
+<script type="text/javascript">$(document).ready(function(){$(function(){$('#menu').slicknav();});});</script>
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./ClassMarker - Welcome_files/iPrOY23SGAp.html" style="border: none;"></iframe></div></div></div>
+<div class="jqmWindowWide clearHtml jqmID1" id="obj_video0"></div>
+<div class="jqmWindowWide clearHtml jqmID2" id="obj_video4"></div>
+<div class="jqmWindowWide clearHtml jqmID3" id="obj_video5"></div>
+<script type="text/javascript">
+			$(document).ready(function(){
+				$('.select-box').customSelect();
+				$('#obj_video0').jqm({ajax: '/misc/tour.rpc.php?id=video0', trigger: '.video0'});
+				$('#obj_video4').jqm({ajax: '/misc/tour.rpc.php?id=video4', trigger: '.video4'});
+				$('#obj_video5').jqm({ajax: '/misc/tour.rpc.php?id=video5', trigger: '.video5'});
+			});
+			/* Facebook */
+			(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
+			/* Twitter */
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>
+<div id="ka"></div>
+<script type="text/javascript">
+ka_path = "/ka.php?";
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-473958-2', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b526c3e3c3","applicationID":"37429724,37429725","transactionName":"ZAAGZhQDVhUDWhUIWV1KMUAPTVcIDlAPBBtHABdGDwxfSRZcEwxFHAwKVgMaFhYKSQ==","queueTime":0,"applicationTime":3,"atts":"SEcFEFwZRRs=","errorBeacon":"bam.nr-data.net","agent":""}</script><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./ClassMarker - Welcome_files/saved_resource.html"></iframe></body></html>
