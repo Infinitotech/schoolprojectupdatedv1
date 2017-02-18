@@ -46,7 +46,6 @@ urlpatterns = [
     url(r'^Manage\sAccess\sList', Manage_Access_List.as_view()),
     url(r'^Manage\squestion(show)', Manage_question_show.as_view()),
     url(r'^Manage\squestion', Manage_question.as_view()),
-    url(r'^Manage\squestion.jsp', Manage_question.as_view()),
     url(r'^Manage\stest(post)', Manage_test_post.as_view()),
     url(r'^Manage\stest', Manage_test.as_view()),
     url(r'^My\sAccount', My_Account.as_view()),

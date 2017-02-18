@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
@@ -11,8 +13,6 @@ from django.utils.decorators import method_decorator
 class BasePage(View):
     def get(self,request):
         return render(request,'base.html')
-
-
 class DS_Store(View):
 	def get(self,request):
 		return render(request,'.DS_Store')
@@ -91,9 +91,8 @@ class Manage_question_show(View):
 class Manage_question(View):
 	def get(self,request):
 		return render(request,'Manage question.html')
-class Manage_question(View):
-	def get(self,request):
-		return render(request,'Manage question.jsp')
+		#return render_to_response("Manage question.html", {'top_list': "nothing"},context_instance=RequestContext(request))
+
 class Manage_test_post(View):
 	def get(self,request):
 		return render(request,'Manage test(post).html')

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block content %}
+
+{% load staticfiles %}{% block content %}
 
 <div id="content" class="clearfix">
 <div class="innerWrapper">
@@ -17,13 +18,14 @@
 <li class="link"><a class="sect" href="links"><span>Links</span></a></li></ul>
 </div><div class="clearheight20"></div><div class="clearheight20"></div>
 <hr>
-<form action="https://www.classmarker.com/a/tests/test/new/insertNewTest.php" method="post" id="dosubmit_tn">
+<form action="Manage test" method="get" id="dosubmit_tn">
+ {% csrf_token %}
 <div class="field-group">
 <label class="form-field-title" for="test_name1">Test name:</label>
 <input size="40" class="input showTooltip checkEmpty" id="test_name1" type="text" name="test_name" maxlength="255" original-title="The &#39;Test name&#39; is seen by your test takers.">
 </div>
 <input type="hidden" value="0" name="cat_id"> <div class="field-group">
-<a href="https://www.classmarker.com/a/tests/test/new/#" id="submit_tn" class="btn btn-create tab">Start Adding Questions</a>
+<a href="Manage question" id="submit_tn" class="btn btn-create tab">Start Adding Questions</a>
 </div>
 </form>
 <hr>
