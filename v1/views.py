@@ -12,6 +12,7 @@ from django.utils.decorators import method_decorator
 
 class BasePage(View):
     def get(self,request):
+        print ("adadfdsda")
         return render(request,'base.html')
 class DS_Store(View):
 	def get(self,request):
@@ -90,6 +91,7 @@ class Manage_question_show(View):
 		return render(request,'Manage question(show).html')
 class Manage_question(View):
 	def get(self,request):
+		print ("ddd")
 		return render(request,'Manage question.html')
 		#return render_to_response("Manage question.html", {'top_list': "nothing"},context_instance=RequestContext(request))
 
