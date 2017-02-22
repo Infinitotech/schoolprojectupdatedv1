@@ -27,14 +27,14 @@
 <input name="test_id" type="hidden" value="743527">
 <div class="misc_cat hide">
 <div class="field-group">
-<label class="form-field-title" for="editText_tn">Test Name:</label> <input size="40" type="text" id="editText_tn" class="hide" name="test_name" maxlength="255" value="abc">
+<label class="form-field-title" for="editText_tn">Test Name:</label> <input size="40" type="text" id="editText_tn" class="hide" name="test_name" maxlength="255" value="{{ test_name }}">
 </div>
 <div class="field-group">
 <label class="form-field-title" for="catid">Category:</label> <select id="catid" name="cat_id">
 <option value="0" selected="selected">Generic</option> </select> <a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#" id="createCatRpc">New category</a> <span class="showTooltip tooltip" title="Categorizing your Tests and questions allows you to easily keep these items organized. You can also view results by category to help better analyze problem areas.">Tip</span>
 </div>
 </div>
-<div id="editLink_tn"><h2 id="showText_tn" class="bbcodeInWrapper test-name name edit-name show-edit-symbol">abc<span class="edit-symbol"></span></h2></div>
+<div id="editLink_tn"><h2 id="showText_tn" class="bbcodeInWrapper test-name name edit-name show-edit-symbol">{{  test_name  }}<span class="edit-symbol"></span></h2></div>
 <div class="misc_testname tab hide"><br>
 <a href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#" class="ie_btn ajaxSubmitBtn hide btn btn-create notextchange" id="submit_testname">Update</a>
 <a class="ie_btn ajaxCancelBtn hide btn btn-cancel notextchange">Cancel</a>
@@ -149,7 +149,7 @@ Links (0)</a></span>
 <h3>Delete Test</h3>
 <form action="https://www.classmarker.com/a/tests/test/deleteTest.rpc.php" method="post" class="genericPostForm" id="usedForIeResubmit_deleteTest">
 <input type="hidden" name="test_id" value="743527">
-<h2 class="test-name name">abc</h2>
+<h2 class="test-name name">{{ test_name }}</h2>
 <ul>
 <li>Deleting this Test is Permanent!</li>
 <li>Questions in this Test will remain in your Question Bank</li>
@@ -178,7 +178,7 @@ Links (0)</a></span>
 <div class="col-span-4 col-btns">
 <div class="dropdown">
 <a class="btn btn-analytics dropdown-toggle no_anchor" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Fixed Questions <span class="caret">&nbsp;</span> </a>
-<ul class="dropdown-menu"><li><a href="http://localhost:8000/Manage question.html?test_id=743527&amp;qtype=mcsa">Add New</a></li><li><a href="https://www.classmarker.com/a/tests/qb/import">Import New</a></li>
+<ul class="dropdown-menu"><li><a href="http://localhost:8000/Manage question.html?test_id=743527&amp;qtype=mcsa&test_name={{ test_name }}">Add New</a></li><li><a href="https://www.classmarker.com/a/tests/qb/import">Import New</a></li>
 <li class="divider"><a href="https://www.classmarker.com/a/tests/qb/?all=1&amp;edit_test_mode=1&amp;test_id=743527">Select From Your Question Bank</a></li></ul>
 </div><div class="dropdown">
 <a class="btn btn-results dropdown-toggle no_anchor" href="https://www.classmarker.com/a/tests/test/?test_id=743527&amp;success=new#">Random Questions <span class="caret">&nbsp;</span> </a>
