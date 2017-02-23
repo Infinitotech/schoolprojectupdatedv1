@@ -20,6 +20,9 @@ from .views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
+    url(r'^student\sview\sgroup\stests', Student_View_Group_Tests.as_view()),
+    url(r'^student\sview\smy\scourses', Student_View_My_Courses.as_view()),
+    url(r'^my\sdetails', My_Details.as_view()),
     url(r'^.DS_Store',DS_Store.as_view()),
     url(r'^Access\sLists', Access_Lists.as_view()),
     url(r'^Add\snew\sregistered\suser\sgroup', Add_new_registered_user_group.as_view()),
