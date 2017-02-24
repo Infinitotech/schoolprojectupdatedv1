@@ -6,8 +6,7 @@
 function addQuestion(){
 
     $.ajax({
-        url : '/test/addQuestion',
+        url : 'test/addQuestion',
         type : 'GET'
     });
 }
-    

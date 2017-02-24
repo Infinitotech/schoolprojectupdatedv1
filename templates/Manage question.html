@@ -22,24 +22,7 @@
 </div><div class="clearheight20"></div><div class="clearheight20"></div>
 <h2 class="test-name name"><a href="https://www.classmarker.com/a/tests/test/?test_id=755522" class="graylink">
 
-<!--
-<%@ page import = "java.sql.*, java.util.*"%>
-<jsp:declaration> //Jsp Declaration
 
-	String name = " ";
-		//Object o=request.getAttribute("testname");
-
-</jsp:declaration>
-<jsp:scriptlet>
-		name = request.getParameter("testname");
-</jsp:scriptlet>
-<jsp:expression>
-
-	name
-
-
-</jsp:expression>
--->
 <input type="hidden" name="testname1" Id="testname1" value="<jsp:expression> name</jsp:expression>">
 </a></h2> <div class="clearheight5"></div>
 <div class="questions-title" id="scrollToShowCount">
@@ -190,7 +173,7 @@
 	}
 
 </script>
-<form method="GET" id="questionForm1">
+<form method="GET" id="questionForm1" action="/test/addQuestion">
 <h1 style="color:green;" id='msg' ></h1>
 
 
@@ -347,7 +330,7 @@
 <span class="showTooltip tooltip" title="Partial points for some correct, do not remove points for incorrect answers">Tip</span></div></div></div><div class="col-span-3">&nbsp;</div></div>
 <div id="div_preview" class="hide bbcode" style="display: none;"></div><div class="clearheight30"></div>
 <div id="msgDivError"></div>
-<div id="edit-question-btns">
+    <input id="edit-question-btns">
 
 
 <!--<a class="btn btn-analytics preview_question_link ">Preview</a>
@@ -355,7 +338,7 @@
 <a class="btn btn-analytics edit_question_link margleft" style="display: none;">Edit</a>
 <!--<a href="https://www.classmarker.com/a/tests/qb/manage/?test_id=755522&amp;qtype=mcsa#" id="save_question" class="btn btn-create margleft">Save</a>-->
 
-<input type="submit" name="SAVEE" value="SAVE" onclick="addQuestion()" />
+        <input type="submit" name="SAVEE" value="SAVE"/>
 
 </form>
 <!--<a href="https://www.classmarker.com/a/tests/test/?test_id=755522#q" class="btn btn-cancel cancel_link f-right confirm-cancel">Cancel</a>

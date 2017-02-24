@@ -27,16 +27,12 @@ class Add_new_test(View):
     def get(self,request):
         return render(request,'Add new test.html')
 
+
 class Add_question(View):
-	def get(self,request):
-		#return render(request,'Acess List.html') #this is the main thing
-		print("aaaaaaaaaaaaaaaaaaaaaaaaaaa")
-		print ("question is"+request.GET['question'])
-		return_str=""
-		return HttpResponse(
-			json.dumps(return_str),
-			content_type="application/json"
-		)
+    def get(self,request):
+        print()
+        print("question is" + request.GET['question'])
+        return render(request,'Online Testing Free Quiz Maker Create the Best web-based quizzes ClassMarker.html') #this is the main thing
 
 class Assign_test_step_1(View):
 	def get(self,request):
@@ -144,10 +140,11 @@ class Manage_question_show(View):
 
 
 class Manage_question(View):
-	def get(self,request):
-		test_name=request.GET['test_name']
+    def get(self,request):
+		#test_name=request.GET['test_name']
 		#return render(request,'Manage question.html')
-		return render(request,'Manage question.html',{'test_name':test_name})
+		#return render(request,'Manage question.html',{'test_name':test_name})
+        return render(request, 'Manage question.html')
 		#return render_to_response("Manage question.html", {'top_list': "nothing"},context_instance=RequestContext(request))
 
 
