@@ -23,4 +23,4 @@ class Student_View_My_Courses(View):
 
 class My_Details(View):
     def get(self, request):
-        return render(request, 'my details.html')
+        return render(request,'my details.html')

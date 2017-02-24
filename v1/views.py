@@ -12,7 +12,7 @@ from django.utils.decorators import method_decorator
 
 class Login(View):
     def get(self,request):
-        return render(request,'base.html')
+        return render(request,'login.html')
 
 class SignUp(View):
     def get(self,request):

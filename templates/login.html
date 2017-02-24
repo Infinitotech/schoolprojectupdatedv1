@@ -1,0 +1,111 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!-- saved from url=(0061)file:///C:/Users/azeem_000/Desktop/student%20view/login.html? -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LOGIN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" type="text/css" href="{% static 'css_js/jquery-ui-1.10.4.custom.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css_js/cmstudent.css' %}" media="screen">
+<link rel="stylesheet" type="text/css" href="{% static 'css_js/quiz.css' %}" media="screen">
+<link href="{% static 'css_js/featherlight.css' %}" type="text/css" rel="stylesheet">
+<script type="text/javascript">
+		var audio_video_warning = '';
+	</script>
+<link rel="stylesheet" href="{% static 'css_js/font-awesome.css' %}">
+<!--[if IE 6]>
+	<link rel="stylesheet" type="text/css" href="/css3/ie67.css?v=135"/>
+	<![endif]-->
+<!--[if lte IE 7]>
+	<link rel="stylesheet" type="text/css" media="all" href="/css3/ie67.css?v=135"/>
+	<![endif]-->
+<!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" media="all" href="/css3/ie8.css?v=135"/>
+	<script type="text/javascript">
+		var isMSIE8 = 1;
+		audio_video_warning = '<div class="sceditor-ignore alert-box error">Please upgrade your browser to view audio or video.</div>';
+	</script>
+	<![endif]-->
+<!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="/css3/ie.css?v=135"/>
+	<![endif]-->
+<script type="text/javascript">
+	var web_root = "/";
+	var webpath_img = "/img3/";
+	var s3_assets_path = "https://";</script>
+<script type="text/javascript" src="{% static 'css_js/jquery-1.9.1.min.js.download' %}"></script>
+<script type="text/javascript" src="{% static 'css_js/11.js.download' %}"></script>
+<script type="text/javascript" src="{% static 'css_js/jquery-ui-1.10.4.custom.min.js.download' %}"></script>
+<script type="text/javascript" src="{% static 'css_js/cmall.js.download' %}"></script>
+<script type="text/javascript" src="{% static 'css_js/featherlight.js.download' %}"></script>
+<link rel="stylesheet" media="print" type="text/css" href="{% static 'css_js/11.css' %}">
+
+</head>
+<body>
+<div class="header">
+<div class="branding">
+<div class="f-left"><a href="https://www.classmarker.com/a/"><img src="{% static 'css_js/classmarker-logo.gif' %}" alt="Hosted online testing quiz maker"></a><span class="noprint">ClassMarker</span></div>
+<div class="top-right-nav noprint">
+<ul class="upgrade-logout-nav">
+
+
+
+<div class="clearheight30"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#change_group").click( function (){
+
+			if ( !$('input:radio[name=g_id]:checked').val() ){
+				alert('First select a group.');
+				return false;
+			} else {
+				$('#changeGroupForm').submit();
+				return false;
+			}
+
+		});
+	});
+</script>
+</ul></div> 
+</div>
+
+</div>
+
+
+<h2 align="center" style="color:orange;">Sign In</h2>
+
+
+
+
+<div class="login-page">
+  <div class="form" style="
+    top: -40px;
+    right: 100px;
+    padding-right: 45px;
+    border-right-width: 20px;
+    height: 200px;
+    width: 350px;
+    margin-right: 65px;
+    margin-left: 65px;
+    margin-top: -40;
+">
+    <form class="register-form">
+      <input type="text" placeholder="name">
+      <input type="password" placeholder="password">
+      <input type="text" placeholder="email address">
+      <button>create</button>
+</form>
+    <form class="login-form">
+      <input type="text" placeholder="username">
+<br><br>
+
+      <input type="password" placeholder="password">
+<br>
+<br>
+      <button>login</button>
+      <p class="message"></p>
+    </form>
+  </div>
+</div>
+
+
+
+</body></html>
