@@ -17,7 +17,6 @@ from django.conf.urls import url,include
 from django.contrib import admin
 
 
-
 urlpatterns = [
     url(r'',include('test_module.student_urls')),
 ]
