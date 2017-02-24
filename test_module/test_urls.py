@@ -17,13 +17,8 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from .views import *
 
+
+
 urlpatterns = [
-    url(r'^login',Login.as_view()),
-    url(r'^signup',SignUp.as_view()),
-    url(r'^admin/', admin.site.urls),
-    url(r'^test/',include('test_module.test_urls')),
-    ###these three new urls are added###
-
-    ########
-
+    url(r'',include('test_module.student_urls')),
 ]

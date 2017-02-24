@@ -15,15 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from .views import *
+from .student_views import *
+
 
 urlpatterns = [
-    url(r'^login',Login.as_view()),
-    url(r'^signup',SignUp.as_view()),
-    url(r'^admin/', admin.site.urls),
-    url(r'^test/',include('test_module.test_urls')),
-    ###these three new urls are added###
-
-    ########
-
+url(r'^student\sview\sgroup\stests', Student_View_Group_Tests.as_view()),
+    url(r'^student\sview\smy\scourses', Student_View_My_Courses.as_view()),
+    url(r'^my\sdetails', My_Details.as_view()),
+    url(r'',include('test_module.teacher_urls')),
 ]

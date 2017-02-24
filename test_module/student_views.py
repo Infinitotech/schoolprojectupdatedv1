@@ -10,10 +10,17 @@ from django.utils.decorators import method_decorator
 
 
 
-class Login(View):
-    def get(self,request):
-        return render(request,'base.html')
 
-class SignUp(View):
-    def get(self,request):
-        return render(request,'base.html')
+
+
+class Student_View_Group_Tests(View):
+    def get(self, request):
+        return render(request, 'student view group tests.html')
+
+class Student_View_My_Courses(View):
+    def get(self, request):
+        return render(request, 'student view my courses.html')
+
+class My_Details(View):
+    def get(self, request):
+        return render(request, 'my details.html')
