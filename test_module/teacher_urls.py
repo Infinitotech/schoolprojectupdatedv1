@@ -22,6 +22,7 @@ urlpatterns=[
     url(r'^Access\sLists', Access_Lists.as_view()),
     url(r'^Add\snew\sregistered\suser\sgroup', Add_new_registered_user_group.as_view()),
     url(r'^Add\snew\stest', Add_new_test.as_view()),
+    url(r'^addQuestion', Add_question.as_view()),
     url(r'^Assign\stest\sstep\s1', Assign_test_step_1.as_view()),
     url(r'^Assign\stest\sstep\s1b', Assign_test_step_1b.as_view()),
     url(r'^Assign\stest\sstep\s2', Assign_test_step_2.as_view()),

@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
-
+import random,json
 
 class BasePage(View):
     def get(self,request):
@@ -27,6 +27,16 @@ class Add_new_test(View):
     def get(self,request):
         return render(request,'Add new test.html')
 
+class Add_question(View):
+	def get(self,request):
+		#return render(request,'Acess List.html') #this is the main thing
+		print("aaaaaaaaaaaaaaaaaaaaaaaaaaa")
+		print ("question is"+request.GET['question'])
+		return_str=""
+		return HttpResponse(
+			json.dumps(return_str),
+			content_type="application/json"
+		)
 
 class Assign_test_step_1(View):
 	def get(self,request):

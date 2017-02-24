@@ -150,12 +150,12 @@
 
 		 Hide all */
 		//$('.question_explain_div').hide();
-		$('#questionForm [class*="_formdiv"]').hide();/* Hide all divs */
-		$('#questionForm [class*="_formdiv"] input, #questionForm [class*="_formdiv"] textarea').attr('disabled', 'disabled');/* Disable all inputs */
+		$('#questionForm1 [class*="_formdiv"]').hide();/* Hide all divs */
+		$('#questionForm1 [class*="_formdiv"] input, #questionForm1 [class*="_formdiv"] textarea').attr('disabled', 'disabled');/* Disable all inputs */
 
 		/* SHow required */
-		$('#questionForm [class*="'+ active_question_form+'_formdiv"] input, #questionForm [class*="'+ active_question_form+'_formdiv"] textarea').removeAttr('disabled');/* Activate required divs */
-		$('#questionForm [class*="'+ active_question_form+'_formdiv"]').show();/* Show required divs */
+		$('#questionForm1 [class*="'+ active_question_form+'_formdiv"] input, #questionForm1 [class*="'+ active_question_form+'_formdiv"] textarea').removeAttr('disabled');/* Activate required divs */
+		$('#questionForm1 [class*="'+ active_question_form+'_formdiv"]').show();/* Show required divs */
 
 		$('#div_preview').hide();
 		$('.edit_question_link').hide();
@@ -189,10 +189,8 @@
 //		}
 	}
 
-
-
 </script>
-<form method="post" id="questionForm">
+<form method="GET" id="questionForm1">
 <h1 style="color:green;" id='msg' ></h1>
 
 
@@ -357,7 +355,7 @@
 <a class="btn btn-analytics edit_question_link margleft" style="display: none;">Edit</a>
 <!--<a href="https://www.classmarker.com/a/tests/qb/manage/?test_id=755522&amp;qtype=mcsa#" id="save_question" class="btn btn-create margleft">Save</a>-->
 
-<input type="submit" name="SAVE" value="SAVE" onclick="fncStudsearch()" />
+<input type="submit" name="SAVEE" value="SAVE" onclick="addQuestion()" />
 
 </form>
 <!--<a href="https://www.classmarker.com/a/tests/test/?test_id=755522#q" class="btn btn-cancel cancel_link f-right confirm-cancel">Cancel</a>
