@@ -4,7 +4,7 @@
 
 
 function addQuestion(){
-
+    alert('load')
     $.ajax({
         url : 'test/addQuestion',
         type : 'GET'
