@@ -152,10 +152,7 @@ class Manage_question_show(View):
 class Manage_question(View):
     def get(self,request):
         test_name=request.GET['test_name']
-        #return render(request,'Manage question.html')
         return render(request,'Manage question.html',{'test_name':test_name})
-        #return render(request, 'Manage question.html')
-        #return render_to_response("Manage question.html", {'top_list': "nothing"},context_instance=RequestContext(request))
 
 
 class Manage_test_post(View):
