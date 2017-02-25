@@ -10,29 +10,35 @@ from django.utils.decorators import method_decorator
 import random,json
 
 class BasePage(View):
-    def get(self,request):
-        return render(request,'base.html')
+	def get(self,request):
+		return render(request,'base.html')
 
 
 class Access_Lists(View):
-    def get(self,request):
-        return render(request,'Access Lists.html')
+	def get(self,request):
+		return render(request,'Access Lists.html')
 
 
 class Add_new_registered_user_group(View):
-    def get(self,request):
-        return render(request,'Add new registered user group.html')
+	def get(self,request):
+		return render(request,'Add new registered user group.html')
 
 class Add_new_test(View):
-    def get(self,request):
-        return render(request,'Add new test.html')
+	def get(self,request):
+		return render(request,'Add new test.html')
 
 
 class Add_question(View):
-    def get(self,request):
-        print()
-        print("question is" + request.GET['question'])
-        return render(request,'Online Testing Free Quiz Maker Create the Best web-based quizzes ClassMarker.html') #this is the main thing
+	def get(self,request):
+		print()
+		print("question is" + request.GET['question1'])
+		return render(request,'Manage question.html') #this is the main thing
+
+	def post(self, request):
+		question = request.POST.get('question1')
+		print("Nishaf")
+		print(question)
+		return render(request, 'Manage question.html',{'test_name':test_name})
 
 class Assign_test_step_1(View):
 	def get(self,request):
@@ -139,13 +145,16 @@ class Manage_question_show(View):
 		return render(request,'Manage question(show).html')
 
 
+
+
 class Manage_question(View):
-    def get(self,request):
-		#test_name=request.GET['test_name']
+	def get(self,request):
+		test_name=request.GET['test_name']
 		#return render(request,'Manage question.html')
-		#return render(request,'Manage question.html',{'test_name':test_name})
-        return render(request, 'Manage question.html')
+		return render(request,'Manage question.html',{'test_name':test_name})
+		#return render(request, 'Manage question.html')
 		#return render_to_response("Manage question.html", {'top_list': "nothing"},context_instance=RequestContext(request))
+
 
 
 class Manage_test_post(View):
@@ -261,4 +270,4 @@ class Web_based_online_testing_service_Free_quiz_maker_ClassMarker(View):
 
 class welcome(View):
 	def get(self,request):
-	    return render(request,'welcome.html')
+		return render(request,'welcome.html')

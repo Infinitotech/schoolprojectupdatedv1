@@ -1,8 +1,6 @@
-
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-
 
 
 <div id="content" class="clearfix">
@@ -22,8 +20,8 @@
 </div><div class="clearheight20"></div><div class="clearheight20"></div>
 <h2 class="test-name name"><a href="https://www.classmarker.com/a/tests/test/?test_id=755522" class="graylink">
 
+{{ test_name }}
 
-<input type="hidden" name="testname1" Id="testname1" value="<jsp:expression> name</jsp:expression>">
 </a></h2> <div class="clearheight5"></div>
 <div class="questions-title" id="scrollToShowCount">
 <div class="col-span-3"><h3><span id="total_questions_count"></span> Questions</h3></div>
@@ -63,14 +61,9 @@
 <script type="text/javascript">
 	/* initialise */
 	var active_question_form = 'mc';//Global scope - keep outside of $(document).ready
-
 	$(document).ready(function () {
-
-
 		$('#symbolsDiv').jqm({ajax: '/inc/lib/misc/symbols.php?V3=1', trigger: 'a[id^=showSymbols]'});
-		$('#questionExamplesDiv').jqm({ajax: '/inc/lib/html/tests/questionExamples.html.php', trigger: 'a[id^=showQuestionExamples]'});
-
-
+		$('#questionExamplesDiv').jqm({ajax: '{% static 'css_js/questionExamples.html.php' %}', trigger: 'a[id^=showQuestionExamples]'});
 		$('.showCorrect').change(function(){
 			$(this).prev('h5').toggleClass('editShowCorrect');
 			$(this).next('label').toggleClass('editShowCorrect');
@@ -80,12 +73,8 @@
 			$('.showCorrecttf').each( function (){
 				$(this).prev('h5').toggleClass('editShowCorrecttf');
 				$(this).next('label').toggleClass('editShowCorrecttf');
-
 			})
 		});
-
-
-
 		/* Show div displays always  */
 		$('#edit_mc').click(function () {
 			$('#editQheader').text('Multiple Choice / Response');
@@ -93,77 +82,58 @@
 			$('#qtype').val('mcsa');
 			showDiv();
 		});
-
 		$('#edit_tf').click(function () {
 			$('#editQheader').text('True False');
 			active_question_form = 'tf';
 			$('#qtype').val('tf');
 			showDiv();
 		});
-
 		$('#edit_ft').click(function () {
 			$('#editQheader').text('Free Text');
 			active_question_form = 'ft';
 			$('#qtype').val('ft');
 			showDiv();
 		});
-
 		$('#edit_p').click(function () {
 			$('#editQheader').text('Grammar');
 			active_question_form = 'p';
 			$('#qtype').val('p');
 			showDiv();
 		});
-
 		$('#edit_e').click(function () {
 			$('#editQheader').text('Essay');
 			active_question_form = 'e';
 			$('#qtype').val('e');
 			showDiv();
 		});
-
 		showDiv();
-
 	});
-
 	function showDiv() {
-
 		/*
 		 Change which question form displays
-
 		 Hide all */
 		//$('.question_explain_div').hide();
 		$('#questionForm1 [class*="_formdiv"]').hide();/* Hide all divs */
 		$('#questionForm1 [class*="_formdiv"] input, #questionForm1 [class*="_formdiv"] textarea').attr('disabled', 'disabled');/* Disable all inputs */
-
 		/* SHow required */
 		$('#questionForm1 [class*="'+ active_question_form+'_formdiv"] input, #questionForm1 [class*="'+ active_question_form+'_formdiv"] textarea').removeAttr('disabled');/* Activate required divs */
 		$('#questionForm1 [class*="'+ active_question_form+'_formdiv"]').show();/* Show required divs */
-
 		$('#div_preview').hide();
 		$('.edit_question_link').hide();
-
-
 		$('[id^="form_div_"]').each(function () {
 			$(this).hide();
 		});
-
 		if (typeof isMSIE8 !== 'undefined') {
 			$('#form_div').removeClass('move_off_screen');
 		} else {
 			$('#form_div').show();
 		}
-
 		$('#button_row').show();
-
 		$('[id^="edit_"]').each(function () {
 			$(this).closest('li').removeClass('selected');
-
 		});
 		$('#edit_' + active_question_form).closest('li').addClass('selected');
-
 		$('.question-selector').show();
-
 		// comment out the following code temporarily since it throws exception in IE8  Allen
 		// Add id for selenium test
 //		var ids = ["question", "ans1", "ans2", "ans3", "ans4"];
@@ -171,9 +141,9 @@
 //			addSeleniumId(ids[i]);
 //		}
 	}
-
 </script>
-<form method="GET" id="questionForm1" action="/test/addQuestion">
+
+<form method="POST" id="questionForm1" action="/test/addQuestion">
 <h1 style="color:green;" id='msg' ></h1>
 
 
@@ -184,7 +154,7 @@
 </textarea>
 <!--<div class="sceditor-container ltr" style="width: 550px;" id="editor_question"><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><textarea dir="ltr" style="display: none; width: 540px; height: 93px;"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div><div class="jqmWindow jqmID1" id="symbolsDiv"></div>
 -->
-<textarea name="question" rows="3" cols="67" id="question" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
+<textarea name="question1" rows="3" cols="67" id="question" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
 
 <input type="hidden" name="test_name" Id="test_name" value="{{ test_name }}">
 
@@ -200,7 +170,6 @@
 <textarea name="ans1" rows="3" cols="67" id="ans1" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
 <!--
 <textarea name="ans1" rows="3" cols="67" id="ans1" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput fullBBcodeEditor" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 550px;" id="editor_question"><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><textarea dir="ltr" style="display: none; width: 540px; height: 93px;"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div><div class="jqmWindow jqmID1" id="symbolsDiv">
-
 </div>-->
 <div class="answer">
 <div class="answer_heading">
@@ -221,7 +190,6 @@
 <textarea name="ans3" rows="3" cols="67" id="ans3" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
  <!--
 <textarea name="ans3" rows="3" cols="67" id="ans3" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput fullBBcodeEditor" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 550px;" id="editor_question"><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><textarea dir="ltr" style="display: none; width: 540px; height: 93px;"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div><div class="jqmWindow jqmID1" id="symbolsDiv">
-
 </div>-->
 <div class="answer">
 <div class="answer_heading">
@@ -330,7 +298,7 @@
 <span class="showTooltip tooltip" title="Partial points for some correct, do not remove points for incorrect answers">Tip</span></div></div></div><div class="col-span-3">&nbsp;</div></div>
 <div id="div_preview" class="hide bbcode" style="display: none;"></div><div class="clearheight30"></div>
 <div id="msgDivError"></div>
-    <input id="edit-question-btns">
+
 
 
 <!--<a class="btn btn-analytics preview_question_link ">Preview</a>
@@ -339,7 +307,10 @@
 <!--<a href="https://www.classmarker.com/a/tests/qb/manage/?test_id=755522&amp;qtype=mcsa#" id="save_question" class="btn btn-create margleft">Save</a>-->
 
         <input type="submit" name="SAVEE" value="SAVE"/>
-
+</div>
+</div>
+</div>
+</div>
 </form>
 <!--<a href="https://www.classmarker.com/a/tests/test/?test_id=755522#q" class="btn btn-cancel cancel_link f-right confirm-cancel">Cancel</a>
 </div>-->
@@ -350,7 +321,7 @@
 <div class="jqmWindow jqmID1" id="symbolsDiv"></div>
 <div class="jqmWindowWide jqmID2" id="questionExamplesDiv"></div>
 </div>
-<img src="./ClassMarker - Manage question_files/icon_loading_circleV3.gif" alt="Hidden Loading Image" class="hide" width="20" height="20">
+<img src="{% static 'css_js/icon_loading_circleV3.gif' %}" alt="Hidden Loading Image" class="hide" width="20" height="20">
 </div>
 
 
