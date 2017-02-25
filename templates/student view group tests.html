@@ -86,11 +86,11 @@
 </tr>
 </thead>
 <tbody class="sort-data-set">
-{% for i in tests %}
+{% for i,j,k in names %}
 <tr class="single-hover-row">
     <div id="editLink_tn">
     <td class="nonametitle">
-    <h2 class="test-name name">test.name</h2>
+    <h2 class="test-name name">{{ i }}</h2>
     <div class="extra-info editor">
         <p>Attempts allowed: Unlimited</p>
     </div>
@@ -98,9 +98,9 @@
         <p><a class="btn btn-results" href="/test/start/?test_id=752740">Start</a></p>
     </div>
     </td>
-    <td class="nocontent">test.maximum_score</td>
     <td class="nocontent">-</td>
-    <td class="nocontent">-</td>
+    <td class="nocontent">{{ j }}</td>
+    <td class="nocontent">{{ k }}</td>
     <td class="noactiontitle col-btns"></td>
     </div>
 </tr>
