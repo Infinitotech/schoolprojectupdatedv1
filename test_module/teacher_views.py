@@ -9,6 +9,7 @@ from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 import random,json
 
+
 class BasePage(View):
     def get(self,request):
         return render(request,'base.html')
