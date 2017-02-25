@@ -72,17 +72,25 @@
     margin-left: 65px;
     margin-top: -40;
 ">
-    <form class="register-form">
-      <input type="text" placeholder="name">
-      <input type="password" placeholder="password">
-      <input type="text" placeholder="email address">
-      <button>create</button>
-</form>
-    <form class="login-form">
-      <input type="text" placeholder="username">
+
+    <form class="login-form" methode="post" action="check">
+
+        <select align="left" name="schoolname" id="schoolname">
+            {%   for i,n in schooldata.items%}
+
+                <option value='{{ i }}'>{{ n }}</option>
+
+            {% endfor %}
+</select>
+
+
+         <input type="text" name="branchid" placeholder="BRANCH ID">
 <br><br>
 
-      <input type="password" placeholder="password">
+        <input type="text" name="username" placeholder="username">
+<br>
+
+      <input type="password" name="password" placeholder="password">
 <br>
 <br>
       <button>login</button>
