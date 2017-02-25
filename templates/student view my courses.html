@@ -69,38 +69,27 @@
 
 <div id="content" class="clearfix">
 <div class="innerWrapper"><h2 class="group-name name">My groups</h2><div class="student-page editor">
-<form method="post" action="https://www.classmarker.com/u/groups/changeGroup.php" id="changeGroupForm"><input type="hidden" name="token" value="7GPPDYFTHD"><div class="table">
-<div class="row overall">
-<div class="col-span-4">
-Select group:
-</div>
-</div><div class="row">
-<div class="col-span-05 radio-icon">
-<input id="gid_318364" type="radio" name="g_id" value="318364">
-</div>
-<div class="col-span-99">
-<label for="gid_318364">12</label>
-</div>
-</div><div class="row">
-<div class="col-span-05 radio-icon">
-<input id="gid_318250" type="radio" name="g_id" value="318250">
-</div>
-<div class="col-span-99">
-<label for="gid_318250">123</label>
-</div>
-</div><div class="row">
-<div class="col-span-05 radio-icon">
-<input id="gid_318252" type="radio" name="g_id" value="318252">
+<form method="get" action="student view group tests" id="changeGroupForm">
+    <input type="hidden" name="token" value="7GPPDYFTHD">
+    <div class="table">
+    <div class="row overall">
+        <div class="col-span-4">
+            Select group:
+        </div>
+    </div>
+    {% for course in list %}
+    <div class="row">
+        <div class="col-span-05 radio-icon">
+            <input id="g_id" type="radio" name="g_id" value="{{ course }}">
+        </div>
+        <div class="col-span-99">
+            <label for="gid_318364">{{ course }}</label>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 <div class="col-span-99">
-<label for="gid_318252">123</label>
-</div>
-</div><div class="row">
-<div class="col-span-05 radio-icon">
-&nbsp;
-</div>
-<div class="col-span-99">
-<a id="change_group" href="https://www.classmarker.com/u/groups/#" class="btn btn-create">Go to selected group</a>
+<a id="change_group" href="" class="btn btn-create">Go to selected group</a>
 </div>
 </div></div></form><script type="text/javascript">
 google_ad_client = "pub-1813370847715935";

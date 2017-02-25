@@ -71,7 +71,7 @@
 
 
 <div id="content" class="clearfix">
-<div class="innerWrapper"><h2 class="group-name name">12</h2><div class="student-page editor"></div><div class="student-asside"><div class="student-message editor">
+<div class="innerWrapper"><h2 class="group-name name">{{ test }}</h2><div class="student-page editor"></div><div class="student-asside"><div class="student-message editor">
 <p>You are registered in multiple groups.</p>
 <a href="https://www.classmarker.com/u/groups/">Change groups</a> to view tests in other groups.
 </div></div>
@@ -85,7 +85,43 @@
 <th colspan="2" class="duration-title">Duration</th>
 </tr>
 </thead>
-<tbody class="sort-data-set"><tr><td colspan="5" class="notests"><div class="clearheight"></div><div class="row">No tests are currently available to take under this group.</div><div class="clearheight"></div></td></tr></tbody></table>
+<tbody class="sort-data-set">
+{% for i in tests %}
+<tr class="single-hover-row">
+    <div id="editLink_tn">
+    <td class="nonametitle">
+    <h2 class="test-name name">test.name</h2>
+    <div class="extra-info editor">
+        <p>Attempts allowed: Unlimited</p>
+    </div>
+    <div class="extra-info editor">
+        <p><a class="btn btn-results" href="/test/start/?test_id=752740">Start</a></p>
+    </div>
+    </td>
+    <td class="nocontent">test.maximum_score</td>
+    <td class="nocontent">-</td>
+    <td class="nocontent">-</td>
+    <td class="noactiontitle col-btns"></td>
+    </div>
+</tr>
+{% endfor %}
+<!--<tr>
+    <td colspan="5" class="notests">
+        <div class="clearheight"></div>
+        {% for name in test_names %}
+        <div class="row">
+            <div id="editLink_tn">
+                <h2 id="showText_tn" class="bbcodeInWrapper test-name name edit-name show-edit-symbol">{{ name }}
+                    <span class="edit-symbol"></span>
+                </h2>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="clearheight"></div>
+    </td>
+</tr>-->
+</tbody>
+</table>
 <script type="text/javascript">
 	asset_image_toggle_max_width = 600;
 </script>
