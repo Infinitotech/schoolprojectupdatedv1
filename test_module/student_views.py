@@ -32,6 +32,9 @@ class Student_View_Group_Tests(View):
 
 class Student_View_My_Courses(View):
     def get(self, request):
+        #for i in request.GET['user']:
+         #   print (i)
+        print ("sada");print(request.GET)
         mongo = MongoClient()
         name = "azeemullah"
         s = "1"
@@ -50,4 +53,6 @@ class Student_View_My_Courses(View):
 
 class My_Details(View):
     def get(self, request):
+        mongo=MongoClient()
+
         return render(request,'my details.html')

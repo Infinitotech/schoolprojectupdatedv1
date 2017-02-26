@@ -16,8 +16,6 @@ class Login(View):
         print("In post func")
         db = mongo['dummy_school_project_v1']
         school = db.school.find()
-        school_id = []
-        school_name = []
         mydict={}
         for s in school:
           mydict[s['id']]=s['school_name']
@@ -29,26 +27,24 @@ class SignUp(View):
         return render(request,'base.html')
 
 class check(View):
-    def authenticate(self, username, password):
+    def authenticate(self, username, password,school_id,branchid):
         mongo = MongoClient()
         db = mongo['dummy_school_project_v1']
-        if db.users.find({'username': username, 'password': password}).count() > 0:
-            return True
+        user=db.users.find_one({'school_id': int(school_id), 'password': password, 'branch_id': int(branchid), 'username': username})
+        if user:
+            return user
         else:
-            return False
+            return None
 
     def post(self,request):
         print("check_post")
         username = request.POST['username']
         password = request.POST['password']
         branchid = request.POST['branchid']
-        id = request.POST['schoolname']
-        print(password)
-        print(username)
-        print(id)
-        bool = self.authenticate(username, password)
-        if bool is True:
-            return render(request,'welcome.html', {'username': username})
+        school_id = request.POST['schoolname']
+        user = self.authenticate(username, password,school_id,branchid)
+        if user :
+            return redirect('test/student%20view%20my%20courses', user)
         else:
             mongo = MongoClient()
             print("InErrorLogin")
