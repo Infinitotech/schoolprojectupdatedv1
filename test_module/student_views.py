@@ -94,4 +94,6 @@ class Test_Questions(View):
         for i in questions:
             q_list.append(questions[i])
 
+
+
         return render(request, 'test questions.html', {'questions': questions,'options':options})
