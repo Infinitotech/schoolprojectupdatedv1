@@ -1,3 +1,4 @@
+from v1.Database import StudentDataBase
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from django.shortcuts import render_to_response
@@ -8,9 +9,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 from pymongo import MongoClient
-
-
-
+from v1.decorators import login_required
 
 class Student_View_Group_Tests(View):
     def get(self, request):
@@ -31,88 +30,38 @@ class Student_View_Group_Tests(View):
         return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score)})
 
 class Student_View_My_Courses(View):
+    @login_required
     def get(self, request):
-        #for i in request.GET['user']:
-         #   print (i)
-        print ("sada");print(request.GET)
-        mongo = MongoClient()
-        name = "azeemullah"
-        s = "1"
-
-        b = "1"
-        db = mongo['dummy_school_project_v1']
         user = request.session['user']
-        for key in user:
-            print (key,user[key])
-        print ("printed")
-        user = db.users.find_one({"name":"azeemullah", "school_id": 1, "branch_id": 1})
-
         courses = user['history']['courses']
         list = []
         for i in courses:
-            print(i['status'])
             if i['status'] == "active":
                 list.append(i['course_name'])
-        print(list)
-        return render(request, 'student view my courses.html', {'list':list,'user':user}  )
+        return render(request, 'student view my courses.html', {'list': list,'user': user})
 
 
 class My_Details(View):
+    @login_required
     def get(self, request):
         user = request.session['user']
         return render(request,'my details.html',{'user': user})
 
+    @login_required
     def post(self, request):
-        print("In Post Method")
-        mongo = MongoClient()
-        db = mongo['dummy_school_project_v1']
+        user = request.session['user']
         if 'change_username' in request.POST:
-            user = request.session['user']
             old_user = user['username']
             new_username = request.POST['username']
-            print(user['username'])
             user['username'] = new_username
-            db.users.update({'username':old_user},
-                            {
-                                'username': new_username,
-                                'name': user['name'],
-                                'father_name': user['father_name'],
-                                'password': user['password'],
-                                'type': user['type'],
-                                'dob': user['dob'],
-                                'photo': user['photo'],
-                                'nic': user['nic'],
-                                'status': user['status'],
-                                'school_id': user['school_id'],
-                                'branch_id': user['branch_id']
-                            })
+            StudentDataBase().change_username(new_username,old_user,user)
             request.session['user'] = user
-
-            return render(request, 'my details.html', {'user': user})
-
         elif 'change_password' in request.POST:
             password = request.POST['pass2']
-            user = request.session['user']
-            db.users.update({'username': user['username']},
-                            {
-                                'username': user['username'],
-                                'name': user['name'],
-                                'father_name': user['father_name'],
-                                'password': password,
-                                'type': user['type'],
-                                'dob': user['dob'],
-                                'photo': user['photo'],
-                                'nic': user['nic'],
-                                'status': user['status'],
-                                'school_id': user['school_id'],
-                                'branch_id': user['branch_id']
-                            })
+            user['password'] = password
+            StudentDataBase().change_password(user, password)
             request.session['user'] = user
-
-            return render(request, 'my details.html', {'user': user})
-
-
-
+        return render(request, 'my details.html', {'user': user})
 
 
 class Test_intro(View):
