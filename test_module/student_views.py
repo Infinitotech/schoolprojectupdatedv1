@@ -41,6 +41,8 @@ class Student_View_My_Courses(View):
 
         b = "1"
         db = mongo['dummy_school_project_v1']
+        if request.session['user']:
+            print("yessssssssssssss")
         user = db.users.find_one({"name":"azeemullah", "school_id": 1, "branch_id": 1})
 
         courses = user['history']['courses']

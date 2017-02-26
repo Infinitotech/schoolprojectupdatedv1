@@ -30,7 +30,7 @@ class check(View):
     def authenticate(self, username, password,school_id,branchid):
         mongo = MongoClient()
         db = mongo['dummy_school_project_v1']
-        user=db.users.find_one({'school_id': int(school_id), 'password': password, 'branch_id': int(branchid), 'username': username})
+        user=db.users.find({'school_id': int(school_id), 'password': password, 'branch_id': int(branchid), 'username': username})
         if user:
             return user
         else:
@@ -39,13 +39,16 @@ class check(View):
     def post(self,request):
         print("check_post")
         username = request.POST['username']
-
         password = request.POST['password']
         branchid = request.POST['branchid']
         school_id = request.POST['schoolname']
+        request.session.set_expiry(0)
         user = self.authenticate(username, password,school_id,branchid)
+        request.session['user']={'okay':'a'}
+
         if user :
-            return redirect('test/student%20view%20my%20courses', user)
+
+            return redirect('test/student%20view%20my%20courses')
         else:
             mongo = MongoClient()
             print("InErrorLogin")
