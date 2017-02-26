@@ -1,3 +1,4 @@
+from .Database import DataBase
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from django.shortcuts import render_to_response
@@ -8,58 +9,30 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 from pymongo import MongoClient
-from django.conf import settings
-from mongo_sessions.session import *
+import json
 
 
 class Login(View):
     def get(self,request):
-        mongo = MongoClient()
-        print("In post func")
-        db = mongo['dummy_school_project_v1']
-        school = db.school.find()
-        school_id = []
-        school_name = []
-        mydict={}
-        for s in school:
-          mydict[s['id']]=s['school_name']
-        print(mydict)
-        return render(request,'login.html',{'schooldata':mydict})
+        my_dict = DataBase.get_school_dict()
+        return render(request,'login.html',{'schooldata':my_dict})
+
+    def post(self,request):
+        username = request.POST['username']
+        password = request.POST['password']
+        branchid = request.POST['branchid']
+        school_id = request.POST['schoolname']
+        request.session.set_expiry(0)
+        user = DataBase().authenticate_and_get_user(username, password, school_id, branchid)
+        if user:
+            del user['_id']
+            request.session['user'] = (user)
+            return redirect('/test/student%20view%20my%20courses')
+        else:
+            my_dict = DataBase.get_school_dict()
+            return render(request, 'login.html', {'error': 'Invalid Credentials!', 'schooldata': my_dict})
+
 
 class SignUp(View):
     def get(self,request):
         return render(request,'base.html')
-
-class check(View):
-    def authenticate(self, username, password):
-        mongo = MongoClient()
-        db = mongo['dummy_school_project_v1']
-        if db.users.find({'username': username, 'password': password}).count() > 0:
-            return True
-        else:
-            return False
-
-
-    def post(self,request):
-        print("check_post")
-        username = request.POST['username']
-        password = request.POST['password']
-        branchid = request.POST['branchid']
-        id = request.POST['schoolname']
-        print(password)
-        print(username)
-        print(id)
-        bool = self.authenticate(username, password)
-        print(bool)
-        if bool is True:
-            return render(request,'welcome.html', {'username': username})
-        else:
-            mongo = MongoClient()
-            print("InErrorLogin")
-            db = mongo['dummy_school_project_v1']
-            school = db.school.find()
-            mydict = {}
-            for s in school:
-                mydict[s['id']] = s['school_name']
-            return render(request, 'login.html', {'error': 'Invalid Credentials!', 'schooldata': mydict})
-
