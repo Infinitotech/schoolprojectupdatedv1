@@ -67,52 +67,51 @@
 </div>
 <div id="content" class="clearfix">
 <div class="innerWrapper"><div class="col640"><div id="ajax-container"><div class="classmarker_content"><a id="q"></a>
-<h3 class="testname">Chemistry</h3><div class="v3QuizHolder"><form method="post" action="https://www.classmarker.com/test/accept/" id="questionform" autocomplete="off">
+<h3 class="testname">{{ test_name }}</h3><div class="v3QuizHolder"><form method="post" action="https://www.classmarker.com/test/accept/" id="questionform" autocomplete="off">
 <input type="hidden" name="test_id" value="742198">
 <input type="hidden" id="timeoutinput" name="na1" value="na">
 <input type="hidden" id="finishnowinput" name="na2" value="na">
 <input type="hidden" id="control" name="next" value="1">
 <input type="hidden" name="rtla" value="1488099053">
 <input type="hidden" name="autosavequestion_token" value="da9e03355307c998d1cffd536ea11ef8"><div id="questions_container"><a id="q11423423"></a>
-        <div class="qbox takingtest">
+
+          {% for question,value in questions.items %}
+               <div class="qbox takingtest">
             <div class="qboxleft"><h2>Question 1 of 1</h2></div>
             <div class="clear"></div>
         </div>
-        {% for i in q_list %}
+
+
         <div class="col600 qsholder editor" data-must-answer="1" data-question-type="mcsa">
-            <p class=" bbcode">{{ i }}</p>
+
+            <p class=" bbcode"><h5>{{ value  }}</h5></p>
+
+                {% for ques,option in options.items %}
+                    {% if ques == question %}
+                        {% for opt,value1 in option.items %}
+
+
+
         </div>
-        {% endfor %}
+
+
+
 <div class="dotted"></div>
-<div class="mcanswersDiv"><fieldset class="qfieldset"><legend><span class="hide">Answer options for question 1</span></legend><div class="clear"></div>
+<div class="mcanswersDiv"><fieldset class="qfieldset"><legend><span class="hide">Answer options for question </span></legend><div class="clear"></div>
 <div class="ans_select">
 <input type="radio" id="rmc_11423423_0" name="mcsa_11423423_1488099053" value="bcbbab68e1336d95d26005295de0b4cb">
 </div>
 <div class="ans_content_letter"><strong>A)&nbsp;</strong></div>
 <div class="ans_content_prefixed editor">
-<label for="rmc_11423423_0" class=" bbcode">Science</label>
+<label for="rmc_11423423_0" class=" bbcode"> {{ value1  }}</label>
 </div><div class="clear"></div>
-<div class="ans_select">
-<input type="radio" id="rmc_11423423_1" name="mcsa_11423423_1488099053" value="bbe3ecf63cc192103f7f41c0850aaff6">
-</div>
-<div class="ans_content_letter"><strong>B)&nbsp;</strong></div>
-<div class="ans_content_prefixed editor">
-<label for="rmc_11423423_1" class=" bbcode"><i>Game</i></label>
-</div><div class="clear"></div>
-<div class="ans_select">
-<input type="radio" id="rmc_11423423_2" name="mcsa_11423423_1488099053" value="3a6616e587d34c028a7406932da9a2fb">
-</div>
-<div class="ans_content_letter"><strong>C)&nbsp;</strong></div>
-<div class="ans_content_prefixed editor">
-<label for="rmc_11423423_2" class=" bbcode">Nothing</label>
-</div><div class="clear"></div>
-<div class="ans_select">
-<input type="radio" id="rmc_11423423_3" name="mcsa_11423423_1488099053" value="ab812ed0df7058ea377d095deaec7f5c">
-</div>
-<div class="ans_content_letter"><strong>D)&nbsp;</strong></div>
-<div class="ans_content_prefixed editor">
-<label for="rmc_11423423_3" class=" bbcode">I don't know</label>
-</div></fieldset></div></div><div class="hide" id="showRefreshInstructions"><div class="alert-box error editor ">Please wait another 30 seconds and if nothing happens, please <a class="removeOnBeforeUnload" href="https://www.classmarker.com/test/?refreshtest">click here</a> to reload this page.<br><br><strong>Important Note:</strong> Reloading this page will clear your answers on this page. To ensure you do not lose the answers on this page, make sure you copy any written answers into a text document so you can copy and paste them into the answer boxes again after your refresh your browser.</div></div><div class="nextprev mainnextprevbox"><div class="prevbox">&nbsp;</div><div class="nextbox">&nbsp;</div><div class="finishbox" id="dfinish"><a class="finish2" href="https://www.classmarker.com/test/?test_id=742198#" id="qfinish">Finish now</a><a class="confirmfinish2 hide" href="https://www.classmarker.com/test/?test_id=742198#" id="qfinish_confirm">Confirm finish now</a></div></div><div class="clearheight"></div><script type="text/javascript">
+
+     {% endfor %}
+                    {% endif %}
+
+                {% endfor %}
+
+</fieldset></div></div>{% endfor %}<div class="hide" id="showRefreshInstructions"><div class="alert-box error editor ">Please wait another 30 seconds and if nothing happens, please <a class="removeOnBeforeUnload" href="https://www.classmarker.com/test/?refreshtest">click here</a> to reload this page.<br><br><strong>Important Note:</strong> Reloading this page will clear your answers on this page. To ensure you do not lose the answers on this page, make sure you copy any written answers into a text document so you can copy and paste them into the answer boxes again after your refresh your browser.</div></div><div class="nextprev mainnextprevbox"><div class="prevbox">&nbsp;</div><div class="nextbox">&nbsp;</div><div class="finishbox" id="dfinish"><a class="finish2" href="https://www.classmarker.com/test/?test_id=742198#" id="qfinish">Finish now</a><a class="confirmfinish2 hide" href="https://www.classmarker.com/test/?test_id=742198#" id="qfinish_confirm">Confirm finish now</a></div></div><div class="clearheight"></div><script type="text/javascript">
 		//asset_image_toggle_max_width = 550;
 		var web_root = "/test/";
 		var message_test_error_unanswered_text = "You must attempt all questions to continue.";

@@ -77,6 +77,7 @@ class Test_intro(View):
                  'type': i['type'],
              }
          print(question_len)
+         print ("d")
          return render(request, 'test Introduction.html', context)
 
 
@@ -88,10 +89,4 @@ class Test_Questions(View):
         course = db.tests.find_one({'test_name': test_name})
         questions = course['questions']
         options = course['options']
-        count = len(course['questions'])
-        q_list = []
-
-        for i in questions:
-            q_list.append(questions[i])
-
-        return render(request, 'test questions.html', {'q_list': q_list})
+        return render(request, 'test questions.html', {'questions': questions,'options':options, 'test_name':test_name})
