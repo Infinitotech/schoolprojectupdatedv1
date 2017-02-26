@@ -11,7 +11,9 @@ from django.utils.decorators import method_decorator
 from pymongo import MongoClient
 from v1.decorators import login_required
 
+
 class Student_View_Group_Tests(View):
+    @login_required
     def get(self, request):
         test = request.GET.get('g_id')
         mongo = MongoClient()
