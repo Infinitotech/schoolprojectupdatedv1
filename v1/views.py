@@ -16,8 +16,12 @@ class Login(View):
     def get(self,request):
         my_dict = DataBase.get_school_dict()
         try:
-            print(request.session.user)
-        except AttributeError:
+            type = request.session['user']['type']
+            if type == 'teacher':
+                return redirect('/test/Welcome')
+            elif type == 'student':
+                return redirect('/test/student%20view%20my%20courses')
+        except KeyError:
             pass
         return render(request,'login.html',{'schooldata':my_dict})
 

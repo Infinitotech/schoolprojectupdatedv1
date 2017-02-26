@@ -35,10 +35,9 @@ class Student_View_My_Courses(View):
         courses = request.session['user']['history']['courses']
         list = []
         for i in courses:
-            print(i['status'])
             if i['status'] == "active":
                 list.append(i['course_name'])
-        return render(request, 'student view my courses.html', {'list':list,'user':request.session['user']} )
+        return render(request, 'student view my courses.html', {'list': list,'user': request.session['user']} )
 
 class My_Details(View):
     def get(self, request):
