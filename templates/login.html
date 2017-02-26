@@ -66,15 +66,15 @@
     right: 100px;
     padding-right: 45px;
     border-right-width: 20px;
-    height: 200px;
+    height: 250px;
     width: 350px;
     margin-right: 65px;
     margin-left: 65px;
-    margin-top: -40;
+    margin-top: -40px;
 ">
 
-    <form class="login-form" methode="post" action="check">
-
+    <form class="login-form" method="post" action="check">
+        <h5>{{ error }}</h5>
         <select align="left" name="schoolname" id="schoolname">
             {%   for i,n in schooldata.items%}
 

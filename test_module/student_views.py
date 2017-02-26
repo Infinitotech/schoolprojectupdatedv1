@@ -29,7 +29,6 @@ class Student_View_Group_Tests(View):
             test_score.append(i['maximum_score'])
             test_duration.append(i['duration'])
         return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score)})
-                      #{'tests':tests,'test_names':test_names, 'test_score':test_score, 'test_duration':test_duration,'test':test})
 
 class Student_View_My_Courses(View):
     def get(self, request):
