@@ -19,7 +19,9 @@ from .student_views import *
 
 
 urlpatterns = [
-url(r'^student\sview\sgroup\stests', Student_View_Group_Tests.as_view()),
+    url(r'^test_intro/test questions/', Test_Questions.as_view()),
+    url(r'^test_intro/', Test_intro.as_view()),
+    url(r'^student\sview\sgroup\stests', Student_View_Group_Tests.as_view()),
     url(r'^student\sview\smy\scourses', Student_View_My_Courses.as_view()),
     url(r'^my\sdetails',My_Details.as_view()),
     url(r'',include('test_module.teacher_urls')),

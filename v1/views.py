@@ -8,6 +8,8 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 from pymongo import MongoClient
+from django.conf import settings
+from mongo_sessions.session import *
 
 
 class Login(View):
@@ -37,6 +39,7 @@ class check(View):
         else:
             return False
 
+
     def post(self,request):
         print("check_post")
         username = request.POST['username']
@@ -47,6 +50,7 @@ class check(View):
         print(username)
         print(id)
         bool = self.authenticate(username, password)
+        print(bool)
         if bool is True:
             return render(request,'welcome.html', {'username': username})
         else:
