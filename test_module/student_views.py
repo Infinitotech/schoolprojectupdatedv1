@@ -32,32 +32,14 @@ class Student_View_Group_Tests(View):
 
 class Student_View_My_Courses(View):
     def get(self, request):
-        #for i in request.GET['user']:
-         #   print (i)
-        print ("sada");print(request.GET)
-        mongo = MongoClient()
-        name = "azeemullah"
-        s = "1"
-
-        b = "1"
-        db = mongo['dummy_school_project_v1']
-        user = request.session['user']
-        for key in user:
-            print (key,user[key])
-        print ("printed")
-        user = db.users.find_one({"name":"azeemullah", "school_id": 1, "branch_id": 1})
-
-        courses = user['history']['courses']
+        courses = request.session['user']['history']['courses']
         list = []
         for i in courses:
             print(i['status'])
             if i['status'] == "active":
                 list.append(i['course_name'])
-        print(list)
-        return render(request, 'student view my courses.html', {'list':list,'user':user}  )
+        return render(request, 'student view my courses.html', {'list':list,'user':request.session['user']} )
 
 class My_Details(View):
     def get(self, request):
-        mongo=MongoClient()
-
         return render(request,'my details.html')

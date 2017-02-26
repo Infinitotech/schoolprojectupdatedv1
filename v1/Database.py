@@ -19,6 +19,10 @@ class DataBase(object):
             mydict[s['id']] = s['school_name']
         return mydict
 
+    # This function must return a user -- only to be called if the user is logged in
+    def get_user(self,username, school_id, branch_id):
+        return self.db.users.find_one({"username": username, "school_id": school_id, "branch_id": branch_id})
+
     def authenticate_and_get_user(self,username, password,school_id,branchid):
         user = self.db.users.find_one(
             {'school_id': int(school_id), 'password': password, 'branch_id': int(branchid), 'username': username})

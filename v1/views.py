@@ -15,6 +15,10 @@ import json
 class Login(View):
     def get(self,request):
         my_dict = DataBase.get_school_dict()
+        try:
+            print(request.session.user)
+        except AttributeError:
+            pass
         return render(request,'login.html',{'schooldata':my_dict})
 
     def post(self,request):
@@ -27,7 +31,10 @@ class Login(View):
         if user:
             del user['_id']
             request.session['user'] = (user)
-            return redirect('/test/student%20view%20my%20courses')
+            if user['type'] == 'teacher':
+                return redirect('/test/Welcome')
+            elif user['type'] == 'student':
+                return redirect('/test/student%20view%20my%20courses')
         else:
             my_dict = DataBase.get_school_dict()
             return render(request, 'login.html', {'error': 'Invalid Credentials!', 'schooldata': my_dict})
