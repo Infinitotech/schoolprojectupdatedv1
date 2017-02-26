@@ -63,6 +63,7 @@ class My_Details(View):
         return render(request,'my details.html',{'user': user})
 
     def post(self, request):
+        print("In Post Method")
         mongo = MongoClient()
         db = mongo['dummy_school_project_v1']
         if 'change_username' in request.POST:
