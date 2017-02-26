@@ -77,6 +77,7 @@ class Test_intro(View):
                  'type': i['type'],
              }
          print(question_len)
+         print ("d")
          return render(request, 'test Introduction.html', context)
 
 
