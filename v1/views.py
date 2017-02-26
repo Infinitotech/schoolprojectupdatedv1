@@ -39,6 +39,7 @@ class check(View):
     def post(self,request):
         print("check_post")
         username = request.POST['username']
+
         password = request.POST['password']
         branchid = request.POST['branchid']
         school_id = request.POST['schoolname']
