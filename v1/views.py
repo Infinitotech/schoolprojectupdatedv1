@@ -11,13 +11,13 @@ from django.utils.decorators import method_decorator
 from pymongo import MongoClient
 import json
 
+
 class Login(View):
     def get(self,request):
         my_dict = DataBase.get_school_dict()
         return render(request,'login.html',{'schooldata':my_dict})
 
     def post(self,request):
-        print("check_post_login_post")
         username = request.POST['username']
         password = request.POST['password']
         branchid = request.POST['branchid']
@@ -29,14 +29,8 @@ class Login(View):
             request.session['user'] = (user)
             return redirect('/test/student%20view%20my%20courses')
         else:
-            mongo = MongoClient()
-            print("InErrorLogin")
-            db = mongo['dummy_school_project_v1']
-            school = db.school.find()
-            mydict = {}
-            for s in school:
-                mydict[s['id']] = s['school_name']
-            return render(request, 'login.html', {'error': 'Invalid Credentials!', 'schooldata': mydict})
+            my_dict = DataBase.get_school_dict()
+            return render(request, 'login.html', {'error': 'Invalid Credentials!', 'schooldata': my_dict})
 
 
 class SignUp(View):
