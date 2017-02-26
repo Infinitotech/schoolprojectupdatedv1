@@ -41,8 +41,10 @@ class Student_View_My_Courses(View):
 
         b = "1"
         db = mongo['dummy_school_project_v1']
-        if request.session['user']:
-            print("yessssssssssssss")
+        user = request.session['user']
+        for key in user:
+            print (key,user[key])
+        print ("printed")
         user = db.users.find_one({"name":"azeemullah", "school_id": 1, "branch_id": 1})
 
         courses = user['history']['courses']
@@ -52,7 +54,7 @@ class Student_View_My_Courses(View):
             if i['status'] == "active":
                 list.append(i['course_name'])
         print(list)
-        return render(request, 'student view my courses.html', {'list':list})
+        return render(request, 'student view my courses.html', {'list':list,'user':user})
 
 class My_Details(View):
     def get(self, request):
