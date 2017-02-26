@@ -173,6 +173,7 @@ class My_Account(View):
 
 class My_tests(View):
     def get(self,request):
+        print("In tests")
         return render(request,'My tests.html')
 
 
