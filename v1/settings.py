@@ -36,8 +36,6 @@ STATICFILES_DIRS = (
 )
 
 
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -126,3 +124,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
+from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
+
