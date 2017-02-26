@@ -46,7 +46,7 @@ class check(View):
         user = self.authenticate(username, password,school_id,branchid)
         del user['_id']
         request.session['user']=(user)
-        print ("d")
+
         if user :
 
             return redirect('test/student%20view%20my%20courses')
