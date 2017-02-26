@@ -56,11 +56,63 @@ class Student_View_My_Courses(View):
         print(list)
         return render(request, 'student view my courses.html', {'list':list,'user':user}  )
 
+
 class My_Details(View):
     def get(self, request):
-        mongo=MongoClient()
+        user = request.session['user']
+        return render(request,'my details.html',{'user': user})
 
-        return render(request,'my details.html')
+    def post(self, request):
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+        if 'change_username' in request.POST:
+            user = request.session['user']
+            old_user = user['username']
+            new_username = request.POST['username']
+            print(user['username'])
+            user['username'] = new_username
+            db.users.update({'username':old_user},
+                            {
+                                'username': new_username,
+                                'name': user['name'],
+                                'father_name': user['father_name'],
+                                'password': user['password'],
+                                'type': user['type'],
+                                'dob': user['dob'],
+                                'photo': user['photo'],
+                                'nic': user['nic'],
+                                'status': user['status'],
+                                'school_id': user['school_id'],
+                                'branch_id': user['branch_id']
+                            })
+            request.session['user'] = user
+
+            return render(request, 'my details.html', {'user': user})
+
+        elif 'change_password' in request.POST:
+            password = request.POST['pass2']
+            user = request.session['user']
+            db.users.update({'username': user['username']},
+                            {
+                                'username': user['username'],
+                                'name': user['name'],
+                                'father_name': user['father_name'],
+                                'password': password,
+                                'type': user['type'],
+                                'dob': user['dob'],
+                                'photo': user['photo'],
+                                'nic': user['nic'],
+                                'status': user['status'],
+                                'school_id': user['school_id'],
+                                'branch_id': user['branch_id']
+                            })
+            request.session['user'] = user
+
+            return render(request, 'my details.html', {'user': user})
+
+
+
+
 
 class Test_intro(View):
      def get(self, request):
