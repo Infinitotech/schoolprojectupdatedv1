@@ -61,3 +61,37 @@ class My_Details(View):
         mongo=MongoClient()
 
         return render(request,'my details.html')
+
+class Test_intro(View):
+     def get(self, request):
+         value = request.GET['course_name']
+         mongo = MongoClient()
+         db = mongo['dummy_school_project_v1']
+         course = db.tests.find({'test_name':value})
+         for i in course:
+             question_len = str(len(i['questions']))
+             context = {
+                 'test_name': value,
+                 'question_len': question_len,
+                 'test_duration': i['duration'],
+                 'type': i['type'],
+             }
+         print(question_len)
+         return render(request, 'test Introduction.html', context)
+
+
+class Test_Questions(View):
+    def get(self, request):
+        test_name = request.GET['test_name']
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+        course = db.tests.find_one({'test_name': test_name})
+        questions = course['questions']
+        options = course['options']
+        count = len(course['questions'])
+        q_list = []
+
+        for i in questions:
+            q_list.append(questions[i])
+
+        return render(request, 'test questions.html', {'q_list': q_list})
