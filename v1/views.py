@@ -13,22 +13,8 @@ import json
 
 class Login(View):
     def get(self,request):
-        mongo = MongoClient()
-        db = mongo['dummy_school_project_v1']
-        school = db.school.find()
-        mydict={}
-        for s in school:
-          mydict[s['id']]=s['school_name']
-        print(mydict)
-        return render(request,'login.html',{'schooldata':mydict})
-
-    def authenticate(self, username, password,school_id,branchid):
-        db = DataBase().get_database()
-        user = db.users.find_one({'school_id': int(school_id), 'password': password, 'branch_id': int(branchid), 'username': username})
-        if user:
-            return user
-        else:
-            return None
+        my_dict = DataBase.get_school_dict()
+        return render(request,'login.html',{'schooldata':my_dict})
 
     def post(self,request):
         print("check_post_login_post")
@@ -37,10 +23,10 @@ class Login(View):
         branchid = request.POST['branchid']
         school_id = request.POST['schoolname']
         request.session.set_expiry(0)
-        user = self.authenticate(username, password, school_id, branchid)
-        del user['_id']
-        request.session['user'] = (user)
+        user = DataBase().authenticate_and_get_user(username, password, school_id, branchid)
         if user:
+            del user['_id']
+            request.session['user'] = (user)
             return redirect('/test/student%20view%20my%20courses')
         else:
             mongo = MongoClient()
