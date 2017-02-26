@@ -8,7 +8,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 from pymongo import MongoClient
-
+import json
 
 class Login(View):
     def get(self,request):
@@ -30,7 +30,7 @@ class check(View):
     def authenticate(self, username, password,school_id,branchid):
         mongo = MongoClient()
         db = mongo['dummy_school_project_v1']
-        user=db.users.find({'school_id': int(school_id), 'password': password, 'branch_id': int(branchid), 'username': username})
+        user=db.users.find_one({'school_id': int(school_id), 'password': password, 'branch_id': int(branchid), 'username': username})
         if user:
             return user
         else:
@@ -44,7 +44,8 @@ class check(View):
         school_id = request.POST['schoolname']
         request.session.set_expiry(0)
         user = self.authenticate(username, password,school_id,branchid)
-        request.session['user']={'okay':'a'}
+        del user['_id']
+        request.session['user']=(user)
 
         if user :
 
