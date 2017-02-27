@@ -78,3 +78,8 @@ class StudentDataBase(DataBase):
                             'history': user['history'],
                             'roll_num': user['roll_num']
                         })
+
+
+class TestDataBase(DataBase):
+    def __init__(self):
+        super().__init__()
