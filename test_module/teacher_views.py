@@ -55,7 +55,6 @@ class Add_question(View):
             correct_answer = correct3
         elif correct4 is not None:
             correct_answer = correct4
-        print(correct_answer)
         return render(request, 'Manage question.html',{'test_name':test_name})
 
 

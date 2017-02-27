@@ -142,8 +142,34 @@
 //		}
 	}
 </script>
+<script>
+    function CorrectAnswerCheck(){
+        var correct1 = document.getElementById('correct1').checked;
+        var correct2 = document.getElementById('correct2').checked;
+        var correct3 = document.getElementById('correct3').checked;
+        var correct4 = document.getElementById('correct4').checked;
 
-<form method="POST" id="questionForm1" action="/test/addQuestion">
+        var ans1 = document.getElementById('answer1').value;
+        var ans2 = document.getElementById('answer2').value;
+        var ans3 = document.getElementById('answer3').value;
+        var ans4 = document.getElementById('answer4').value;
+        var ques = document.getElementById('question').value;
+        if(correct1==false && correct2==false && correct3==false && correct4 == false){
+            alert("There should be one correct answer");
+            return false;
+        }
+        else if(ans1 == "" || ans2 == "" || ans3 == "" || ans4 == ""){
+            alert("Please fill all the Answers");
+            return false;
+        }
+        else if(ques == ""){
+            alert("Please Enter Question");
+            return false;
+        }
+
+    }
+</script>
+<form method="POST" id="questionForm1" onsubmit="return CorrectAnswerCheck()" action="/test/addQuestion">
 <h1 style="color:green;" id='msg' ></h1>
 
 
@@ -163,41 +189,41 @@
 <h5>Answers <span class="showTooltip tooltip" title="Type at least two answer options and select which answer/s are correct.">Tip</span></h5><div class="answer">
 <div class="answer_heading">
 <h5 class="">(A)</h5>
-<input class="showCorrect mc_forminput" type="checkbox" name="correct1" value="1" id="a1">
+<input class="showCorrect mc_forminput" type="checkbox" name="correct1" value="1" id="correct1">
 <label for="a1" class="">This answer option is correct</label>
 </div>
 
-<textarea name="answer1" rows="3" cols="67" id="ans1" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
+<textarea name="answer1" rows="3" cols="67" id="answer1" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
 <!--
 <textarea name="ans1" rows="3" cols="67" id="ans1" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput fullBBcodeEditor" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 550px;" id="editor_question"><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><textarea dir="ltr" style="display: none; width: 540px; height: 93px;"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div><div class="jqmWindow jqmID1" id="symbolsDiv">
 </div>-->
 <div class="answer">
 <div class="answer_heading">
 <h5 class="">(B)</h5>
-<input class="showCorrect mc_forminput" type="checkbox" name="correct2" value="2" id="a2">
+<input class="showCorrect mc_forminput" type="checkbox" name="correct2" value="2" id="correct2">
 <label for="a2" class="">This answer option is correct</label>
 </div>
-  <textarea name="answer2" rows="3" cols="67" id="ans2" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
+  <textarea name="answer2" rows="3" cols="67" id="answer2" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
 <!--<textarea name="ans2" rows="3" cols="67" id="ans2" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput fullBBcodeEditor" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 550px;" id="editor_question"><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><textarea dir="ltr" style="display: none; width: 540px; height: 93px;"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div><div class="jqmWindow jqmID1" id="symbolsDiv">
 
 </div>-->
 <div class="answer">
 <div class="answer_heading">
 <h5 class="">(C)</h5>
-<input class="showCorrect mc_forminput" type="checkbox" name="correct3" value="3" id="a3">
+<input class="showCorrect mc_forminput" type="checkbox" name="correct3" value="3" id="correct3">
 <label for="a3" class="">This answer option is correct</label>
 </div>
-<textarea name="answer3" rows="3" cols="67" id="ans3" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
+<textarea name="answer3" rows="3" cols="67" id="answer3" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
  <!--
 <textarea name="ans3" rows="3" cols="67" id="ans3" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput fullBBcodeEditor" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 550px;" id="editor_question"><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><textarea dir="ltr" style="display: none; width: 540px; height: 93px;"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div><div class="jqmWindow jqmID1" id="symbolsDiv">
 </div>-->
 <div class="answer">
 <div class="answer_heading">
 <h5 class="">(D)</h5>
-<input class="showCorrect mc_forminput" type="checkbox" name="correct4" value="4" id="a4">
+<input class="showCorrect mc_forminput" type="checkbox" name="correct4" value="4" id="correct4">
 <label for="a4" class="">This answer option is correct</label>
 </div>
-<textarea name="answer4" rows="3" cols="67" id="ans4" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
+<textarea name="answer4" rows="3" cols="67" id="answer4" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput"></textarea>
   <!--
 <textarea name="ans4" rows="3" cols="67" id="ans4" class="edit_qboxes question_text qclear mc_forminput tf_forminput ft_forminput e_forminput fullBBcodeEditor" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 550px;" id="editor_question"><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><textarea dir="ltr" style="display: none; width: 540px; height: 93px;"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div><div class="jqmWindow jqmID1" id="symbolsDiv">
 </div>-->
