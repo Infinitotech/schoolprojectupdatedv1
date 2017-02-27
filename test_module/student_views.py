@@ -96,4 +96,13 @@ class Test_Questions(View):
         return render(request, 'test questions.html', {'questions': questions,'options':options, 'test_name':test_name})
 
     def post(self,request):
-        return HttpResponse("d")
+        test_name = request.POST.get('test_name')
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+        course = db.tests.find_one({'test_name': test_name})
+        questions = course['questions']
+        dict={}
+        for q in questions:
+            dict[q]=request.POST.get(q).split('+')[1]
+        print (dict)
+        return render(request, 'test questions.html')

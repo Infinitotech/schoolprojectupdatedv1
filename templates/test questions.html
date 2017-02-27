@@ -67,13 +67,13 @@
 </div>
 <div id="content" class="clearfix">
 <div class="innerWrapper"><div class="col640"><div id="ajax-container"><div class="classmarker_content"><a id="q"></a>
-<h3 class="testname">Chemistry</h3><div class="v3QuizHolder"><form method="post" action="" id="questionform" autocomplete="off">
+<h3 class="testname">{{ test_name }}</h3><div class="v3QuizHolder"><form method="post" action="" id="questionform" autocomplete="off">
 <input type="hidden" name="test_id" value="742198">
 <input type="hidden" id="timeoutinput" name="na1" value="na">
 <input type="hidden" id="finishnowinput" name="na2" value="na">
 <input type="hidden" id="control" name="next" value="1">
 <input type="hidden" name="rtla" value="1488099053">
-<input type="hidden" name="autosavequestion_token" value="da9e03355307c998d1cffd536ea11ef8"><div id="questions_container"><a id="q11423423"></a>
+<input type="hidden" name="test_name" value="{{ test_name }}"><div id="questions_container"><a id="q11423423"></a>
 
           {% for question,value in questions.items %}
                <div class="qbox takingtest">
