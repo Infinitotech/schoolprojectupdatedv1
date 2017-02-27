@@ -37,19 +37,20 @@ class Student_View_Group_Tests(View):
             branch_id.append(i['branch_id'])
             counter.append(i['counter'])
             teacher_username.append(i['teacher_username'])
+        mongo.close()
         return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score,school_id,branch_id,counter,teacher_username)})
 
 class Student_View_My_Courses(View):
     @login_required
     def get(self, request):
-        message=request.GET['message']
+        #message=request.GET['message']
         user = request.session['user']
         courses = user['history']['courses']
         list = []
         for i in courses:
             if i['status'] == "active":
                 list.append(i['course_name'])
-        return render(request, 'student view my courses.html', {'list': list,'user': user,'message':message})
+        return render(request, 'student view my courses.html',{'list': list,'user': user})#,'message':message})
 
 
 class My_Details(View):
@@ -100,6 +101,7 @@ class Test_intro(View):
              }
              del course['_id']
              request.session['test']=course
+         mongo.close()
          return render(request, 'test Introduction.html',context)
 
 
@@ -155,5 +157,5 @@ class Test_Questions(View):
         })
 
 
-
+        mongo.close()
         return render(request, 'test questions.html')

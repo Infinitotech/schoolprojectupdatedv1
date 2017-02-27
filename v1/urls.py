@@ -21,7 +21,6 @@ urlpatterns = [
     url(r'^login',Login.as_view()),
     #url(r'^admin/', admin.site.urls),
     url(r'^admin', View_Courses.as_view(), name='admin'),
-    print("Nishaf"),
     url(r'^test/',include('test_module.test_urls')),
 
 ]
