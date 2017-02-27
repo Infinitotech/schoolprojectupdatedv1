@@ -32,15 +32,29 @@ class Add_new_test(View):
 
 class Add_question(View):
     def get(self,request):
-        print()
-        print("question is" + request.GET['question1'])
         return render(request,'Manage question.html') #this is the main thing
 
     def post(self, request):
+        test_name = request.POST.get('test_name')
         question = request.POST.get('question1')
-        print("Nishaf")
-        print(question)
-        test_name="changed"
+        correct1 = request.POST.get('correct1')
+        correct2 = request.POST.get('correct2')
+        correct3 = request.POST.get('correct3')
+        correct4 = request.POST.get('correct4')
+        ans1 = request.POST['answer1']
+        ans2 = request.POST.get('answer2')
+        ans3 = request.POST.get('answer3')
+        ans4 = request.POST.get('answer4')
+        points = request.POST['points']
+        randomize_answer = request.POST['random_a']
+        if correct1 is not None:
+            correct_answer = correct1
+        elif correct2 is not None:
+            correct_answer = correct2
+        elif correct3 is not None:
+            correct_answer = correct3
+        elif correct4 is not None:
+            correct_answer = correct4
         return render(request, 'Manage question.html',{'test_name':test_name})
 
 
@@ -153,6 +167,7 @@ class Manage_question(View):
     def get(self,request):
         test_name=request.GET['test_name']
         return render(request,'Manage question.html',{'test_name':test_name})
+
 
 
 class Manage_test_post(View):
