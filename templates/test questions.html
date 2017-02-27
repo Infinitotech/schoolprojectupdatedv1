@@ -67,7 +67,7 @@
 </div>
 <div id="content" class="clearfix">
 <div class="innerWrapper"><div class="col640"><div id="ajax-container"><div class="classmarker_content"><a id="q"></a>
-<h3 class="testname">{{ test_name }}</h3><div class="v3QuizHolder"><form method="post" action="https://www.classmarker.com/test/accept/" id="questionform" autocomplete="off">
+<h3 class="testname">Chemistry</h3><div class="v3QuizHolder"><form method="post" action="" id="questionform" autocomplete="off">
 <input type="hidden" name="test_id" value="742198">
 <input type="hidden" id="timeoutinput" name="na1" value="na">
 <input type="hidden" id="finishnowinput" name="na2" value="na">
@@ -99,7 +99,7 @@
 <div class="dotted"></div>
 <div class="mcanswersDiv"><fieldset class="qfieldset"><legend><span class="hide">Answer options for question </span></legend><div class="clear"></div>
 <div class="ans_select">
-<input type="radio" id="rmc_11423423_0" name="mcsa_11423423_1488099053" value="bcbbab68e1336d95d26005295de0b4cb">
+<input type="radio" id="{{ ques }}" name="{{ ques }}" value="{{ ques }}+{{ opt }}">
 </div>
 <div class="ans_content_letter"><strong>{{ opt }})&nbsp;</strong></div>
 <div class="ans_content_prefixed editor">
@@ -111,9 +111,10 @@
 
                 {% endfor %}
 
-</fieldset></div></div>{% endfor %}<div class="hide" id="showRefreshInstructions"><div class="finishbox" id="dfinish"><a class="finish2" href="" id="qfinish">Finish now</a><a class="confirmfinish2 hide" href="#" id="qfinish_confirm">Confirm finish now</a></div></div><div class="clearheight"></div>
-</form></div></div></div>
-</div></div> 
+</fieldset></div></div>{% endfor %}<div class="hide" id="showRefreshInstructions"><div class="finishbox" id="dfinish"><a class="finish2" href="" id="qfinish1"></a><a class="confirmfinish2 hide" href="#" id="qfinish_confirm">Confirm finish now</a></div></div><div class="clearheight"></div>
+<input type="submit" value="Finish now"/>
+    </form></div></div></div>
+</div></div>
 </div>
 <div id="footer">
 <div id="footercontent">

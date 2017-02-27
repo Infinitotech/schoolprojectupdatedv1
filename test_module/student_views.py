@@ -94,3 +94,6 @@ class Test_Questions(View):
         questions = course['questions']
         options = course['options']
         return render(request, 'test questions.html', {'questions': questions,'options':options, 'test_name':test_name})
+
+    def post(self,request):
+        return HttpResponse("d")
