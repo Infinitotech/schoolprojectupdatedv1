@@ -82,6 +82,7 @@ class Test_intro(View):
          branch_id=request.GET['branch_id']
          counter=request.GET['counter']
          mongo = MongoClient()
+         print('asdf')
          db = mongo['dummy_school_project_v1']
          course = db.tests.find_one({'teacher_username':teacher_username,'school_id':int(school_id),'branch_id':int(branch_id),'counter':int(counter)})
          context={}
