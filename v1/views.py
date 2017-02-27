@@ -48,3 +48,21 @@ class Login(View):
 class SignUp(View):
     def get(self,request):
         return render(request,'base.html')
+
+
+class View_Courses(View):
+    def get(self, request):
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+        class_list = ['7-A', '6-B', '8-A']
+        users = {}
+        users = db.users.find({'class':'7-A'})
+
+        return render(request,'admin_view_courses.html', {'users': users, 'class_name':'7-A'})
+
+    def post(self, request):
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+        class_name = request.POST.get('browser')
+        users = db.users.find({'class':class_name})
+        return render(request,'admin_view_courses.html',{'users':users, 'class_name': class_name})

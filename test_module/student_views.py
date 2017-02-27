@@ -47,7 +47,7 @@ class My_Details(View):
     @login_required
     def get(self, request):
         user = request.session['user']
-        return render(request,'my details.html',{'user': user})
+        return render(request,'admin_view_courses.html',{'user': user})
 
     @login_required
     def post(self, request):
