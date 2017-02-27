@@ -86,7 +86,7 @@
 </tr>
 </thead>
 <tbody class="sort-data-set">
-{% for i,j,k in names %}
+{% for i,j,k,school_id,branch_id,counter,teacher_username in names %}
 <tr class="single-hover-row">
     <div id="editLink_tn">
     <td class="nonametitle">
@@ -95,12 +95,12 @@
         <p>Attempts allowed: Unlimited</p>
     </div>
     <div class="extra-info editor">
-        <p><a class="btn btn-results" name = "start_test" id = "start_test"  href="test_intro/?course_name={{ i }}">Start</a></p>
+        <p><a class="btn btn-results" name = "start_test" id = "start_test"  href="test_intro/?teacher_username={{ teacher_username }}&school_id={{ school_id }}&branch_id={{ branch_id }}&counter={{ counter }}">Start</a></p>
     </div>
     </td>
     <td class="nocontent">-</td>
     <td class="nocontent">{{ j }}</td>
-    <td class="nocontent">{{ k }}</td>
+    <td class="nocontent">{{ k }}</td><br>{{ teacher_username }}{{ branch_id }}{{ school_id }}{{ counter }}
     <td class="noactiontitle col-btns"></td>
     </div>
 </tr>

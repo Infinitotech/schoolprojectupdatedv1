@@ -24,23 +24,32 @@ class Student_View_Group_Tests(View):
         test_names = []
         test_score = []
         test_duration = []
+        school_id=[]
+        branch_id=[]
+        counter=[]
+        teacher_username=[]
         dict = {}
         for i in tests:
             test_names.append(i['test_name'])
             test_score.append(i['maximum_score'])
             test_duration.append(i['duration'])
-        return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score)})
+            school_id.append(i['school_id'])
+            branch_id.append(i['branch_id'])
+            counter.append(i['counter'])
+            teacher_username.append(i['teacher_username'])
+        return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score,school_id,branch_id,counter,teacher_username)})
 
 class Student_View_My_Courses(View):
     @login_required
     def get(self, request):
+        message=request.GET['message']
         user = request.session['user']
         courses = user['history']['courses']
         list = []
         for i in courses:
             if i['status'] == "active":
                 list.append(i['course_name'])
-        return render(request, 'student view my courses.html', {'list': list,'user': user})
+        return render(request, 'student view my courses.html', {'list': list,'user': user,'message':message})
 
 
 class My_Details(View):
@@ -68,41 +77,82 @@ class My_Details(View):
 
 class Test_intro(View):
      def get(self, request):
-         value = request.GET['course_name']
+         teacher_username = request.GET['teacher_username']
+         school_id=request.GET['school_id']
+         branch_id=request.GET['branch_id']
+         counter=request.GET['counter']
          mongo = MongoClient()
          db = mongo['dummy_school_project_v1']
-         course = db.tests.find({'test_name':value})
-         for i in course:
-             question_len = str(len(i['questions']))
+         course = db.tests.find_one({'teacher_username':teacher_username,'school_id':int(school_id),'branch_id':int(branch_id),'counter':int(counter)})
+         context={}
+         if course:
+             question_len = str(len(course['questions']))
              context = {
-                 'test_name': value,
+                 'test_name': course['test_name'],
                  'question_len': question_len,
-                 'test_duration': i['duration'],
-                 'type': i['type'],
+                 'test_duration': course['duration'],
+                 'type': course['type'],
+                 'teacher_username': teacher_username,
+                 'school_id': int(school_id),
+                 'branch_id': int(branch_id),
+                 'counter': int(counter)
              }
-         print(question_len)
-         print ("d")
-         return render(request, 'test Introduction.html', context)
+             del course['_id']
+             request.session['test']=course
+         return render(request, 'test Introduction.html',context)
 
 
 class Test_Questions(View):
     def get(self, request):
-        test_name = request.GET['test_name']
-        mongo = MongoClient()
-        db = mongo['dummy_school_project_v1']
-        course = db.tests.find_one({'test_name': test_name})
+        course=request.session['test']
+        test_name = course['test_name']
         questions = course['questions']
         options = course['options']
-        return render(request, 'test questions.html', {'questions': questions,'options':options, 'test_name':test_name})
+        teacher_usernameR = request.GET['teacher_username']
+        school_id = int(request.GET['school_id'])
+        branch_id = int(request.GET['branch_id'])
+        counter = int(request.GET['counter'])
+        if 'test' in request.session:
+            if counter==course['counter'] and teacher_usernameR==course['teacher_username'] and school_id==course['school_id'] and branch_id==course['branch_id']:
+                return render(request, 'test questions.html', {'questions': questions,'options':options, 'test_name':test_name})
+            else:
+                request.session.pop('test')
+        return redirect ("/test/student%20view%20my%20courses?message=something went wrong")
 
     def post(self,request):
         test_name = request.POST.get('test_name')
         mongo = MongoClient()
         db = mongo['dummy_school_project_v1']
-        course = db.tests.find_one({'test_name': test_name})
-        questions = course['questions']
+        test = db.tests.find_one({'test_name': test_name})
+        questions = test['questions']
+        solution=test['solutions']
         dict={}
         for q in questions:
             dict[q]=request.POST.get(q).split('+')[1]
         print (dict)
+        counter=test['counter']
+
+        #add test answer
+
+        db.test_answer.insert({
+            'test_counter': counter,
+            'teacher_username': 'nishaf',
+            'student_username': 'azeem',
+            'school_id': 1,
+            'branch_id': 1,
+            'answers': {
+                'q1': [
+                    'a'
+                ],
+                'q2': [
+                    'a'
+                ]
+            },
+            'result': 50,
+            'duration': 18,
+            'date_given': '24-02-2017'
+        })
+
+
+
         return render(request, 'test questions.html')
