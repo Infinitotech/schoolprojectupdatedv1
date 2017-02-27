@@ -11,6 +11,12 @@ class DataBase(object):
     def get_database(self):
         return self.db
 
+    def __del__(self):
+        try:
+            self.mongo.close()
+        except Exception:
+            pass
+
     @staticmethod
     def get_school_dict():
         school = DataBase.mongo_db.school.find()
@@ -31,5 +37,44 @@ class DataBase(object):
         else:
             return None
 
-    def __del__(self):
-        self.mongo.close()
+class StudentDataBase(DataBase):
+    def __init__(self):
+        super().__init__()
+
+    def change_username(self, new_username, old_user, user):
+        self.db.users.update({'username': old_user},
+                        {
+                            'username': new_username,
+                            'name': user['name'],
+                            'father_name': user['father_name'],
+                            'password': user['password'],
+                            'type': user['type'],
+                            'dob': user['dob'],
+                            'photo': user['photo'],
+                            'nic': user['nic'],
+                            'status': user['status'],
+                            'school_id': user['school_id'],
+                            'branch_id': user['branch_id'],
+                            'class': user['class'],
+                            'history': user['history'],
+                            'roll_num': user['roll_num']
+                        })
+
+    def change_password(self, user, password):
+        self.db.users.update({'username': user['username']},
+                        {
+                            'username': user['username'],
+                            'name': user['name'],
+                            'father_name': user['father_name'],
+                            'password': password,
+                            'type': user['type'],
+                            'dob': user['dob'],
+                            'photo': user['photo'],
+                            'nic': user['nic'],
+                            'status': user['status'],
+                            'school_id': user['school_id'],
+                            'branch_id': user['branch_id'],
+                            'class': user['class'],
+                            'history': user['history'],
+                            'roll_num': user['roll_num']
+                        })

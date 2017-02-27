@@ -32,10 +32,10 @@ class Login(View):
         school_id = request.POST['schoolname']
         request.session.set_expiry(0)
         user = DataBase().authenticate_and_get_user(username, password, school_id, branchid)
-        print(user)
         if user:
             del user['_id']
             request.session['user'] = (user)
+            request.session['user']['authenticate'] = True
             if user['type'] == 'teacher':
                 return redirect('/test/Welcome')
             elif user['type'] == 'student':
