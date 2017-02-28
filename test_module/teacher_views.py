@@ -1,3 +1,4 @@
+from v1.Database import TestDataBase
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from django.shortcuts import render_to_response
@@ -164,8 +165,9 @@ class Manage_question_show(View):
 
 
 class Manage_question(View):
-    def get(self,request):
-        test_name=request.GET['test_name']
+    def get(self,request, test_name, test_counter):
+        print(test_name)
+        print(test_counter)
         return render(request,'Manage question.html',{'test_name':test_name})
 
 
@@ -178,7 +180,9 @@ class Manage_test_post(View):
 class Manage_test(View):
     def get(self,request):
         test_name= (request.GET['test_name'])
-        return render(request,'Manage test.html',{'test_name':test_name})
+        test_counter = TestDataBase().create_test(test_name, request.session['user']['username'], request.session['user']['branch_id'],
+                                   request.session['user']['school_id'])
+        return render(request,'Manage test.html',{'test_name':test_name,'test_counter':test_counter})
 
 
 class My_Account(View):
@@ -284,4 +288,4 @@ class Web_based_online_testing_service_Free_quiz_maker_ClassMarker(View):
 
 class welcome(View):
     def get(self,request):
-        return render(request,'welcome.html')
+        return render(request,'welcome.html',{'username':request.session['user']['name']})

@@ -43,7 +43,7 @@ urlpatterns=[
     url(r'^links', links.as_view()),
     url(r'^Manage\sAccess\sList', Manage_Access_List.as_view()),
     url(r'^Manage\squestion\sshow', Manage_question_show.as_view()),
-    url(r'^Manage\squestion', Manage_question.as_view()),
+    url(r'^Manage\squestion/(?P<test_name>.*)/(?P<test_counter>.*)', Manage_question.as_view()),
     url(r'^Manage\stest(post)', Manage_test_post.as_view()),
     url(r'^Manage\stest', Manage_test.as_view()),
     url(r'^My\sAccount', My_Account.as_view()),
