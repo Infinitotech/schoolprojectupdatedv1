@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}{% block content %}
 
+
+
+
+
 <div id="content" class="clearfix">
-<div class="innerWrapper"><div class="col-span-5 col result-col-1"><h2 class="member-name name">{{ user_name }}</h2><h2 class="test-name name">{{ test_name }}</h2><h2 class="group-name name">{{ course }}</h2></div><div class="col-span-1">&nbsp;</div><div class="col-span-4 result-col-2"><div class="testres"><div class="score "><span id="percentagespan">{{ percentage }}</span>%</div><div class="testresleft"><div>Points:</div><div>Duration:</div><div>Date :</div></div><div class="testresright"><div><span id="pointsscoredspan">{{ score }}</span>&nbsp;out of <span id="pointsavailablespan">{{ max }}</span></div><div>{{ duration }}</div><div>{{ date }}</div></div></div></div><div class="clearheight"></div><script type="text/javascript">
+<div class="innerWrapper"><div class="col-span-5 col result-col-1"><h2 class="member-name name">{{ user_name }}</h2><h2 class="test-name name">{{ test_name }}</h2><h2 class="group-name name">{{ course }}</h2></div><div class="col-span-1">&nbsp;</div><div class="col-span-4 result-col-2"><div class="testres"><div class="score "><span id="percentagespan">{{ percentage }}</span>%</div><div class="testresleft"><div>Points:</div><div>Duration:</div><div>Date:</div></div><div class="testresright"><div><span id="pointsscoredspan">{{ score }}</span>&nbsp;out of <span id="pointsavailablespan">{{ max }}</span></div><div>{{ duration }}</div><div>{{ date }}</div></div></div></div><div class="clearheight"></div><script type="text/javascript">
 google_ad_client = "pub-1813370847715935";
 google_ad_slot = "6394868143";
 						google_ad_width = 234;
@@ -27,10 +31,11 @@ google_ad_slot = "6394868143";
     {% for ques,option in options.items %}
                     {% if ques == question %}
                         {% for opt,value1 in option.items %}
-                            <p class="chosen">Correct answer: <strong>B)</strong><br>You chose: <strong>A)</strong></p><div class="sarow">
-<div class="satick"><img src="{% static 'css_js/wrongv3.png'%}" alt="Incorrect answered"></div>
-<div class="saabc">A) </div>
-<div class="saans  bbcode editor">Science</div></div>{% endfor %}{% endif %}{% endfor %}</div>{% endfor %}<div class="dotted"></div><span class="headlinetop"><strong>Points:</strong> <span id="11423423pointsscored">0</span> out of 1</span><br></div></div></div>
+                            <div class="sarow">
+<div class="satick">{% for choices,opt1 in correct.items %}{% if choices == ques and opt == opt1  %} <img src="{% static 'css_js/correctv3.png'%}" alt="Incorrect answered">{% endif %}{% endfor %}</div>
+<div class="satick">{% for choices,opt1 in wrong.items %}{% if choices == ques and opt == opt1  %} <img src="{% static 'css_js/wrongv3.png'%}" alt="correct answered">{% endif %}{% endfor %}</div>
+<div class="saabc">{{ opt }}) </div>
+<div class="saans  bbcode editor">{{ value1 }}</div></div>{% endfor %}{% endif %}{% endfor %}</div>{% endfor %}<div class="dotted"></div><span class="headlinetop"><strong>&nbsp;&nbsp;Points:</strong> <span id="11423423pointsscored">{{ score }}</span> out of {{ max }}</span><br></div></div></div>
 <div class="table-utility row below noprint">
 <div class="col-span-10"><div class="display_questions_btns"><div class="dropdown ">
 <a href="https://www.classmarker.com/test/results/?test_id=742198#" class="dropdown-toggle btn btn-analytics no_anchor"> Display <span class="caret">&nbsp;</span></a>
