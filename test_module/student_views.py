@@ -175,7 +175,7 @@ class Test_Questions(View):
             'course':course
         })
 
-        print (duration)
+        #print (duration)
         return redirect( 'test Results.html',{
             'questions': questions,
             'options':options,
