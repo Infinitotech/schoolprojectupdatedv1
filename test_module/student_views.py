@@ -10,6 +10,8 @@ from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 from pymongo import MongoClient
 from v1.decorators import login_required
+from datetime import datetime
+import time as timeLib
 
 
 class Student_View_Group_Tests(View):
@@ -37,27 +39,26 @@ class Student_View_Group_Tests(View):
             branch_id.append(i['branch_id'])
             counter.append(i['counter'])
             teacher_username.append(i['teacher_username'])
-        mongo.close()
         return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score,school_id,branch_id,counter,teacher_username)})
 
 class Student_View_My_Courses(View):
     @login_required
     def get(self, request):
-        #message=request.GET['message']
+        message=request.GET['message']
         user = request.session['user']
         courses = user['history']['courses']
         list = []
         for i in courses:
             if i['status'] == "active":
                 list.append(i['course_name'])
-        return render(request, 'student view my courses.html',{'list': list,'user': user})#,'message':message})
+        return render(request, 'student view my courses.html', {'list': list,'user': user,'message':message})
 
 
 class My_Details(View):
     @login_required
     def get(self, request):
         user = request.session['user']
-        return render(request,'admin_view_courses.html',{'user': user})
+        return render(request,'my details.html',{'user': user})
 
     @login_required
     def post(self, request):
@@ -101,7 +102,6 @@ class Test_intro(View):
              }
              del course['_id']
              request.session['test']=course
-         mongo.close()
          return render(request, 'test Introduction.html',context)
 
 
@@ -115,9 +115,10 @@ class Test_Questions(View):
         school_id = int(request.GET['school_id'])
         branch_id = int(request.GET['branch_id'])
         counter = int(request.GET['counter'])
+        duration=int(course['duration'])
         if 'test' in request.session:
             if counter==course['counter'] and teacher_usernameR==course['teacher_username'] and school_id==course['school_id'] and branch_id==course['branch_id']:
-                return render(request, 'test questions.html', {'questions': questions,'options':options, 'test_name':test_name})
+                return render(request, 'test questions.html', {'questions': questions,'options':options, 'test_name':test_name,'duration':duration})
             else:
                 request.session.pop('test')
         return redirect ("/test/student%20view%20my%20courses?message=something went wrong")
@@ -128,34 +129,63 @@ class Test_Questions(View):
         db = mongo['dummy_school_project_v1']
         test = db.tests.find_one({'test_name': test_name})
         questions = test['questions']
-        solution=test['solutions']
+        solutions=test['solutions']
+        user=request.session['user']
+        counter = test['counter']
+        max=test['maximum_score']
+        user_name=user['username']
+        course=test['course']
+        course_name=course['course_name']
+        options=test['options']
         dict={}
         for q in questions:
-            dict[q]=request.POST.get(q).split('+')[1]
-        print (dict)
-        counter=test['counter']
+            opt=request.POST.get(q)
+            if opt:
+                dict[q]=opt.split('+')[1]
+            else:
+                dict[q]="No option selected"
 
-        #add test answer
-
+        score=0
+        for key,item in dict.items():
+            print  (key,item)
+            if solutions[key]==item:
+                score+=10
+        percentage=(score/max)*100
+        print (percentage)
+        print (solutions['q1'])
+        timer=str(request.POST.get('timer')).split(':')
+        time = int(timer[0]) * 60 + int(timer[1])
+        time=(test['duration'] * 60 - time)
+        print("duration is",test['duration'])
+        duration=(timeLib.strftime("%H:%M:%S", timeLib.gmtime(time)))
+        dateAndTime=datetime.utcnow()
         db.test_answer.insert({
             'test_counter': counter,
-            'teacher_username': 'nishaf',
-            'student_username': 'azeem',
-            'school_id': 1,
-            'branch_id': 1,
-            'answers': {
-                'q1': [
-                    'a'
-                ],
-                'q2': [
-                    'a'
-                ]
-            },
-            'result': 50,
-            'duration': 18,
-            'date_given': '24-02-2017'
+            'teacher_username': test['teacher_username'],
+            'student_username': user['username'] ,
+            'school_id': test['school_id'],
+            'branch_id': test['branch_id'],
+            'answers': dict,
+            'result': score,
+            'maximum_score':max,
+            'duration': time,
+            'date_given': dateAndTime,
+            'solutions' : solutions,
+            'questions':questions,
+            'course':course
         })
 
-
-        mongo.close()
-        return render(request, 'test questions.html')
+        #print (duration)
+        return redirect( 'test Results.html',{
+            'questions': questions,
+            'options':options,
+            'test_name':test_name,
+            'duration':duration,
+            'percentage':percentage,
+            'user_name':user_name,
+            'course':course_name,
+            'duration':duration,
+            'date':dateAndTime,
+            'score':score,
+            'max':max
+        })

@@ -14,15 +14,17 @@ import json
 
 class Login(View):
     def get(self,request):
+        print('inlogin')
         my_dict = DataBase.get_school_dict()
         try:
             type = request.session['user']['type']
             if type == 'teacher':
                 return redirect('/test/Welcome')
             elif type == 'student':
-                return redirect('/test/student%20view%20my%20courses')
+                return redirect('/test/student%20view%20my%20courses?message=')
         except KeyError:
             pass
+        print('not loggedin before')
         return render(request,'login.html',{'schooldata':my_dict})
 
     def post(self,request):
