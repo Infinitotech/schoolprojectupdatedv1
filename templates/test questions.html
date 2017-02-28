@@ -31,8 +31,41 @@
 <script type="text/javascript">
 	var web_root = "/";
 	var webpath_img = "/img3/";
-	var s3_assets_path = "https://";</script>
+	var s3_assets_path = "https://";
+</script>
+    <script>
+        function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+        document.getElementById("timer").value=minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+            document.questionform.submit();
+        }
+
+
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * {{ duration }},
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+
+};
+
+
+        </script>
 <script type="text/javascript" src="{% static 'css_js/jquery-1.9.1.min.js.download'%}"></script>
+    <script type="text/javascript" src="{% static 'css_js/questionAjax.js'%}"></script>
 <script type="text/javascript" src="{% static 'css_js/jquery-ui-1.10.4.custom.min.js.download'%}"></script>
 <script type="text/javascript" src="{% static 'css_js/cmall.js.download'%}"></script>
 <script type="text/javascript" src="{% static 'css_js/featherlight.js.download'%}"></script>
@@ -67,14 +100,15 @@
 </div>
 <div id="content" class="clearfix">
 <div class="innerWrapper"><div class="col640"><div id="ajax-container"><div class="classmarker_content"><a id="q"></a>
-<h3 class="testname">{{ test_name }}</h3><div class="v3QuizHolder"><form method="post" action="" id="questionform" autocomplete="off">
+<h3 class="testname">{{ test_name }}</h3><div class="v3QuizHolder"><form method="post" action="{% url 'result' %}" id="questionform" name="questionform"autocomplete="off">
 <input type="hidden" name="test_id" value="742198">
 <input type="hidden" id="timeoutinput" name="na1" value="na">
 <input type="hidden" id="finishnowinput" name="na2" value="na">
 <input type="hidden" id="control" name="next" value="1">
 <input type="hidden" name="rtla" value="1488099053">
 <input type="hidden" name="test_name" value="{{ test_name }}"><div id="questions_container"><a id="q11423423"></a>
-
+<h4>Time left: <div id="time" stype="float:right"></div></h4>
+    <input type="hidden" id="timer" value="" name="timer"/>
           {% for question,value in questions.items %}
                <div class="qbox takingtest">
             <div class="qboxleft"><h2>Question {{ forloop.counter }} </h2></div>
