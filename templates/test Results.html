@@ -35,6 +35,7 @@ google_ad_slot = "6394868143";
 <div class="satick">{% for choices,opt1 in correct.items %}{% if choices == ques and opt == opt1  %} <img src="{% static 'css_js/correctv3.png'%}" alt="Incorrect answered">{% endif %}{% endfor %}</div>
 <div class="satick">{% for choices,opt1 in wrong.items %}{% if choices == ques and opt == opt1  %} <img src="{% static 'css_js/wrongv3.png'%}" alt="correct answered">{% endif %}{% endfor %}</div>
 <div class="saabc">{{ opt }}) </div>
+
 <div class="saans  bbcode editor">{{ value1 }}</div></div>{% endfor %}{% endif %}{% endfor %}</div>{% endfor %}<div class="dotted"></div><span class="headlinetop"><strong>&nbsp;&nbsp;Points:</strong> <span id="11423423pointsscored">{{ score }}</span> out of {{ max }}</span><br></div></div></div>
 <div class="table-utility row below noprint">
 <div class="col-span-10"><div class="display_questions_btns"><div class="dropdown ">

@@ -151,8 +151,7 @@ class Test_Questions(View):
                 score+=10
             else:
                 wrong[key]=item
-        print(solutions)
-        print (wrong)
+
         percentage=(score/max)*100
         timer=str(request.POST.get('timer')).split(':')
         time = int(timer[0]) * 60 + int(timer[1])
