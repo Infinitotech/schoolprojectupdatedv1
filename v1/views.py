@@ -67,4 +67,6 @@ class View_Courses(View):
         db = mongo['dummy_school_project_v1']
         class_name = request.POST.get('browser')
         users = db.users.find({'class':class_name})
-        return render(request,'admin_view_courses.html',{'users':users, 'class_name': class_name})
+        user = request.session['user']
+
+        return render(request,'admin_view_courses.html',{'users':users, 'class_name': class_name, 'admin_name': user['name']})

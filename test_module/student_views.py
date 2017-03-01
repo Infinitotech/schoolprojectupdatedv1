@@ -124,6 +124,7 @@ class Test_Questions(View):
         return redirect ("/test/student%20view%20my%20courses?message=something went wrong")
 
     def post(self,request):
+        print("Nishaf")
         test_name = request.POST.get('test_name')
         mongo = MongoClient()
         db = mongo['dummy_school_project_v1']
@@ -159,6 +160,7 @@ class Test_Questions(View):
         print("duration is",test['duration'])
         duration=(timeLib.strftime("%H:%M:%S", timeLib.gmtime(time)))
         dateAndTime=datetime.utcnow()
+        print(test['teacher_username'])
         db.test_answer.insert({
             'test_counter': counter,
             'teacher_username': test['teacher_username'],
@@ -176,7 +178,7 @@ class Test_Questions(View):
         })
 
         #print (duration)
-        return redirect( 'test Results.html',{
+        return render( request,'test Results.html',{
             'questions': questions,
             'options':options,
             'test_name':test_name,
