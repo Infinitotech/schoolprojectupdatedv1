@@ -94,7 +94,17 @@ class TestDataBase(DataBase):
         self.db.tests.insert(test_dict)
         return counter
 
+    def get_test_dict(self, test_counter, username, branch_id, school_id):
+        test = self.db.tests.find_one({'counter': int(test_counter),'teacher_username': username, 'branch_id': branch_id,
+                                       'school_id': school_id})
+        return test
 
+    def update_test(self,new_test):
+        self.db.tests.find_one_and_replace({'counter': new_test['counter'],
+                                            'teacher_username': new_test['teacher_username'],
+                                            'branch_id': new_test['branch_id'], 'school_id': new_test['school_id']},
+                                           new_test
+                                           )
 
     def update_teacher_document_and_set_counter_value(self, teacher_username, school_id, branch_id):
         counter = self.db.users.find_one(Teacher.get_teacher_id_dict(teacher_username, school_id, branch_id))['counter']
@@ -104,6 +114,23 @@ class TestDataBase(DataBase):
             }
         })
         return counter
+
+    @staticmethod
+    def get_question_number(test_doc, add_one=True):
+        try:
+            question_dict = test_doc['questions']
+            import re
+            max_num = 1
+            for key in question_dict.keys():
+                num = int(re.findall(r'\d+', key)[0])
+                if max_num < num:
+                    max_num = num
+            if add_one:
+                return 'q' + str(max_num + 1)
+            else:
+                return 'q' + str(max_num)
+        except KeyError:
+            return 'q1'
 
     @staticmethod
     def get_dict_for_creation_of_test(counter, teacher_username, school_id, branch_id, test_name, creation_time):
@@ -121,43 +148,3 @@ class TestDataBase(DataBase):
         self.db.tests.find_one_and_update(
             {'test'}
         )
-
-
-class Test(object):
-    def __init__(self,db,teacher_username,school_id,branch_id,test_name):
-        self.database = db
-        self.db,self.teacher_username, self.school_id,self.branch_id, self.test_name = db['users'],teacher_username,school_id,\
-                                                                                       branch_id,test_name
-        self.creation_time = datetime.datetime.now()
-        self.update_teacher_document_and_set_counter_value()
-
-    def update_teacher_document_and_set_counter_value(self,):
-        self.counter = self.db.users.find_one(Teacher.get_teacher_id_dict(self.teacher_username, self.school_id,
-                                                                    self.branch_id))['counter']
-        self.db.users.update_one(Teacher.get_teacher_id_dict(self.teacher_username, self.school_id, self.branch_id),{
-            '$inc': {
-                'counter':1
-            }
-        })
-
-    def get_dict_for_creation_of_test(self):
-        return {
-            'counter': self.counter,
-            'teacher_username': self.teacher_username,
-            'school_id': self.school_id,
-            'branch_id': self.branch_id,
-            'test_name': self.test_name,
-            'creation_date': self.creation_time,
-            'status': 'active',
-        }
-
-    def create_test_document(self):
-        self.database.tests.insert(self.get_dict_for_creation_of_test())
-
-
-
-'''
-
-
-
-'''

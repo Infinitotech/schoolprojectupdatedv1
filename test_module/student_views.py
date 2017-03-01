@@ -124,7 +124,6 @@ class Test_Questions(View):
         return redirect ("/test/student%20view%20my%20courses?message=something went wrong")
 
     def post(self,request):
-        print("Nishaf")
         test_name = request.POST.get('test_name')
         mongo = MongoClient()
         db = mongo['dummy_school_project_v1']
@@ -139,28 +138,26 @@ class Test_Questions(View):
         course_name=course['course_name']
         options=test['options']
         dict={}
+        wrong={}
         for q in questions:
             opt=request.POST.get(q)
             if opt:
                 dict[q]=opt.split('+')[1]
             else:
                 dict[q]="No option selected"
-
         score=0
         for key,item in dict.items():
-            print  (key,item)
             if solutions[key]==item:
                 score+=10
+            else:
+                wrong[key]=item
+
         percentage=(score/max)*100
-        print (percentage)
-        print (solutions['q1'])
         timer=str(request.POST.get('timer')).split(':')
         time = int(timer[0]) * 60 + int(timer[1])
         time=(test['duration'] * 60 - time)
-        print("duration is",test['duration'])
         duration=(timeLib.strftime("%H:%M:%S", timeLib.gmtime(time)))
         dateAndTime=datetime.utcnow()
-        print(test['teacher_username'])
         db.test_answer.insert({
             'test_counter': counter,
             'teacher_username': test['teacher_username'],
@@ -177,10 +174,10 @@ class Test_Questions(View):
             'course':course
         })
 
-        #print (duration)
-        return render( request,'test Results.html',{
+        return render(request, 'test Results.html',{
             'questions': questions,
             'options':options,
+            'answers':dict,
             'test_name':test_name,
             'duration':duration,
             'percentage':percentage,
@@ -189,5 +186,7 @@ class Test_Questions(View):
             'duration':duration,
             'date':dateAndTime,
             'score':score,
-            'max':max
+            'max':max,
+            'correct':solutions,
+            'wrong':wrong
         })

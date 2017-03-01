@@ -32,10 +32,15 @@ class Add_new_test(View):
 
 
 class Add_question(View):
-    def get(self,request):
-        return render(request,'Manage question.html') #this is the main thing
+    def get(self,request, test_name, test_counter):
+        return render(request,'Manage question.html',{'test_name':test_name,'test_counter':test_counter}) #this is the main thing
 
-    def post(self, request):
+    def post(self, request, test_name, test_counter):
+        answers_dict = {1: 'a', 2: 'b', 3: 'c', 4: 'd'}
+        test = TestDataBase().get_test_dict(test_counter, request.session['user']['username'],
+                                            request.session['user']['branch_id'], request.session['user']['school_id'])
+        print(test)
+        question_number = TestDataBase.get_question_number(test)
         test_name = request.POST.get('test_name')
         question = request.POST.get('question1')
         correct1 = request.POST.get('correct1')
@@ -54,9 +59,38 @@ class Add_question(View):
             correct_answer = correct2
         elif correct3 is not None:
             correct_answer = correct3
-        elif correct4 is not None:
+        else:
             correct_answer = correct4
-        return render(request, 'Manage question.html',{'test_name':test_name})
+        try:
+            question_dict = test['questions']
+            question_dict[question_number] = question
+            test['questions'] = question_dict
+            option_dict = test['options']
+            option_dict[TestDataBase.get_question_number(test, False)] = {
+                'a': ans1,
+                'b': ans2,
+                'c': ans3,
+                'd': ans4
+            }
+            test['options'] = option_dict
+            solutions_dict = test['solutions']
+            solutions_dict[question_number] = answers_dict[int(correct_answer)]
+            test['solutions'] = solutions_dict
+        except KeyError:
+            test['questions'] = {question_number: question}
+            test['options'] = {
+                question_number: {
+                    'a': ans1,
+                    'b':  ans2,
+                    'c': ans3,
+                    'd': ans4
+                }
+            }
+            test['solutions'] = {
+                question_number: answers_dict[int(correct_answer)]
+            }
+        TestDataBase().update_test(test)
+        return render(request, 'Manage question.html',{'test_name':test_name,'test_counter':test_counter})
 
 
 class Assign_test_step_1(View):
@@ -168,7 +202,7 @@ class Manage_question(View):
     def get(self,request, test_name, test_counter):
         print(test_name)
         print(test_counter)
-        return render(request,'Manage question.html',{'test_name':test_name})
+        return render(request,'Manage question.html',{'test_name':test_name,'test_counter':test_counter})
 
 
 
