@@ -9,6 +9,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 import random,json
+from pymongo import MongoClient
 
 
 class BasePage(View):
@@ -221,7 +222,13 @@ class Manage_test(View):
 
 class My_Account(View):
     def get(self,request):
-        return render(request,'My Account.html')
+        mongo =  MongoClient()
+        db = mongo['dummy_school_project_v1']
+        user = request.session['user']
+        users = db.users.find_one({'name':user['name'], 'type':user['type']})
+        for i in users:
+            print(users[i])
+        return render(request,'My Account.html',{'users': users})
 
 
 class My_tests(View):

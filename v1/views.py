@@ -14,7 +14,6 @@ import json
 
 class Login(View):
     def get(self,request):
-        print('inlogin')
         my_dict = DataBase.get_school_dict()
         try:
             type = request.session['user']['type']
