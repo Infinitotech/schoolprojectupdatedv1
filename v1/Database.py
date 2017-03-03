@@ -89,7 +89,7 @@ class QuizDataBase(DataBase):
     def create_test(self,test_name, teacher_username, branch_id, school_id):
         creation_time = datetime.datetime.now()
         counter = self.update_teacher_document_and_set_counter_value(teacher_username, school_id, branch_id)
-        test_dict = QuizDataBase.get_dict_for_creation_of_test(counter, teacher_username, school_id, branch_id,
+        test_dict = QuizDataBase.get_dict_for_creation_of_quiz(counter, teacher_username, school_id, branch_id,
                                                                test_name, creation_time)
         self.db.tests.insert(test_dict)
         return counter
@@ -133,7 +133,7 @@ class QuizDataBase(DataBase):
             return 'q1'
 
     @staticmethod
-    def get_dict_for_creation_of_test(counter, teacher_username, school_id, branch_id, test_name, creation_time):
+    def get_dict_for_creation_of_quiz(counter, teacher_username, school_id, branch_id, test_name, creation_time):
         return {
             'counter': counter,
             'teacher_username': teacher_username,
