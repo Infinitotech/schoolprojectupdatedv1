@@ -38,7 +38,8 @@
 <script type="text/javascript" src="{% static 'css_js/jquery-ui-1.10.4.custom.min.js.download'%}"></script>
 <script type="text/javascript" src="{% static 'css_js/cmall.js.download'%}"></script>
 <script type="text/javascript" src="{% static 'css_js/featherlight.js.download'%}"></script>
-<link rel="stylesheet" media="print" type="text/css" href="{% static 'css_js/cmprint.css'%}"></head>
+<link rel="stylesheet" media="print" type="text/css" href="{% static 'css_js/cmprint.css'%}">
+</head>
 <body>
 <div class="header">
 <div class="branding">
@@ -54,20 +55,20 @@
 
 
 
+
 <a class="skip-link" href="https://www.classmarker.com/u/#content">Skip to Content</a>
 <div class="access level-1">
 <ul id="menu" class="menu main">
-<li class="current dashboard"><a href="student view group tests">Course Tests</a></li>
-<li class=" dashboard"><a href="student view my courses">My Courses</a></li>
-<li class=" dashboard my-account my-account-student" id="account">
-<a href="my details" class="account">
+<li class="dashboard"><a href="{% url 'student view group tests' %}">Course Tests</a></li>
+<li class="dashboard"><a href="{% url 'student view my courses' %}">My Courses</a></li>
+<li class="dashboard my-account my-account-student" id="account">
+<a href="{% url 'my details' %}" class="current dasboard account">
 <span class="text">My Details</span>
 </a>
 </li>
 </ul>
-</div> 
 </div>
-
+</div>
 
 
 <div id="content" class="clearfix">
@@ -95,7 +96,7 @@
         <p>Attempts allowed: Unlimited</p>
     </div>
     <div class="extra-info editor">
-        <p><a class="btn btn-results" name = "start_test" id = "start_test"  href="test_intro/?teacher_username={{ teacher_username }}&school_id={{ school_id }}&branch_id={{ branch_id }}&counter={{ counter }}">Start</a></p>
+        <p><a class="btn btn-results" name = "start_test" id = "start_test"  href="{% url 'test_intro' %}?teacher_username={{ teacher_username }}&school_id={{ school_id }}&branch_id={{ branch_id }}&counter={{ counter }}">Start</a></p>
     </div>
     </td>
     <td class="nocontent">-</td>
@@ -151,4 +152,6 @@ ga('create', 'UA-473958-2', 'auto');
 ga('require', 'displayfeatures');
 ga('send', 'pageview');
 </script>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b526c3e3c3","applicationID":"37429724,37429725","transactionName":"ZAAGZhQDVhUDWhUIWV1KMUAPTU1JC1cFBE4dFQxC","queueTime":0,"applicationTime":8,"atts":"SEcFEFwZRRs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b526c3e3c3","applicationID":"37429724,37429725","transactionName":"ZAAGZhQDVhUDWhUIWV1KMUAPTU1JC1cFBE4dFQxC","queueTime":0,"applicationTime":8,"atts":"SEcFEFwZRRs=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+</body>
+</html>

@@ -60,10 +60,10 @@
 <a class="skip-link" href="https://www.classmarker.com/u/#content">Skip to Content</a>
 <div class="access level-1">
 <ul id="menu" class="menu main">
-<li class="dashboard"><a href="student view group tests">Course Tests</a></li>
-<li class="dashboard"><a href="student view my courses">My Courses</a></li>
+<li class="dashboard"><a href="{% url 'student view group tests' %}">Course Tests</a></li>
+<li class="dashboard"><a href="{% url 'student view my courses' %}">My Courses</a></li>
 <li class="dashboard my-account my-account-student" id="account">
-<a href="my details" class="current dasboard account">
+<a href="{% url 'my details' %}" class="current dasboard account">
 <span class="text">My Details</span>
 </a>
 </li>
@@ -75,7 +75,8 @@
 
 
 <div id="content" class="clearfix">
-<div class="innerWrapper"><h2 class="member-name name">My details</h2><div class="clearheight"></div>
+<div class="innerWrapper"><h2 class="member-name name">My details</h2>
+    <div class="clearheight"></div>
     <div class="col-span-6 table-col-1">
 <div class="table">
 <div class="row overall">
@@ -114,7 +115,7 @@
 <p>You are allowed to change your username once only.</p>
 This allows you to change it to something you can easily remember. </div>
 <a id="c"></a>
-<form method="post" action="my details">
+<form method="post" action="{% url 'my details' %}">
 <input type="hidden" name="change_username" value="1">
 <div class="field-group">
 <label class="form-field-title" for="checkUsername">Username:</label>
@@ -140,7 +141,7 @@ This allows you to change it to something you can easily remember. </div>
 <p>You can change the password you use to log into your account.</p>
 Passwords must be at least 6 characters long. </div>
 <a id="c"></a>
-<form method="POST" action="my details" onsubmit="return PasswordCheck()">
+<form method="POST" action="{% url 'my details' %}" onsubmit="return PasswordCheck()">
 <input type="hidden" name="change_password" value="1">
 <div class="field-group">
 <label class="form-field-title" for="newpass1">New password:</label>

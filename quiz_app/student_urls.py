@@ -19,12 +19,11 @@ from .student_views import *
 
 
 urlpatterns = [
-    url(r'^test_intro/test questions/', TestQuestions.as_view()),
-    url(r'^test_intro/', TestIntro.as_view()),
-    url(r'^student\sview\sgroup\stests', StudentViewGroupTests.as_view()),
-    url(r'^student\sview\sgroup\stests', StudentViewGroupTests.as_view()),
-    url(r'^student\sview\smy\scourses', StudentViewMyCourses.as_view()),
+    url(r'^test_intro/test questions/', TestQuestions.as_view(), name='test questions'),
+    url(r'^test_intro/', TestIntro.as_view(), name='test_intro'),
+    url(r'^student\sview\sgroup\stests', StudentViewGroupTests.as_view(), name='student view group tests'),
+    url(r'^student\sview\smy\scourses', StudentViewMyCourses.as_view(), name='student view my courses'),
 
-    url(r'^my\sdetails', MyDetails.as_view()),
+    url(r'^my\sdetails', MyDetails.as_view(), name='my details'),
     url(r'', include('quiz_app.teacher_urls')),
 ]
