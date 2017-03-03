@@ -4,13 +4,13 @@ from django.views.generic import View
 from quiz_app.Functions.teacher_functions import *
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 import random,json
 from pymongo import MongoClient
+from v1.decorators import login_required
 
 
 class BasePage(View):
@@ -163,7 +163,10 @@ class ManageTestPost(View):
 
 
 class ManageTest(View):
+    @login_required
     def get(self,request):
+        if request.session['user']['type'] == 'student':
+            return redirect(to='quiz_app:my details student')
         test_name = (request.GET['test_name'])
         test_counter = QuizDataBase().create_test(test_name, request.session['user']['username'], request.session['user']['branch_id'],
                                                   request.session['user']['school_id'])
@@ -279,4 +282,4 @@ class WebBasedOnlineTestingServiceFreeQuizMakerClassMarker(View):
 
 class Welcome(View):
     def get(self,request):
-        return render(request,'welcome.html',{'username':request.session['user']['name']})
+        return render(request,'welcome.html', {'username':request.session['user']['name']})

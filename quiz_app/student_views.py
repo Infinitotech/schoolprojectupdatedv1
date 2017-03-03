@@ -81,6 +81,7 @@ class MyDetails(View):
 class TestIntro(View):
      def get(self, request):
          teacher_username = request.GET['teacher_username']
+         print(teacher_username)
          school_id=request.GET['school_id']
          branch_id=request.GET['branch_id']
          counter=request.GET['counter']
