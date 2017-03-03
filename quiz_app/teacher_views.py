@@ -16,22 +16,22 @@ class BasePage(View):
         return render(request,'base.html')
 
 
-class Access_Lists(View):
+class AccessLists(View):
     def get(self,request):
         return render(request,'Access Lists.html')
 
 
-class Add_new_registered_user_group(View):
+class AddNewRegisteredUserGroup(View):
     def get(self,request):
         return render(request,'Add new registered user group.html')
 
 
-class Add_new_test(View):
+class AddNewTest(View):
     def get(self,request):
         return render(request,'Add new test.html')
 
 
-class Add_question(View):
+class AddQuestion(View):
     def get(self,request, test_name, test_counter):
         return render(request,'Manage question.html',{'test_name':test_name,'test_counter':test_counter}) #this is the main thing
 
@@ -93,17 +93,17 @@ class Add_question(View):
         return render(request, 'Manage question.html',{'test_name':test_name,'test_counter':test_counter})
 
 
-class Assign_test_step_1(View):
+class AssignTestStep1(View):
     def get(self,request):
         return render(request,'Assign test step 1.html')
 
 
-class Assign_test_step_1b(View):
+class AssignTestStep1B(View):
     def get(self,request):
         return render(request,'Assign test step 1b.html')
 
 
-class Assign_test_step_2(View):
+class AssignTestStep2(View):
     def get(self,request):
         return render(request,'Assign test step 2.html')
 

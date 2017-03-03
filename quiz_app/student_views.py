@@ -14,7 +14,7 @@ from datetime import datetime
 import time as timeLib
 
 
-class Student_View_Group_Tests(View):
+class StudentViewGroupTests(View):
     @login_required
     def get(self, request):
         test = request.GET.get('g_id')
@@ -42,7 +42,7 @@ class Student_View_Group_Tests(View):
         return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score,school_id,branch_id,counter,teacher_username)})
 
 
-class Student_View_My_Courses(View):
+class StudentViewMyCourses(View):
     @login_required
     def get(self, request):
         message=request.GET['message']
@@ -55,7 +55,7 @@ class Student_View_My_Courses(View):
         return render(request, 'student view my courses.html', {'list': list,'user': user,'message':message})
 
 
-class My_Details(View):
+class MyDetails(View):
     @login_required
     def get(self, request):
         user = request.session['user']
@@ -78,7 +78,7 @@ class My_Details(View):
         return render(request, 'my details.html', {'user': user})
 
 
-class Test_intro(View):
+class TestIntro(View):
      def get(self, request):
          teacher_username = request.GET['teacher_username']
          school_id=request.GET['school_id']
@@ -106,7 +106,7 @@ class Test_intro(View):
          return render(request, 'test Introduction.html',context)
 
 
-class Test_Questions(View):
+class TestQuestions(View):
     def get(self, request):
         course=request.session['test']
         test_name = course['test_name']
