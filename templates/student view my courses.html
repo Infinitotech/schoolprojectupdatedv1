@@ -51,23 +51,25 @@
 
 
 
+
+
 <a class="skip-link" href="https://www.classmarker.com/u/#content">Skip to Content</a>
 <div class="access level-1">
 <ul id="menu" class="menu main">
-<li class="dashboard"><a href="student view group tests">Course Tests</a></li>
-<li class=" current dashboard"><a href="student view my courses">My Courses</a></li>
-<li class=" dashboard my-account my-account-student" id="account">
-<a href="my details" class="account">
+<li class="dashboard"><a href="{% url 'student view group tests' %}">Course Tests</a></li>
+<li class="dashboard"><a href="{% url 'student view my courses' %}">My Courses</a></li>
+<li class="dashboard my-account my-account-student" id="account">
+<a href="{% url 'my details' %}" class="current dasboard account">
 <span class="text">My Details</span>
 </a>
 </li>
 </ul>
-</div> 
+</div>
 </div>
 
 <div id="content" class="clearfix" >
 <div class="innerWrapper"><h2 class="group-name name">My groups</h2>  {{ message }}<div class="student-page editor">
-<form method="get" action="student view group tests" id="changeGroupForm">
+<form method="get" action="{% url 'student view group tests' %}" id="changeGroupForm">
     <input type="hidden" name="token" value="7GPPDYFTHD">
     <div class="table">
     <div class="row overall">

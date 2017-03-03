@@ -31,7 +31,7 @@
 <div class="f-left"><a href="https://www.classmarker.com/a/"><img src="{% static 'css_js/classmarker-logo.gif'%}" alt="Hosted online testing quiz maker"></a><span class="noprint">ClassMarker</span></div>
 <div class="top-right-nav noprint">
 <ul class="upgrade-logout-nav">
-<li><a href="https://www.classmarker.com/u/details/">Hi Azeem</a></li>
+<li><a href="https://www.classmarker.com/u/details/">Hi {{ admin_name }}</a></li>
 <li><a href="https://www.classmarker.com/login/logout/">Log out</a></li>
 </ul>
 </div>
@@ -114,8 +114,8 @@
                 <td class="tg-pam3">{{ i.username }}</td>
                 <td class="tg-pam3">{{ i.nic }}</td>
                 <td class="tg-pam3">{{ i.status }}</td>
-                <td><a href="http://127.0.0.1:8000/admin/edit_info/?name={{ i.name }}">Edit_Info</a></td>
-                <td><a href="http://127.0.0.1:8000/admin/delete_student/?name={{ i.name }}">Delete</a></td>
+                <td class="tg-pam3"><a href="http://127.0.0.1:8000/admin/edit_info/?name={{ i.name }}">Edit_Info</a></td>
+                <td class="tg-pam3"><a href="http://127.0.0.1:8000/admin/delete_student/?name={{ i.name }}">Delete</a></td>
                 {% for j in i.history.courses %}
                     <td class="tg-pam3">{{ j.course_name }}</td>
                 {% endfor %}

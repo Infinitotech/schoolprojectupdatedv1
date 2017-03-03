@@ -13,22 +13,7 @@
 		var audio_video_warning = '';
 	</script>
 <link rel="stylesheet" href="{% static 'css_js/font-awesome.css'%}">
-<!--[if IE 6]>
-	<link rel="stylesheet" type="text/css" href="/css3/ie67.css?v=135"/>
-	<![endif]-->
-<!--[if lte IE 7]>
-	<link rel="stylesheet" type="text/css" media="all" href="/css3/ie67.css?v=135"/>
-	<![endif]-->
-<!--[if lte IE 8]>
-	<link rel="stylesheet" type="text/css" media="all" href="/css3/ie8.css?v=135"/>
-	<script type="text/javascript">
-		var isMSIE8 = 1;
-		audio_video_warning = '<div class="sceditor-ignore alert-box error">Please upgrade your browser to view audio or video.</div>';
-	</script>
-	<![endif]-->
-<!--[if IE]>
-	<link rel="stylesheet" type="text/css" href="/css3/ie.css?v=135"/>
-	<![endif]-->
+
 <script type="text/javascript">
 	var web_root = "/";
 	var webpath_img = "/img3/";
@@ -39,6 +24,22 @@
 <script type="text/javascript" src="{% static 'css_js/featherlight.js.download'%}"></script>
 
 <link rel="stylesheet" media="print" type="text/css" href="{% static 'css_js/cmprint.css'%}">
+<script>
+    function PasswordCheck(){
+        var pass1 = document.getElementById('pass1').value;
+        var pass2 = document.getElementById('pass2').value;
+        if(pass1 != pass2){
+            alert("Password don't match! Try Again");
+            return false;
+        }
+        else if(pass1.length <6){
+            alert("Password should be atleast 6 characters");
+            return false;
+        }
+
+    }
+</script>
+
 </head>
 <body>
 <div class="header">
@@ -59,10 +60,10 @@
 <a class="skip-link" href="https://www.classmarker.com/u/#content">Skip to Content</a>
 <div class="access level-1">
 <ul id="menu" class="menu main">
-<li class="dashboard"><a href="student view group tests">Course Tests</a></li>
-<li class="dashboard"><a href="student view my courses">My Courses</a></li>
+<li class="dashboard"><a href="{% url 'student view group tests' %}">Course Tests</a></li>
+<li class="dashboard"><a href="{% url 'student view my courses' %}">My Courses</a></li>
 <li class="dashboard my-account my-account-student" id="account">
-<a href="my details" class="current dasboard account">
+<a href="{% url 'my details' %}" class="current dasboard account">
 <span class="text">My Details</span>
 </a>
 </li>
@@ -74,7 +75,8 @@
 
 
 <div id="content" class="clearfix">
-<div class="innerWrapper"><h2 class="member-name name">My details</h2><div class="clearheight"></div>
+<div class="innerWrapper"><h2 class="member-name name">My details</h2>
+    <div class="clearheight"></div>
     <div class="col-span-6 table-col-1">
 <div class="table">
 <div class="row overall">
@@ -113,7 +115,7 @@
 <p>You are allowed to change your username once only.</p>
 This allows you to change it to something you can easily remember. </div>
 <a id="c"></a>
-<form method="post" action="my details">
+<form method="post" action="{% url 'my details' %}">
 <input type="hidden" name="change_username" value="1">
 <div class="field-group">
 <label class="form-field-title" for="checkUsername">Username:</label>
@@ -139,17 +141,17 @@ This allows you to change it to something you can easily remember. </div>
 <p>You can change the password you use to log into your account.</p>
 Passwords must be at least 6 characters long. </div>
 <a id="c"></a>
-<form method="POST" action="my details">
+<form method="POST" action="{% url 'my details' %}" onsubmit="return PasswordCheck()">
 <input type="hidden" name="change_password" value="1">
 <div class="field-group">
 <label class="form-field-title" for="newpass1">New password:</label>
-<input type="password" name="pass1" id="newpass1" aria-autocomplete="list">
+<input type="password" name="pass1" id="pass1" aria-autocomplete="list">
 <br>
 <label class="form-field-title" for="newpass2">Re-type password:</label>
-<input type="password" name="pass2" id="newpass2">
+<input type="password" name="pass2" id="pass2">
 </div>
 <div class="clearheight"></div>
-<p><button type="submit" href="change details" name="change_password" class="genericSubmitLink btn btn-create tab">Change password</button></p>
+<p><button type="submit" name="change_password" class="genericSubmitLink btn btn-create tab">Change password</button></p>
 </form>
 </div>
 </div>

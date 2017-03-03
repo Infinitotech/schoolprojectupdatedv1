@@ -38,6 +38,7 @@
 <script type="text/javascript" src="{% static 'css_js/featherlight.js.download'%}"></script>
 <link rel="stylesheet" media="print" type="text/css" href="{% static 'css_js/cmprint.css'%}"></head>
 <body>
+<body>
 <div class="header">
 <div class="branding">
 <div class="f-left"><a href="https://www.classmarker.com/a/"><img src="{% static 'css_js/classmarker-logo.gif'%}" alt="Hosted online testing quiz maker"></a><span class="noprint">ClassMarker</span></div>
@@ -52,19 +53,21 @@
 
 
 
+
 <a class="skip-link" href="https://www.classmarker.com/u/#content">Skip to Content</a>
 <div class="access level-1">
 <ul id="menu" class="menu main">
-<li class="current dashboard"><a href="student view group tests">Course Tests</a></li>
-<li class=" dashboard"><a href="student view my courses">My Courses</a></li>
-<li class=" dashboard my-account my-account-student" id="account">
-<a href="my details" class="account">
+<li class="dashboard"><a href="{% url 'student view group tests' %}">Course Tests</a></li>
+<li class="dashboard"><a href="{% url 'student view my courses' %}">My Courses</a></li>
+<li class="dashboard my-account my-account-student" id="account">
+<a href="{% url 'my details' %}" class="current dasboard account">
 <span class="text">My Details</span>
 </a>
 </li>
 </ul>
 </div>
 </div>
+
 
 <div id="content" class="clearfix">
 <div class="innerWrapper"><h3 class="testname">{{ test_name }}</h3><div class="width-test-text editor classmarker_content" id="questions_container"><div class="alert-box alert-default"><p class="titlename bold">Instructions:</p>
@@ -74,7 +77,7 @@
     <li>Time Limit: <strong>{{ test_duration }}</strong></li>
     <li>Number of attempts allowed: <strong>Unlimited</strong></li><li>Must be finished in one sitting. You cannot save and finish later.</li><li>Questions displayed per page: <strong>1</strong> </li><li>Will allow you to go back and change your answers.</li><li>Will not let you finish with any questions unattempted.</li></ul></div><div class="clearheight30"></div><div class="f-left">&nbsp;<a href="https://www.classmarker.com/u" class="prev2 prev2dark">Go back</a>&nbsp;</div>
 <div class="f-right margright">
-<a class="next2 fade_content_btn" href="test questions/?teacher_username={{ teacher_username }}&school_id={{ school_id }}&branch_id={{ branch_id }}&counter={{ counter }}">Start</a>
+<a class="next2 fade_content_btn" href="{% url 'test questions' %}?teacher_username={{ teacher_username }}&school_id={{ school_id }}&branch_id={{ branch_id }}&counter={{ counter }}">Start</a>
 </div>
 <div class="clearheight30"></div><noscript>&lt;div class="alert-box error editor "&gt;You must have JavaScript enabled in your browser to use this page.&lt;br/&gt;Please enable JavaScript in your web browser then refresh this page.&lt;br/&gt;&lt;br/&gt;
 &lt;a href="https://support.google.com/bin/answer.py?hl=en&amp;amp;answer=23852" target="_blank"&gt;Learn how&lt;/a&gt;.&lt;br/&gt;This page will open in a new browser window.&lt;/div&gt;</noscript><script type="text/javascript">

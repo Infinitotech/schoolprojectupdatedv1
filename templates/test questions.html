@@ -85,19 +85,21 @@ window.onload = function () {
 
 
 
+
 <a class="skip-link" href="https://www.classmarker.com/u/#content">Skip to Content</a>
 <div class="access level-1">
 <ul id="menu" class="menu main">
-<li class="current dashboard"><a href="student view group tests">Course Tests</a></li>
-<li class=" dashboard"><a href="student view my courses">My Courses</a></li>
-<li class=" dashboard my-account my-account-student" id="account">
-<a href="my details" class="account">
+<li class="dashboard"><a href="{% url 'student view group tests' %}">Course Tests</a></li>
+<li class="dashboard"><a href="{% url 'student view my courses' %}">My Courses</a></li>
+<li class="dashboard my-account my-account-student" id="account">
+<a href="{% url 'my details' %}" class="current dasboard account">
 <span class="text">My Details</span>
 </a>
 </li>
 </ul>
 </div>
 </div>
+
 <div id="content" class="clearfix">
 <div class="innerWrapper"><div class="col640"><div id="ajax-container"><div class="classmarker_content"><a id="q"></a>
 <h3 class="testname">{{ test_name }}</h3><div class="v3QuizHolder"><form method="post" action="" id="questionform" name="questionform"autocomplete="off">
@@ -177,4 +179,6 @@ ga('create', 'UA-473958-2', 'auto');
 ga('require', 'displayfeatures');
 ga('send', 'pageview');
 </script>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b526c3e3c3","applicationID":"37783571,37429725","transactionName":"ZAAGZhQDVhUDWhUIWV1KMUAPTUwDEU1OCFhXABwcFgpI","queueTime":0,"applicationTime":15,"atts":"SEcFEFwZRRs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b526c3e3c3","applicationID":"37783571,37429725","transactionName":"ZAAGZhQDVhUDWhUIWV1KMUAPTUwDEU1OCFhXABwcFgpI","queueTime":0,"applicationTime":15,"atts":"SEcFEFwZRRs=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+</body>
+</html>
