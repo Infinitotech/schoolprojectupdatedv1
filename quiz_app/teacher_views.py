@@ -1,4 +1,4 @@
-from v1.Database import TestDataBase
+from v1.Database import QuizDataBase
 from django.shortcuts import render,redirect
 from django.views.generic import View
 from django.shortcuts import render_to_response
@@ -37,10 +37,10 @@ class Add_question(View):
 
     def post(self, request, test_name, test_counter):
         answers_dict = {1: 'a', 2: 'b', 3: 'c', 4: 'd'}
-        test = TestDataBase().get_test_dict(test_counter, request.session['user']['username'],
+        test = QuizDataBase().get_test_dict(test_counter, request.session['user']['username'],
                                             request.session['user']['branch_id'], request.session['user']['school_id'])
         print(test)
-        question_number = TestDataBase.get_question_number(test)
+        question_number = QuizDataBase.get_question_number(test)
         test_name = request.POST.get('test_name')
         question = request.POST.get('question1')
         correct1 = request.POST.get('correct1')
@@ -66,7 +66,7 @@ class Add_question(View):
             question_dict[question_number] = question
             test['questions'] = question_dict
             option_dict = test['options']
-            option_dict[TestDataBase.get_question_number(test, False)] = {
+            option_dict[QuizDataBase.get_question_number(test, False)] = {
                 'a': ans1,
                 'b': ans2,
                 'c': ans3,
@@ -89,7 +89,7 @@ class Add_question(View):
             test['solutions'] = {
                 question_number: answers_dict[int(correct_answer)]
             }
-        TestDataBase().update_test(test)
+        QuizDataBase().update_test(test)
         return render(request, 'Manage question.html',{'test_name':test_name,'test_counter':test_counter})
 
 
@@ -214,8 +214,8 @@ class Manage_test_post(View):
 class Manage_test(View):
     def get(self,request):
         test_name= (request.GET['test_name'])
-        test_counter = TestDataBase().create_test(test_name, request.session['user']['username'], request.session['user']['branch_id'],
-                                   request.session['user']['school_id'])
+        test_counter = QuizDataBase().create_test(test_name, request.session['user']['username'], request.session['user']['branch_id'],
+                                                  request.session['user']['school_id'])
         return render(request,'Manage test.html',{'test_name':test_name,'test_counter':test_counter})
 
 
