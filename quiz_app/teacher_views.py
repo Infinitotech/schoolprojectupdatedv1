@@ -42,36 +42,9 @@ class AddQuestion(View):
                                             request.session['user']['branch_id'], request.session['user']['school_id'])
         question_number = QuizDataBase.get_question_number(test)
         param_dict = get_parameters_from_request_for_each_question_teacher_creates(request=request)
-        try:
-            question_dict = test['questions']
-            question_dict[question_number] = param_dict['question']
-            test['questions'] = question_dict
-            option_dict = test['options']
-            option_dict[QuizDataBase.get_question_number(test, False)] = {
-                'a': param_dict['ans1'],
-                'b': param_dict['ans2'],
-                'c': param_dict['ans3'],
-                'd': param_dict['ans4']
-            }
-            test['options'] = option_dict
-            solutions_dict = test['solutions']
-            solutions_dict[question_number] = param_dict['answers_dict'][int(param_dict['correct_answer'])]
-            test['solutions'] = solutions_dict
-        except KeyError:
-            test['questions'] = {question_number: param_dict['question']}
-            test['options'] = {
-                question_number: {
-                    'a': param_dict['ans1'],
-                    'b': param_dict['ans2'],
-                    'c': param_dict['ans3'],
-                    'd': param_dict['ans4']
-                }
-            }
-            test['solutions'] = {
-                question_number: param_dict['answers_dict'][int(param_dict['correct_answer'])]
-            }
+        test = add_question_to_test_document(test, param_dict, question_number)
         QuizDataBase().update_test(test)
-        return render(request, 'Manage question.html',{'test_name': test_name,'test_counter': test_counter})
+        return render(request, 'Manage question.html', {'test_name': test_name,'test_counter': test_counter})
 
 
 class AssignTestStep1(View):
@@ -181,8 +154,6 @@ class ManageQuestionShow(View):
 
 class ManageQuestion(View):
     def get(self,request, test_name, test_counter):
-        print(test_name)
-        print(test_counter)
         return render(request,'Manage question.html',{'test_name':test_name,'test_counter':test_counter})
 
 
@@ -193,7 +164,7 @@ class ManageTestPost(View):
 
 class ManageTest(View):
     def get(self,request):
-        test_name= (request.GET['test_name'])
+        test_name = (request.GET['test_name'])
         test_counter = QuizDataBase().create_test(test_name, request.session['user']['username'], request.session['user']['branch_id'],
                                                   request.session['user']['school_id'])
         return render(request,'Manage test.html',{'test_name':test_name,'test_counter':test_counter})

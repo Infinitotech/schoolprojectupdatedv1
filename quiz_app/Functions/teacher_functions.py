@@ -1,3 +1,6 @@
+from v1.Database import *
+
+
 def get_parameters_from_request_for_each_question_teacher_creates(request):
     answers_dict = {1: 'a', 2: 'b', 3: 'c', 4: 'd'}
     test_name = request.POST.get('test_name')
@@ -36,3 +39,35 @@ def get_parameters_from_request_for_each_question_teacher_creates(request):
         'correct_answer': correct_answer,
         'answers_dict': answers_dict
     }
+
+
+def add_question_to_test_document(test, param_dict, question_number):
+    try:
+        question_dict = test['questions']
+        question_dict[question_number] = param_dict['question']
+        test['questions'] = question_dict
+        option_dict = test['options']
+        option_dict[QuizDataBase.get_question_number(test, False)] = {
+            'a': param_dict['ans1'],
+            'b': param_dict['ans2'],
+            'c': param_dict['ans3'],
+            'd': param_dict['ans4']
+        }
+        test['options'] = option_dict
+        solutions_dict = test['solutions']
+        solutions_dict[question_number] = param_dict['answers_dict'][int(param_dict['correct_answer'])]
+        test['solutions'] = solutions_dict
+    except KeyError:
+        test['questions'] = {question_number: param_dict['question']}
+        test['options'] = {
+            question_number: {
+                'a': param_dict['ans1'],
+                'b': param_dict['ans2'],
+                'c': param_dict['ans3'],
+                'd': param_dict['ans4']
+            }
+        }
+        test['solutions'] = {
+            question_number: param_dict['answers_dict'][int(param_dict['correct_answer'])]
+        }
+    return test
