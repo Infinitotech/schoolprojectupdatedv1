@@ -128,7 +128,7 @@ class Assistants(View):
         return render(request,'Assistants.html')
 
 
-class base(View):
+class Base(View):
     def get(self,request):
         return render(request,'base.html')
 
@@ -203,7 +203,6 @@ class ManageQuestion(View):
         print(test_name)
         print(test_counter)
         return render(request,'Manage question.html',{'test_name':test_name,'test_counter':test_counter})
-
 
 
 class ManageTestPost(View):

@@ -29,7 +29,7 @@ urlpatterns=[
     url(r'^Assign\stest\sstep\s3a', AssignTestStep3A.as_view()),
     url(r'^Assign\stest\sstep\s3b', AssignTestStep3B.as_view()),
     url(r'^Assistants', Assistants.as_view()),
-    url(r'^base', base.as_view()),
+    url(r'^base', Base.as_view()),
     url(r'^Categories', Categories.as_view()),
     url(r'^Certificates', Certificates.as_view()),
     url(r'^Community', Community.as_view()),
