@@ -41,6 +41,7 @@ class Student_View_Group_Tests(View):
             teacher_username.append(i['teacher_username'])
         return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score,school_id,branch_id,counter,teacher_username)})
 
+
 class Student_View_My_Courses(View):
     @login_required
     def get(self, request):

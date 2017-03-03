@@ -1,5 +1,5 @@
 import datetime
-from test_module.teacher_files.teacher import Teacher
+from quiz_app.teacher_files.teacher import Teacher
 
 
 class Test(object):
