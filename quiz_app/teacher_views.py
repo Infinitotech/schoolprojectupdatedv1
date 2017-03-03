@@ -108,17 +108,17 @@ class AssignTestStep2(View):
         return render(request,'Assign test step 2.html')
 
 
-class Assign_test_step_3(View):
+class AssignTestStep3(View):
     def get(self,request):
         return render(request,'Assign test step 3.html')
 
 
-class Assign_test_step_3a(View):
+class AssignTestStep3A(View):
     def get(self,request):
         return render(request,'Assign test step 3a.html')
 
 
-class Assign_test_step_3b(View):
+class AssignTestStep3B(View):
     def get(self,request):
         return render(request,'Assign test step 3b.html')
 
@@ -148,17 +148,17 @@ class Community(View):
         return render(request,'Community.html')
 
 
-class Contact_us_ClassMarker(View):
+class ContactUsClassMarker(View):
     def get(self,request):
         return render(request,'Contact us ClassMarker.html')
 
 
-class Edit_question_settings(View):
+class EditQuestionSettings(View):
     def get(self,request):
         return render(request,'Edit question settings.html')
 
 
-class Export_results(View):
+class ExportResults(View):
     def get(self,request):
         return render(request,'Export results.html')
 
@@ -183,22 +183,22 @@ class Introduction(View):
         return render(request,'Introduction.html')
 
 
-class links(View):
+class Links(View):
     def get(self,request):
         return render(request,'links.html')
 
 
-class Manage_Access_List(View):
+class ManageAccessList(View):
     def get(self,request):
         return render(request,'Manage Access List.html')
 
 
-class Manage_question_show(View):
+class ManageQuestionShow(View):
     def get(self,request):
         return render(request,'Manage question(show).html')
 
 
-class Manage_question(View):
+class ManageQuestion(View):
     def get(self,request, test_name, test_counter):
         print(test_name)
         print(test_counter)
@@ -206,12 +206,12 @@ class Manage_question(View):
 
 
 
-class Manage_test_post(View):
+class ManageTestPost(View):
     def get(self,request):
         return render(request,'Manage test(post).html')
 
 
-class Manage_test(View):
+class ManageTest(View):
     def get(self,request):
         test_name= (request.GET['test_name'])
         test_counter = QuizDataBase().create_test(test_name, request.session['user']['username'], request.session['user']['branch_id'],
@@ -219,33 +219,33 @@ class Manage_test(View):
         return render(request,'Manage test.html',{'test_name':test_name,'test_counter':test_counter})
 
 
-class My_Account(View):
+class MyAccount(View):
     def get(self,request):
         return render(request,'My Account.html')
 
 
-class My_tests(View):
+class MyTests(View):
     def get(self,request):
         print("In tests")
         return render(request,'My tests.html')
 
 
-class Online_Testing_Free_Quiz_Maker_Create_the_Best_web_based_quizzes_ClassMarker(View):
+class OnlineTestingFreeQuizMakerCreateTheBestWebBasedQuizzesClassMarker(View):
     def get(self,request):
         return render(request,'Online Testing Free Quiz Maker Create the Best web-based quizzes ClassMarker.html')
 
 
-class Overall_test_results_by_group(View):
+class OverallTestResultsByGroup(View):
     def get(self,request):
         return render(request,'Overall test results by group.html')
 
 
-class Overall_test_results_by_link(View):
+class OverallTestResultsByLink(View):
     def get(self,request):
         return render(request,'Overall test results by link.html')
 
 
-class Overall_test_results(View):
+class OverallTestResults(View):
     def get(self,request):
         return render(request,'Overall test results.html')
 
@@ -255,32 +255,32 @@ class Overview(View):
         return render(request,'Overview.html')
 
 
-class Privacy_ClassMarker(View):
+class PrivacyClassMarker(View):
     def get(self,request):
         return render(request,'Privacy ClassMarker.html')
 
 
-class Question_bank(View):
+class QuestionBank(View):
     def get(self,request):
         return render(request,'Question bank.html')
 
 
-class Question_order(View):
+class QuestionOrder(View):
     def get(self,request):
         return render(request,'Question order.html')
 
 
-class Quiz_maker_Step_by_Step_Instructions_ClassMarker(View):
+class QuizMakerStepByStepInstructionsClassMarker(View):
     def get(self,request):
         return render(request,'Quiz maker - Step by Step Instructions ClassMarker.html')
 
 
-class Recent_results_links(View):
+class RecentResultsLinks(View):
     def get(self,request):
         return render(request,'Recent results(links).html')
 
 
-class Recent_results(View):
+class RecentResults(View):
     def get(self,request):
         return render(request,'Recent results.html')
 
@@ -290,7 +290,7 @@ class Results(View):
         return render(request,'Results.html')
 
 
-class Terms_and_conditions_ClassMarker(View):
+class TermsAndConditionsClassMarker(View):
     def get(self,request):
         return render(request,'Terms and conditions ClassMarker.html')
 
@@ -310,16 +310,16 @@ class Upgrade(View):
         return render(request,'Upgrade.html')
 
 
-class Video_Demonstrations(View):
+class VideoDemonstrations(View):
     def get(self,request):
         return render(request,'Video Demonstrations.html')
 
 
-class Web_based_online_testing_service_Free_quiz_maker_ClassMarker(View):
+class WebBasedOnlineTestingServiceFreeQuizMakerClassMarker(View):
     def get(self,request):
         return render(request,'Web-based online testing service _ Free quiz maker ClassMarker.html')
 
 
-class welcome(View):
+class Welcome(View):
     def get(self,request):
         return render(request,'welcome.html',{'username':request.session['user']['name']})
