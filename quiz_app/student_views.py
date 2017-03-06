@@ -59,7 +59,8 @@ class MyDetails(View):
     @login_required
     def get(self, request):
         user = request.session['user']
-        return render(request,'my details.html',{'user': user})
+        return HttpResponse("Nshaf")
+       #return render(request,'my details.html',{'user': user})
 
     @login_required
     def post(self, request):
