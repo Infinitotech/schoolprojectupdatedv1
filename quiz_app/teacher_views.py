@@ -91,6 +91,7 @@ class Assignteststep3(View):
 
     def get(self,request):
         test_name = request.GET('test-name')
+        user = request.session['user']
         coursename = request.GET('course-name')
         return render(request, 'Assign test step 3.html', {'test_name': test_name, 'course_name': coursename,'user':user})
 
@@ -101,10 +102,51 @@ class Assignteststep3(View):
         return render(request, 'Assign test step 3.html', {'test_name': test_name, 'course_name': coursename,'user':user})
 
 
+class tt(View):
+    def post(self,request):
+        user = request.session['user']
+        available = request.POST.get('available')
+        fromdate = request.POST.get('show_from_date')
+        lastdate = request.POST.get('show_until_date')
+        user = request.session['user']
+        test_name = request.POST.get('test-name')
+        coursename = request.POST.get('course-name')
 
-class Assignteststep3a(View):
+        print("dsafdsf")
+        print(available)
+        if(available==None):
+            print("yes")
+
+
+        print(fromdate)
+        print(lastdate)
+
+
+
+        return render(request, 'Assign test step 1.html')
+
+
+class Assignteststepsetting(View):
     def get(self,request):
-        return render(request,'Assign test step 3a.html')
+        return render(request,'Assistants.html')
+
+    def post(self,request):
+        '''available = request.POST.get('available')
+        unavailable = request.POST.get('unavailable')
+        fromdate = request.POST.get('show_from_date')
+        lastdate = request.POST.get('show_until_date')
+        user = request.session['user']
+        test_name = request.POST.get('test-name')
+        coursename = request.POST.get('course-name')
+
+        print("dsafdsf")
+        print(available)
+        print(unavailable)
+        print(fromdate)
+        print(lastdate)'''
+        print("sdfsdfsdf")
+        user = request.session['user']
+        return render(request, 'Assistants.html',{'test_name': "dfsdfs", 'course_name': "sdfsdfsdf", 'user': user})
 
 
 class Assignteststep3b(View):
@@ -322,7 +364,7 @@ class Welcome(View):
 
 
 
-class assign_test_group(View):
+class assigntestgroup(View):
     def get(self,request):
         user = request.session['user']
         mongo = MongoClient()

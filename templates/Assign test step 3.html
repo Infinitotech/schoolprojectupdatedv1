@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load staticfiles %}{% block content %}
-
+{% csrf_token %}
 <div id="content" class="clearfix">
 <div class="innerWrapper">
+    <script>
+
+    </script>
 <!--[if IE 6]>
 <div class="alert-box error editor">
 	<p class="bold">You are using Internet Explorer Version 6 which will not work with administration pages.</p>
@@ -48,8 +51,9 @@
 </div></div><a href="Manage test" class="right btn btn-analytics showTooltipEast" title="Preview taking this Test with these applied Settings.">Preview Test</a> <a class="scroll_setting_div"></a>
 <div class="">
 <div class="clearheight"></div>
+
 <div class="page editor assign-settings-container">
-<form action="Manage test" method="post" id="monitorchanges">
+<form action="tt" method="post" id="monitorchanges">
 <input type="hidden" name="settings_type" value="classtestsettings"><input type="hidden" name="test_id" value="742198"><input type="hidden" name="rg_id" value="308307">
 <div class="clearheight"></div>
 <h4>Test Access</h4>
@@ -62,9 +66,11 @@
 <div class="field-group">
 <span class="form-field-title"><strong>Option 1</strong></span><br><br>
 <span class="form-field-title no-input">Currently: </span>
-<input type="radio" id="showfromon" name="show_from" checked="checked" value="1"> <label for="showfromon">Available</label> <span class="showTooltip tooltip" title="Test will be available to Start">Tip</span>
+<input type="radio" id="showfromon" name="available" checked="checked" value="1"> <label for="showfromon">Available</label>
+    <span class="showTooltip tooltip" title="Test will be available to Start">Tip</span>
 <div class="clearheight5"></div>
-<input class="tab" type="radio" id="showfromoff" name="show_from" value="0"> <label for="showfromoff">Unavailable</label> <span class="showTooltip tooltip" title="Test will not be available to Start.">Tip</span>
+<input class="tab" type="radio" id="showfromoff" name="unavailable" value="0">
+ <label for="showfromoff">Unavailable</label><span class="showTooltip tooltip" title="Test will not be available to Start.">Tip</span>
 </div>
 <hr class="tab">
 <span class="form-field-title"><strong>Option 2</strong></span><br><br>
@@ -217,7 +223,7 @@
 <label for="sfq_">Question grading and Feedback during Test</label>
 <span class="showTooltip tooltip" title="Show corrections after each Question including your custom Feedback if any.">Tip</span>
 <div class="tab">
- 
+
 <input class="sub-checkbox" type="checkbox" name="test_feedback_qca" value="1" id="sfqca_">
 <label for="sfqca_">Reveal correct answers during Test</label>
 <span class="showTooltip tooltip" title="Will indicate the correct answer if a Question is answered incorrectly.">Tip</span><br>
@@ -441,6 +447,7 @@
 </div>
 </div>
 <div class="clearheight"></div>
+<button  id="b1">SAVECHANGES</button>
 <p><input type="checkbox" value="1" name="save_as_default" id="save_as_defaults"> <label for="save_as_defaults">Save as my default settings.</label> <span class="showTooltipHTML tooltip" title="Each time you assign a Test, these settings will be preset for you.&lt;br/&gt;&lt;br/&gt;Note: Saving as Default settings will not affect any of your Existing Assigned Settings.">Tip</span></p>
 <a class="btn btn-create editSettingsSubmitCheck" href="Add new registered user group">Save changes</a> <a class="btn btn-cancel" href="Manage test">Cancel</a>
 </form>

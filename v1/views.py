@@ -33,7 +33,7 @@ class Login(View):
         return render(request,'login.html',{'schooldata': my_dict})
 
     def post(self,request):
-        print(' login post')
+
         username = request.POST['username']
         password = request.POST['password']
         branchid = request.POST['branchid']
