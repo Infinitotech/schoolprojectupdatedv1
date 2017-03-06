@@ -4,13 +4,13 @@ from django.views.generic import View
 from quiz_app.Functions.teacher_functions import *
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 import random,json
 from pymongo import MongoClient
+from v1.decorators import login_required
 
 
 class BasePage(View):
@@ -47,32 +47,109 @@ class AddQuestion(View):
         return render(request, 'Manage question.html', {'test_name': test_name,'test_counter': test_counter})
 
 
-class AssignTestStep1(View):
+class Assignteststep1(View):
     def get(self,request):
-        return render(request,'Assign test step 1.html')
+        print("sdafdf")
+        mongo = MongoClient()
+        user = request.session['user']
+        db = mongo['dummy_school_project_v1']
+        course_name = request.POST.get('test_id')
+        tests = db.tests.find({"teacher_username": user['name']})
+
+        return render(request,'Assign test step 1.html',{'course_name':course_name,'tests':tests,'user':user})
+
+    def post(self,request):
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+        user = request.session['user']
+        tests = db.tests.find({"teacher_username": user['name']})
+        course_name = request.POST.get('course_id')
+        print("asfsfd")
+        print(course_name)
+        return render(request, 'Assign test step 1.html', {'course_name': course_name, 'tests': tests,'user':user})
 
 
-class AssignTestStep1B(View):
+class Assignteststep1b(View):
     def get(self,request):
         return render(request,'Assign test step 1b.html')
 
 
-class AssignTestStep2(View):
+class Assignteststep2(View):
     def get(self,request):
-        return render(request,'Assign test step 2.html')
+        return render(request,'Assign test step 2.html',{'user':user})
+
+    def post(self,request):
+        user = request.session['user']
+        test_name = request.POST.get('test_id')
+        coursename = request.POST.get('cour')
+        print(test_name)
+        print(coursename)
+        return render(request, 'Assign test step 2.html',{'test_name':test_name,'course_name':coursename,'user':user})
 
 
-class AssignTestStep3(View):
+class Assignteststep3(View):
+
     def get(self,request):
-        return render(request,'Assign test step 3.html')
+        test_name = request.GET('test-name')
+        user = request.session['user']
+        coursename = request.GET('course-name')
+        return render(request, 'Assign test step 3.html', {'test_name': test_name, 'course_name': coursename,'user':user})
+
+    def post(self,request):
+        test_name = request.POST.get('test-name')
+        coursename = request.POST.get('course-name')
+        user = request.session['user']
+        return render(request, 'Assign test step 3.html', {'test_name': test_name, 'course_name': coursename,'user':user})
 
 
-class AssignTestStep3A(View):
+class tt(View):
+    def post(self,request):
+        user = request.session['user']
+        available = request.POST.get('available')
+        fromdate = request.POST.get('show_from_date')
+        lastdate = request.POST.get('show_until_date')
+        user = request.session['user']
+        test_name = request.POST.get('test-name')
+        coursename = request.POST.get('course-name')
+
+        print("dsafdsf")
+        print(available)
+        if(available==None):
+            print("yes")
+
+
+        print(fromdate)
+        print(lastdate)
+
+
+
+        return render(request, 'Assign test step 1.html')
+
+
+class Assignteststepsetting(View):
     def get(self,request):
-        return render(request,'Assign test step 3a.html')
+        return render(request,'Assistants.html')
+
+    def post(self,request):
+        '''available = request.POST.get('available')
+        unavailable = request.POST.get('unavailable')
+        fromdate = request.POST.get('show_from_date')
+        lastdate = request.POST.get('show_until_date')
+        user = request.session['user']
+        test_name = request.POST.get('test-name')
+        coursename = request.POST.get('course-name')
+
+        print("dsafdsf")
+        print(available)
+        print(unavailable)
+        print(fromdate)
+        print(lastdate)'''
+        print("sdfsdfsdf")
+        user = request.session['user']
+        return render(request, 'Assistants.html',{'test_name': "dfsdfs", 'course_name': "sdfsdfsdf", 'user': user})
 
 
-class AssignTestStep3B(View):
+class Assignteststep3b(View):
     def get(self,request):
         return render(request,'Assign test step 3b.html')
 
@@ -163,7 +240,10 @@ class ManageTestPost(View):
 
 
 class ManageTest(View):
+    @login_required
     def get(self,request):
+        if request.session['user']['type'] == 'student':
+            return redirect(to='quiz_app:my details student')
         test_name = (request.GET['test_name'])
         test_counter = QuizDataBase().create_test(test_name, request.session['user']['username'], request.session['user']['branch_id'],
                                                   request.session['user']['school_id'])
@@ -279,4 +359,19 @@ class WebBasedOnlineTestingServiceFreeQuizMakerClassMarker(View):
 
 class Welcome(View):
     def get(self,request):
-        return render(request,'welcome.html',{'username':request.session['user']['name']})
+        return render(request,'welcome.html', {'username':request.session['user']['name']})
+
+
+
+
+class assigntestgroup(View):
+    def get(self,request):
+        user = request.session['user']
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+
+
+        cursor = db.courses.find({"current_year.teachers":{"$elemMatch":{ "username": user['name'] }}})
+
+
+        return render(request, "assign test group.html", {'courses':cursor,'user':user})

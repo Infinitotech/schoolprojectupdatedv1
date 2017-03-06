@@ -52,7 +52,7 @@
 <div class="f-left"><a href="Welcome"><img width="182" height="27" src="{%  static 'css_js/classmarker-logo.gif'%}" alt="Hosted online testing quiz maker"></a><span class="noprint"></span></div>
 <div class="top-right-nav noprint">
 <ul class="upgrade-logout-nav">
-<li><a href="My Account">Hi {{ username }}</a></li>
+<li><a href="My Account">Hi {{ user.name }}</a></li>
 <li><a href="Upgrade">Upgrade</a></li>
 <li><a href="login">Logout</a></li>
 </ul>
@@ -86,28 +86,21 @@ Link</a></li>
 </div>
 <div class="menu-second-section">
 <ul class="menu-tests">
- 
+
 <li><h2><a href="My tests">Tests</a></h2></li>
-<li><a href="Question bank">Question Bank</a></li>
-<li><a href="Categories">Categories</a></li>
+
 <li><a href="Files">Files</a></li>
-<li><a href="Certificates">Certificates</a></li>
-<li><a href="Community">Community</a></li>
+
 </ul>
 <ul class="menu-groups">
-<li><h2><a href="Group">Groups</a></h2></li>
+<li><h2><a href="Group">Courses</a></h2></li>
 <li><a href="Export results">Export </a></li>
 </ul>
-<ul class="menu-links">
-<li><h2><a href="links">Links</a></h2></li>
-<li><a href="Export results">Export</a></li>
-<li><a href="Themes">Themes</a></li>
-<li><a href="Access Lists">Access Lists</a></li>
-</ul>
+
 <div class="menu-new">
 <a href="Add new test">New Test +</a>
-<a href="Add new registered user group">New Group +</a>
-<a href="Assign test step 1">New Link +</a>
+<a href="assigntest">Assign =test</a>
+
 </div>
 </div>
 </li>

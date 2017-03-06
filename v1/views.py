@@ -3,13 +3,20 @@ from django.shortcuts import render,redirect
 from django.views.generic import View
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from django.forms.utils import ErrorList
 from django.utils.decorators import method_decorator
 from pymongo import MongoClient
 import json
+
+
+class Logout(View):
+    def get(self,request):
+        print(' in log out function')
+        keys = [key for key in request.session.keys()]
+        for key in keys: del request.session[key]
+        return redirect(to='/login')
 
 
 class Login(View):
@@ -23,10 +30,10 @@ class Login(View):
                 return redirect('/test/student%20view%20my%20courses?message=')
         except KeyError:
             pass
-        print('not loggedin before')
-        return render(request,'login.html',{'schooldata':my_dict})
+        return render(request,'login.html',{'schooldata': my_dict})
 
     def post(self,request):
+
         username = request.POST['username']
         password = request.POST['password']
         branchid = request.POST['branchid']
@@ -40,7 +47,8 @@ class Login(View):
             if user['type'] == 'teacher':
                 return redirect('/test/Welcome')
             elif user['type'] == 'student':
-                return redirect('/test/student%20view%20my%20courses')
+                print('opening student homepage')
+                return redirect('/test/student%20view%20my%20courses/?message=""')
         else:
             my_dict = DataBase.get_school_dict()
             return render(request, 'login.html', {'error': 'Invalid Credentials!', 'schooldata': my_dict})

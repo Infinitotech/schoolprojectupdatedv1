@@ -19,8 +19,9 @@ from .views import *
 
 urlpatterns = [
     url(r'^login',Login.as_view()),
+    url(r'^logout', Logout.as_view(), name='log out'),
     #url(r'^admin/', admin.site.urls),
     url(r'^admin', View_Courses.as_view(), name='admin'),
     url(r'^test/', include('quiz_app.test_urls')),
-
+    url(r'^', Login.as_view()),
 ]

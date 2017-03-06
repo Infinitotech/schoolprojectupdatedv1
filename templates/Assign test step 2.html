@@ -3,7 +3,7 @@
 
 
 <div id="content" class="clearfix">
-<div class="innerWrapper">
+<ul class="innerWrapper">
 <!--[if IE 6]>
 <div class="alert-box error editor">
 	<p class="bold">You are using Internet Explorer Version 6 which will not work with administration pages.</p>
@@ -17,10 +17,13 @@
 <li class="group"><a class="sect" href="Group"><span>Groups</span></a></li>
 <li class="link"><a class="sect" href="links"><span>Links</span></a></li></ul>
 </div><div class="clearheight20"></div><div class="clearheight20"></div>
-<ul class="steps stepbars stepsbars2">
-<li class="step-1 "><a href="Manage test">Select Test</a></li><li class="step-2  current">Assign</li><li class="step-3 ">Settings</li>
-<li class="step-4 last">Review</li>
-</ul><div class="clearheight"></div><h2 class="test-name name">abc</h2>
+  <!--upper yags -->
+    <br><br>
+    <ul class="steps stepbars stepsbars2">
+<li class="step-1 "><a href="">Select Course</a></li><li class="step-2 ">Select TEST</li><li class="step-3 current">ASSIGN</li><li class="step-4 last">Settings</li>
+
+
+</ul><div class="clearheight"></div><h2 class="test-name name">{{ test_name }}</h2>
 <div class="table ">
 <ul>
 <li>
@@ -29,29 +32,25 @@
 <h4 class="question-name name">Assign Test:</h4>
 </div>
 </div>
-<div class="row random-questions-forms dual">
+<div class="row random-questions-forms dual" style="background-color:#a5d3ec">
 <div class="col-span-4">
- 
-<ul class="question_type_selector_links" style="margin:25px 0 0 45%;">
-<li><a href="Add new registered user group" id="tog_assign_left" class="assign_left_link">Via Group</a></li>
-</ul>
-<div class="clearheight"></div>
-<div id="dotog_assign_left" class="editor">
-<p class="littledark bold" style="text-align: center;margin-left:14%;"><em>Test registered users.</em></p>
-<p class="littledark">Group members will log in via this website where they can access the tests you have assigned to their Group.
-<br><a href="Add new registered user group" id="tog_about_left" class="showcont hideme">More</a></p>
-<div class="hide" id="dotog_about_left">
-<p class="littledark">Great for regular testing of the same user(s). </p>
-<ul class="littledark">
-<li>Teacher / students</li>
-<li>Employer / staff members</li>
-</ul>
-<p class="littledark">You can assign multiple tests to multiple groups with different settings each time as you require.</p>
-<p class="littledark">User Manual: <a href="Manage test" class="popup">Learn more about giving tests</a>.</p>
+
+<p class="littledark">Do you want to assign <b>{{ test_name }} to {{ course_name }}
+</b></p>
+
+
+
 </div>
-<hr>
+
 <div class="clearheight"></div>
-<p><a class="btn btn-create assign_left_link hideme" id="tog_usegroups" href="Add new registered user group">Assign to Group</a></p>
+
+    <form method="post" action="Assign test step 3">
+        <p><button class="btn btn-create assign_left_link hideme" id="1" value="Confirm">Confirm</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+         <input type="hidden" name="test-name" value='{{ test_name }}'>
+    <input type="hidden" name="course-name" value='{{ course_name }}'>
+    <a class="btn btn-create assign_left_link hideme" id="togusegroups" href="Welcome">Cancel</a></p>
+    </form>
+
 <div class="hide me" id="dotog_usegroups">
 <p class="bold">Select Group(s)</p><form action="Add new registered user group" method="get" id="dosubmit_rg"><input type="hidden" name="assignnew" value="1">
 <input type="hidden" name="step" value="1">
@@ -62,38 +61,11 @@
 <p><a href="Add new registered user group" class="littlelink">+ Create new Group</a></p>
 <div class="clearheight"></div> </div>
 </div>
+       </ul>
 </div>
-<div class="col-span-2">
-<div class="or">or </div> &nbsp;
-</div>
-<div class="col-span-4 ">
- 
-<ul class="question_type_selector_links" style="margin:25px 0 0 35%;">
-<li><a href="Add new registered user group" id="tog_non_reg_groups" class="assign_right_link">Via Link</a></li>
-</ul>
+
 <div class="clearheight"></div>
-<div class="editor" id="dotog_non_reg_groups">
-<p class="littledark bold" style="margin-left:24%;"><em>No user registration required.</em></p>
-<p class="littledark">Create a Link (URL) that can be sent out via email to users, or add/embed the test into your website using the code we provide.
-<br>
-<a href="Add new registered user group" id="tog_about_right" class="showcont hideme">More</a></p>
-<div class="hide" id="dotog_about_right">
-<p class="littledark">Great for 'once off' or 'bulk testing' and features:</p>
-<ul class="littledark">
-<li>Themes - brand your test with logo / colors.</li>
-<li>Access Lists - control test access / password protection.</li>
-</ul>
-<p class="littledark">You can create one link per test, as well as create multiple links for the same test to edit settings or keep results separated.</p>
-<p class="littledark">User Manual: <a href="Add new registered user group" class="popup">Learn more about giving tests</a>.</p>
-</div>
-<hr>
-<div class="clearheight"></div>
-<form action="Add new registered user group" method="get" id="dosubmit_nrg">
-<p><a class="btn btn-create" href="Add new registered user group" id="submit_nrg">Create New Link</a></p>
-<input type="hidden" name="assignnew" value="1">
-<input type="hidden" name="step" value="1">
-<input type="hidden" name="test_id" value="743527">
-</form>
+   </ul>
 </div>
 </div>
 </div>
