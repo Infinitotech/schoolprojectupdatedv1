@@ -47,32 +47,67 @@ class AddQuestion(View):
         return render(request, 'Manage question.html', {'test_name': test_name,'test_counter': test_counter})
 
 
-class AssignTestStep1(View):
+class Assignteststep1(View):
     def get(self,request):
-        return render(request,'Assign test step 1.html')
+        print("sdafdf")
+        mongo = MongoClient()
+        user = request.session['user']
+        db = mongo['dummy_school_project_v1']
+        course_name = request.POST.get('test_id')
+        tests = db.tests.find({"teacher_username": user['name']})
+
+        return render(request,'Assign test step 1.html',{'course_name':course_name,'tests':tests,'user':user})
+
+    def post(self,request):
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+        user = request.session['user']
+        tests = db.tests.find({"teacher_username": user['name']})
+        course_name = request.POST.get('course_id')
+        print("asfsfd")
+        print(course_name)
+        return render(request, 'Assign test step 1.html', {'course_name': course_name, 'tests': tests,'user':user})
 
 
-class AssignTestStep1B(View):
+class Assignteststep1b(View):
     def get(self,request):
         return render(request,'Assign test step 1b.html')
 
 
-class AssignTestStep2(View):
+class Assignteststep2(View):
     def get(self,request):
-        return render(request,'Assign test step 2.html')
+        return render(request,'Assign test step 2.html',{'user':user})
+
+    def post(self,request):
+        user = request.session['user']
+        test_name = request.POST.get('test_id')
+        coursename = request.POST.get('cour')
+        print(test_name)
+        print(coursename)
+        return render(request, 'Assign test step 2.html',{'test_name':test_name,'course_name':coursename,'user':user})
 
 
-class AssignTestStep3(View):
+class Assignteststep3(View):
+
     def get(self,request):
-        return render(request,'Assign test step 3.html')
+        test_name = request.GET('test-name')
+        coursename = request.GET('course-name')
+        return render(request, 'Assign test step 3.html', {'test_name': test_name, 'course_name': coursename,'user':user})
+
+    def post(self,request):
+        test_name = request.POST.get('test-name')
+        coursename = request.POST.get('course-name')
+        user = request.session['user']
+        return render(request, 'Assign test step 3.html', {'test_name': test_name, 'course_name': coursename,'user':user})
 
 
-class AssignTestStep3A(View):
+
+class Assignteststep3a(View):
     def get(self,request):
         return render(request,'Assign test step 3a.html')
 
 
-class AssignTestStep3B(View):
+class Assignteststep3b(View):
     def get(self,request):
         return render(request,'Assign test step 3b.html')
 
@@ -283,3 +318,18 @@ class WebBasedOnlineTestingServiceFreeQuizMakerClassMarker(View):
 class Welcome(View):
     def get(self,request):
         return render(request,'welcome.html', {'username':request.session['user']['name']})
+
+
+
+
+class assign_test_group(View):
+    def get(self,request):
+        user = request.session['user']
+        mongo = MongoClient()
+        db = mongo['dummy_school_project_v1']
+
+
+        cursor = db.courses.find({"current_year.teachers":{"$elemMatch":{ "username": user['name'] }}})
+
+
+        return render(request, "assign test group.html", {'courses':cursor,'user':user})

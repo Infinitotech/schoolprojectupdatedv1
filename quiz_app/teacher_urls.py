@@ -18,16 +18,17 @@ from .teacher_views import *
 
 
 urlpatterns=[
+    url(r'^assigntest', assign_test_group.as_view()),
     url(r'^Access\sLists', AccessLists.as_view()),
     url(r'^Add\snew\sregistered\suser\sgroup', AddNewRegisteredUserGroup.as_view()),
     url(r'^Add\snew\stest', AddNewTest.as_view()),
     url(r'^addQuestion/(?P<test_name>.+)/(?P<test_counter>.+)', AddQuestion.as_view()),
-    url(r'^Assign\stest\sstep\s1', AssignTestStep1.as_view()),
-    url(r'^Assign\stest\sstep\s1b', AssignTestStep1B.as_view()),
-    url(r'^Assign\stest\sstep\s2', AssignTestStep2.as_view()),
-    url(r'^Assign\stest\sstep\s3', AssignTestStep3.as_view()),
-    url(r'^Assign\stest\sstep\s3a', AssignTestStep3A.as_view()),
-    url(r'^Assign\stest\sstep\s3b', AssignTestStep3B.as_view()),
+    url(r'^Assign\stest\sstep\s1', Assignteststep1.as_view()),
+    url(r'^Assign\stest\sstep\s1b', Assignteststep1b.as_view()),
+    url(r'^Assign\stest\sstep\s2', Assignteststep2.as_view()),
+    url(r'^Assign\stest\sstep\s3', Assignteststep3.as_view()),
+    url(r'^Assign\stest\sstep\s3a', Assignteststep3a.as_view()),
+    url(r'^Assign\stest\sstep\s3b', Assignteststep3b.as_view()),
     url(r'^Assistants', Assistants.as_view()),
     url(r'^base', Base.as_view()),
     url(r'^Categories', Categories.as_view()),

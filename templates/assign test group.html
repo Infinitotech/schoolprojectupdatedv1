@@ -1,0 +1,62 @@
+
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+
+<div id="content" class="clearfix">
+<div class="innerWrapper">
+<!--[if IE 6]>
+<div class="alert-box error editor">
+	<p class="bold">You are using Internet Explorer Version 6 which will not work with ClassMarker administration pages.</p>
+	<p>Please upgrade to a modern web browser to use ClassMarker.</p>
+	<p>Your Test takers can still use Internet explorer 6 however.</p>
+	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
+</div>
+<![endif]-->
+<h2>Select a course</h2>
+  <!--upper yags -->
+    <br><br>
+    <ul class="steps stepbars stepsbars2">
+<li class="step-1 current"><a href="">Select Course</a></li><li class="step-2 ">Select TEST</li><li class="step-3">ASSIGN</li><li class="step-4 ">Settings</li>
+</ul>
+
+
+
+    <div class="table" style="background-color:#a5d3ec">
+        <ul class="table-body">
+
+ <form action="Assign test step 1" method="post" name='testlist' id="dosubmit_rg" style="overflow:scroll; height:500px;  ">
+
+            {% csrf_token %}
+
+            {% for c in courses %}
+
+
+   <li class="sbcid0 row" id="assigntog_752740">
+<div class="col-span-8">
+
+<input class="checkbox assignselect " type="radio" id=' {{ forloop.counter }}' name="course_id" value='{{ c.name }}'>
+<label for=' {{ forloop.counter }}'  class="hand test-name name">{{ c.name }}</label>
+</div>
+</li>
+
+            {% endfor %}
+
+                 </form>
+
+
+</ul></div>
+
+    <div class="clearheight"></div>
+
+</div> 
+<img src="{% static 'icon_loading_circleV3.gif' %}" alt="Hidden Loading Image" class="hide" width="20" height="20">
+</div>
+
+
+{% endblock %}
+

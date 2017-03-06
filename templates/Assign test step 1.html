@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}{% block content %}
 
+
+
+
 <div id="content" class="clearfix">
 <div class="innerWrapper">
 <!--[if IE 6]>
@@ -11,17 +14,50 @@
 	<p>Modern browsers include: <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> | <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> | <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft Internet Explorer</a></p>
 </div>
 <![endif]-->
-<div class="col-span-7"><p class="breadcrumb3"><span class="first">Select Test</span></p></div><div class="col-span-3"><ul class="menu-sections">
+<div class="col-span-7"><p class="breadcrumb3"><span class="first">Select Test from course  <b></b>{{ course_name }}</span></p></div><div class="col-span-3"><ul class="menu-sections">
 <li class="test"><a href="My tests"><span>Tests</span></a></li>
 <li class="group"><a class="sect" href="Group"><span>Groups</span></a></li>
 <li class="link"><a class="sect" href="links"><span>Links</span></a></li></ul>
 </div><div class="clearheight20"></div><div class="clearheight20"></div>
-<ul class="steps stepbars stepsbars2">
-<li class="step-1  current"><a href="Assign test step 1b">Select Test</a></li><li class="step-2 ">Assign</li><li class="step-3 ">Settings</li>
-<li class="step-4 last">Review</li>
-</ul><div class="clearheight"></div><div class="alert-box editor "><p>You have not created any tests.</p><p><a href="Add new test">Add a new test</a></p></div></div> 
-<img src="{% static 'css_js/icon_loading_circleV3.gif' %}" alt="Hidden Loading Image" class="hide" width="20" height="20">
+  <!--upper yags -->
+    <br><br>
+    <ul class="steps stepbars stepsbars2">
+<li class="step-1 "><a href="">Select Course</a></li><li class="step-2 current">Select TEST</li><li class="step-3">ASSIGN</li><li class="step-4 last">Settings</li>
+</ul>
+
+
+
+
+
+
+    <div class="table" style="background-color:#a5d3ec">
+        <ul class="table-body">
+
+
+                  <form action="Assign test step 2" method="post" name='testlist' value='{{ course_name }}' id="dosubmit_rg" style="overflow:scroll; height:500px;  " onsubmit="submit({{ course_name }})">
+                   <input type="hidden" id="cour" name="cour" value='{{ course_name }}'>
+
+
+            {% for t in tests %}
+
+
+   <li class="sbcid0 row" id="assigntog_752740">
+<div class="col-span-8">
+
+<input class="checkbox assignselect " type="radio" id="{{ forloop.counter }}" name="test_id" value='{{ t.test_name }}'>
+<label for="{{ forloop.counter }}" class="hand test-name name">{{ t.test_name }}</label>
 </div>
+</li>
+
+            {% endfor %}
+
+
+</form>
+</ul></div>
+
+</div>
+</div>
+
 
 
 
