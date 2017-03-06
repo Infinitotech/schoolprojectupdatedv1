@@ -8,6 +8,8 @@ def group_test_data(request):
     test = request.GET.get('g_id')
     mongo = MongoClient()
     db = mongo['dummy_school_project_v1']
+    print(test)
+    #tests = StudentDataBase.get_group_tests(test)
     tests = db.tests.find({'course.course_name': test})
     test_names = []
     test_score = []
@@ -72,6 +74,7 @@ def get_test_intro(request):
     course = db.tests.find_one(
         {'teacher_username': teacher_username, 'school_id': int(school_id), 'branch_id': int(branch_id),
          'counter': int(counter)})
+
     context = {}
     if course:
         question_len = str(len(course['questions']))
