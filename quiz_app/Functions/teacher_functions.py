@@ -2,7 +2,6 @@ from v1.Database import *
 
 
 def get_parameters_from_request_for_each_question_teacher_creates(request):
-    print('in asdf')
     answers_dict = {1: 'a', 2: 'b', 3: 'c', 4: 'd'}
     test_name = request.POST.get('test_name')
     question = request.POST.get('question1')
