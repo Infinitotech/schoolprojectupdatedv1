@@ -42,6 +42,15 @@ class DataBase(object):
 class StudentDataBase(DataBase):
     def __init__(self):
         super().__init__()
+        self.mongo = MongoClient()
+        self.db = self.mongo['dummy_school_project_v1']
+
+    def get_group_tests(self, course_name):
+        return self.db.tests.find({'course.course_name': course_name})
+
+    def get_test_data(self, teacher_username,school_id,branch_id,counter):
+        return self.db.tests.find_one(
+            {'teacher_username': teacher_username, 'school_id': int(school_id), 'branch_id': int(branch_id), 'counter': int(counter)})
 
     def change_username(self, new_username, old_user, user):
         self.db.users.update({'username': old_user},

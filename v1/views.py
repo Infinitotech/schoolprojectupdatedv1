@@ -11,6 +11,10 @@ from pymongo import MongoClient
 import json
 
 
+
+class Attendance(View):
+    def get(self, request):
+        return render(request, 'attendance.html')
 class Logout(View):
     def get(self,request):
         print(' in log out function')

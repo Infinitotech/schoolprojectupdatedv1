@@ -23,7 +23,6 @@ urlpatterns = [
     url(r'^test_intro/', TestIntro.as_view(), name='test_intro'),
     url(r'^student\sview\sgroup\stests', StudentViewGroupTests.as_view(), name='student view group tests'),
     url(r'^student\sview\smy\scourses', StudentViewMyCourses.as_view(), name='student view my courses'),
-
-    url(r'^my\sdetails', MyDetails.as_view(), name='my details student'),
+    url(r'^my\sdetails\sstudent', MyDetails.as_view(), name='my details student'),
     url(r'', include('quiz_app.teacher_urls')),
 ]
