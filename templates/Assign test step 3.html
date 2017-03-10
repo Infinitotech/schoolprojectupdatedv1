@@ -42,6 +42,7 @@
 
 
 
+
 <div class="masthead clearfix">
 <div class="col-span-8"><h2 class="test-name name"><a href="" class="graylink">ASSIGN {{ test_name }} to {{ course_name }}</a></h2><h2 class="group-name name"><a href="Add new registered user group" class="graylink"></a></h2></div><div class="col-span-2 ">
 <div class="test-settings-summary">
@@ -54,6 +55,12 @@
 
 <div class="page editor assign-settings-container">
 <form action="tt" method="post" id="monitorchanges">
+
+    <input type="hidden" name="test-name1" value='{{ test_name }}'>
+    <input type="hidden" name="course-name1" value='{{ course_name }}'>
+
+
+
 <input type="hidden" name="settings_type" value="classtestsettings"><input type="hidden" name="test_id" value="742198"><input type="hidden" name="rg_id" value="308307">
 <div class="clearheight"></div>
 <h4>Test Access</h4>
@@ -66,17 +73,42 @@
 <div class="field-group">
 <span class="form-field-title"><strong>Option 1</strong></span><br><br>
 <span class="form-field-title no-input">Currently: </span>
-<input type="radio" id="showfromon" name="available" checked="checked" value="1"> <label for="showfromon">Available</label>
+<input type="radio"  name="available" checked="checked" value="1"> <label for="showfromon">Available</label>
     <span class="showTooltip tooltip" title="Test will be available to Start">Tip</span>
 <div class="clearheight5"></div>
-<input class="tab" type="radio" id="showfromoff" name="unavailable" value="0">
+<input class="tab" type="radio" name="available" value="0">
  <label for="showfromoff">Unavailable</label><span class="showTooltip tooltip" title="Test will not be available to Start.">Tip</span>
 </div>
 <hr class="tab">
 <span class="form-field-title"><strong>Option 2</strong></span><br><br>
 <div class="field-group"><p class="littledark tab">Your time zone: (GMT+05:00) Islamabad, Karachi <span class="showTooltipHTML tooltip" title="Ensure your time zone is correct before setting available dates.&lt;br/&gt;&lt;br/&gt;Edit your time zone via your My Account section.">Tip</span></p><span class="littledark tab">mm/dd/yyyy</span><br>
-<label class="form-field-title not-input" for="datepickerfrom">Available from:</label> <input type="text" name="show_from_date" id="datepickerfrom" value="" size="15" maxlength="10" class="hasDatepicker">&nbsp;<select name="show_from_h"><option value="12">12</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option></select>
-<select name="show_from_m"><option value="00">00</option><option value="05">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55">55</option></select>
+<label class="form-field-title not-input" for="datepickerfrom">Available from:</label>
+ <input type="text" name="show_from_date" id="datepickerfrom" value="" size="15" maxlength="10" class="hasDatepicker">&nbsp;
+    <select name="show_from_h">
+        <option value="12">12</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option><option value="10">10</option><option value="11">11</option></select>
+<select name="show_from_m">
+    <option value="00">00</option>
+    <option value="05">05</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="25">25</option>
+    <option value="30">30</option>
+    <option value="35">35</option>
+    <option value="40">40</option>
+    <option value="45">45</option>
+    <option value="50">50</option>
+    <option value="55">55</option>
+</select>
 <select name="show_from_ampm"><option value="am">am</option><option value="pm">pm</option></select><br><label class="form-field-title not-input" for="datepickeruntil">Available until:</label> <input type="text" name="show_until_date" id="datepickeruntil" value="" size="15" maxlength="10" class="hasDatepicker">&nbsp;<select name="show_until_h"><option value="12">12</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option></select>
 <select name="show_until_m"><option value="00">00</option><option value="05">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55">55</option></select>
 <select name="show_until_ampm"><option value="am">am</option><option value="pm">pm</option></select></div>
@@ -111,42 +143,12 @@
 <div class="clearheight"></div>
 </div>
 </div>
-<div class="clearheight30"></div>
-<h4>Test Introduction</h4>
-<div class="settings-box">
-<div class="accordion-toggle scroll_instructions setting-instructions closed">
-<h3 class="form-field-title">Instructions</h3>
-<div class="settings-status">Yes</div><div class="caret">&nbsp;</div>
-</div>
-<div class="accordion-fold delay_hide_sceditor" style="display: none;">
-<div class="field-group leftpad">
-<p><strong>Guidelines</strong> (optional)</p>
-<input type="checkbox" name="show_instructions" checked="checked" value="1" id="si_2">
-<label for="si_2">Display guidelines before Test starts</label>
-<p class="little">Guidelines will be created automatically and reflect your chosen settings on this page.</p>
-</div>
-<div class="field-group leftpad">
-<p>Example Guidelines:</p>
-<hr>
-<p style="margin-left:40px;font-style: italic;">This Test:</p>
-<table style="margin:0 0 20px 60px;font-style: italic; ">
-<tbody><tr>
-<td>* Will allow you to save and finish at a later date</td>
-</tr>
-<tr>
-<td>* Will not allow you to go back and change your answers</td>
-</tr>
-<tr>
-<td>* Has a time limit of 20 minutes</td>
-</tr>
-<tr>
-<td>* Has a pass mark of 70%</td>
-</tr>
-</tbody></table>
-<hr>
-</div>
-</div>
-</div>
+
+
+
+
+
+
 <div class="clearheight30"></div>
 <h4>Taking Test</h4>
 <div class="settings-box">
@@ -160,6 +162,22 @@
 </div>
 </div>
 </div>
+
+   <div class="settings-box">
+<div class="accordion-toggle scroll_TL setting-time-limit closed">
+<h3 class="form-field-title">Score</h3>
+<div class="settings-status">No</div><div class="caret">&nbsp;</div>
+</div>
+<div class="accordion-fold">
+<div class="field-group">
+<input class="tab" id="tl" type="text" name="score" maxlength="3" size="3" value="0"> <label for="tl">marks</label> <span class="showTooltipHTML tooltip" title="">Tip</span>
+</div>
+</div>
+</div>
+
+
+
+
 <div class="settings-box">
 <div class="accordion-toggle scroll_resume setting-resume-later closed">
 <h3 class="form-field-title">Resume Later</h3>
@@ -182,7 +200,10 @@
 </div>
 <div class="accordion-fold">
 <div class="field-group">
-<span class="form-field-title not-input">Display:</span> <select name="questions_displayed_per_page"><option value="1" selected="selected">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select> Question Per Page <span class="showTooltip tooltip" title="Define the number of Questions that will display on each Test page.">Tip</span> </div>
+<span class="form-field-title not-input">Display:</span>
+ <select name="questions_displayed_per_page">
+     <option value="1" selected="selected">1</option>
+     <option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select> Question Per Page <span class="showTooltip tooltip" title="Define the number of Questions that will display on each Test page.">Tip</span> </div>
 <div class="field-group">
 <span class="form-field-title not-input">Points:</span>
 <input type="checkbox" name="show_question_points_during_test" value="1" id="sqpdt">
@@ -240,212 +261,17 @@
 </div>
 </div>
 <div class="clearheight30"></div>
-<h4>Test Completion</h4>
-<div class="settings-box">
-<div class="accordion-toggle scroll_results setting-results-page closed">
-<h3 class="form-field-title">Results Page</h3>
-<div class="settings-status">Score, Feedback, Questions</div><div class="caret">&nbsp;</div>
-</div>
-<div class="accordion-fold">
-<div class="field-group leftpad"><strong>Upon completion Test takers can see:</strong>
-</div>
-<div class="field-group">
-<span class="form-field-title not-input">Score:</span>
-<input type="checkbox" name="show_score_points" value="0" id="ssp" checked="checked"> <label for="ssp">Points</label>
-<span class="showTooltipHTML tooltip" title="Example:&lt;br/&gt; Points: 88 out of 100&lt;br/&gt;&lt;br/&gt;Note:&lt;br/&gt;This setting applies to:&lt;br/&gt;1. Total points scored&lt;br/&gt;2. Points scored per Question&lt;br/&gt;3. Points scored per category ">Tip</span><br>
-<input class="tab" type="checkbox" name="show_score_percentage" value="0" id="ssp2" checked="checked"> <label for="ssp2">Percentage</label>
-<span class="showTooltipHTML tooltip" title="Example:&lt;br/&gt; Percentage: 88%">Tip</span><br>
-</div><div class="field-group">
-<span class="form-field-title not-input">Feedback:</span>
-<input type="checkbox" name="show_test_feedback" value="0" id="stf" checked="checked">
-<label for="stf">Custom Feedback as set below</label> <span class="showTooltip tooltip" title="Display custom Feedback you add below. Tip: You can hide Test takers scores but set a separate Pass and Fail Feedback message below instead.">Tip</span><br>
-</div><div class="field-group">
-<span class="form-field-title not-input">Questions:</span>
-<input type="checkbox" name="show_answers" value="0" id="gq" checked="checked">
-<label for="gq">Graded Questions</label> <span class="showTooltipHTML tooltip" title="Graded Questions will displayed for instant review.">Tip</span><br>
-<span class="tab"><input class="sub-checkbox" type="checkbox" name="show_correct_answers" value="0" id="sca2_" checked="checked">
-<label for="sca2_">Reveal correct answers</label> <span class="showTooltipHTML tooltip" title="Correct answers will be revealed if answered incorrectly.">Tip</span></span><br>
-<span class="tab"><input class="sub-checkbox" type="checkbox" name="display_all_questions_in_results" value="0" id="daqin_"> <label for="daqin_">Display incorrect Questions only</label>
-<span class="showTooltip tooltip" title="Show only incorrectly answered Questions in Test results.">Tip</span></span>
-</div><div class="field-group">
-<span class="form-field-title not-input">Categories:</span>
-<input disabled="" type="checkbox" name="show_category_stats" id="vr_8">
-<label for="vr_8"> <a class="little" href="javascript:alert(&#39;Upgraded accounts can display Category statistics to Test takers.\n\nYou can upgrade via the My Account section.&#39;)">Results by Category</a> <span class="little"><a href="Manage test" class="upgradeRpc">Upgraded Features</a></span></label>
-<span class="showTooltip tooltip" title="Display the percentage correct from Question categories in the Test.">Tip</span>
-</div>
-</div>
-</div>
-<a id="passmark"></a>
-<div class="settings-box">
-<div class="accordion-toggle scroll_passmark setting-passmark closed">
-<h3 class="form-field-title">Pass Mark<br>Feedback</h3>
-<div class="settings-status">No<br>No </div><div class="caret">&nbsp;</div><div class="clear"></div>
-</div>
-<div class="delay_hide_sceditor accordion-fold" style="display: none;">
-<div class="field-group">
-<p class="tab">Pass Mark &amp; Feedback message are optional
-</p>
-<label for="passmarkid" class="form-field-title">Pass Mark:</label>
-<input type="text" name="passmark" maxlength="3" size="3" id="passmarkid" value=""> %
-<span class=" showTooltip tooltip" title="Set a pass mark for this Test. This setting is optional and should be left blank if no pass mark is required.">Tip</span>
-</div>
-<div class="field-group leftpad">
-<h5><label for="cf"><span id="pass_feedback_label">Test completed message</span></label></h5>
-<div class="edit_preview_cf">
-<textarea id="cf" class="editquestion fullBBcodeEditor preview_content" name="passmarktext" rows="3" cols="30" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 510px;" id="editor_cf"><div class="sceditor-toolbar" unselectable="on"><div class="sceditor-group"><a class="sceditor-button sceditor-button-bold" data-sceditor-command="bold" unselectable="on" title="Bold"><div unselectable="on">Bold</div></a><a class="sceditor-button sceditor-button-italic" data-sceditor-command="italic" unselectable="on" title="Italic"><div unselectable="on">Italic</div></a><a class="sceditor-button sceditor-button-underline" data-sceditor-command="underline" unselectable="on" title="Underline"><div unselectable="on">Underline</div></a><a class="sceditor-button sceditor-button-strike" data-sceditor-command="strike" unselectable="on" title="Strikethrough"><div unselectable="on">Strikethrough</div></a><a class="sceditor-button sceditor-button-color" data-sceditor-command="color" unselectable="on" title="Font Color"><div unselectable="on">Font Color</div></a><a class="sceditor-button sceditor-button-size" data-sceditor-command="size" unselectable="on" title="Font Size"><div unselectable="on">Font Size</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-orderedlist" data-sceditor-command="orderedlist" unselectable="on" title="Numbered list"><div unselectable="on">Numbered list</div></a><a class="sceditor-button sceditor-button-bulletlist" data-sceditor-command="bulletlist" unselectable="on" title="Bullet list"><div unselectable="on">Bullet list</div></a><a class="sceditor-button sceditor-button-table" data-sceditor-command="table" unselectable="on" title="Insert a table"><div unselectable="on">Insert a table</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-link" data-sceditor-command="link" unselectable="on" title="Insert a link"><div unselectable="on">Insert a link</div></a><a class="sceditor-button sceditor-button-yt" data-sceditor-command="yt" unselectable="on" title="Insert Image, Document, Audio or Video"><div unselectable="on">Insert Image, Document, Audio or Video</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><iframe id="qa_frame_editor_cf" frameborder="0" src="javascript:false" style="width: 500px; height: 93px;" src="Welcome"></iframe><textarea style="display: none; width: 500px; height: 93px;" dir="ltr"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div>
-</div>
-<div id="fail_feedback_div" class="delay_hide_sceditor" style="display: none;">
-<div class="clearheight"></div><hr>
-<h5><label for="ff">Test completed message: Show on fail</label></h5>
-<div class="edit_preview_ff">
-<textarea id="ff" class="editquestion fullBBcodeEditor preview_content" name="failmarktext" rows="3" cols="30" style="display: none;"></textarea><div class="sceditor-container ltr" style="width: 510px;" id="editor_ff"><div class="sceditor-toolbar" unselectable="on"><div class="sceditor-group"><a class="sceditor-button sceditor-button-bold" data-sceditor-command="bold" unselectable="on" title="Bold"><div unselectable="on">Bold</div></a><a class="sceditor-button sceditor-button-italic" data-sceditor-command="italic" unselectable="on" title="Italic"><div unselectable="on">Italic</div></a><a class="sceditor-button sceditor-button-underline" data-sceditor-command="underline" unselectable="on" title="Underline"><div unselectable="on">Underline</div></a><a class="sceditor-button sceditor-button-strike" data-sceditor-command="strike" unselectable="on" title="Strikethrough"><div unselectable="on">Strikethrough</div></a><a class="sceditor-button sceditor-button-color" data-sceditor-command="color" unselectable="on" title="Font Color"><div unselectable="on">Font Color</div></a><a class="sceditor-button sceditor-button-size" data-sceditor-command="size" unselectable="on" title="Font Size"><div unselectable="on">Font Size</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-orderedlist" data-sceditor-command="orderedlist" unselectable="on" title="Numbered list"><div unselectable="on">Numbered list</div></a><a class="sceditor-button sceditor-button-bulletlist" data-sceditor-command="bulletlist" unselectable="on" title="Bullet list"><div unselectable="on">Bullet list</div></a><a class="sceditor-button sceditor-button-table" data-sceditor-command="table" unselectable="on" title="Insert a table"><div unselectable="on">Insert a table</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-link" data-sceditor-command="link" unselectable="on" title="Insert a link"><div unselectable="on">Insert a link</div></a><a class="sceditor-button sceditor-button-yt" data-sceditor-command="yt" unselectable="on" title="Insert Image, Document, Audio or Video"><div unselectable="on">Insert Image, Document, Audio or Video</div></a></div><div class="sceditor-group"><a class="sceditor-button sceditor-button-superscript" data-sceditor-command="superscript" unselectable="on" title="Superscript"><div unselectable="on">Superscript</div></a><a class="sceditor-button sceditor-button-subscript" data-sceditor-command="subscript" unselectable="on" title="Subscript"><div unselectable="on">Subscript</div></a><a class="sceditor-button sceditor-button-square" data-sceditor-command="square" unselectable="on" title="Square Root"><div unselectable="on">Square Root</div></a><a class="sceditor-button sceditor-button-pastetext" data-sceditor-command="pastetext" unselectable="on" title="Paste Text"><div unselectable="on">Paste Text</div></a></div></div><iframe id="qa_frame_editor_ff" frameborder="0" src="javascript:false" style="width: 500px; height: 93px;" src="Welcome"></iframe><textarea style="display: none; width: 500px; height: 93px;" dir="ltr"></textarea><div class="sceditor-grip"></div><div class="sceditor-resize-cover" style="display: none;"></div></div>
-</div>
-</div>
-<div class="clearheight"></div>
-</div>
-</div>
-</div>
-<div class="settings-box">
-<div class="accordion-toggle scroll_returnlink setting-return-link closed">
-<h3 class="form-field-title">Webhook</h3>
-<div class="settings-status">No</div><div class="caret">&nbsp;</div><div class="clear"></div>
-</div>
-<div class="accordion-fold">
-<div class="field-group littledark">
-<p class="tab">Only required when integrating with your Website to have Test results sent back and saved on your Website in Real Time.</p>
-<p class="tab">View: <a href="Welcome" class="popup">API &amp; Webhooks Documentation</a> to learn more.</p>
-</div>
-<div class="clearheight"></div><div class="alert-box editor alert-confirmation  alert-center">
-<div class="clearheight10"></div>Upgraded accounts can choose from their Webhooks here. Webhooks allow Test results to be delivered to your website in real time.<div class="clearheight"></div>
-<span class="little"><a href="Add new registered user group" class="upgradeRpc">Upgraded Account Features</a></span>
-</div> </div>
-</div>
-<div class="settings-box">
-<div class="accordion-toggle scroll_certificate setting-certificate closed">
-<h3 class="form-field-title">Certificate</h3>
-<div class="settings-status">No</div><div class="caret">&nbsp;</div>
-</div>
-<div class="accordion-fold">
-<div class="clearheight"></div><div class="alert-box editor alert-confirmation  alert-center">
-<div class="clearheight10"></div>Upgraded accounts can choose from their Certificates here. This allows Test takers to download a Certificate on completion.<div class="clearheight"></div>
-<span class="little"><a href="Add new registered user group" class="upgradeRpc">Upgraded Account Features</a></span>
-</div>
-</div>
-</div>
-<input type="hidden" name="email_results" value="0">
-<div class="settings-box">
-<div class="accordion-toggle scroll_email_teacher setting-email closed">
-<h3 class="form-field-title">Email Results</h3>
-<div class="settings-status">Waiting verification!</div>
-<div class="caret">&nbsp;</div>
-</div>
-<div class="accordion-fold">
-<div class="alert-box editor alert-confirmation  alert-center">
-<div class="clearheight10"></div>Only upgraded accounts can have results emailed<div class="clearheight"></div>
-<span class="little"><a href="Add new registered user group" class="upgradeRpc">Upgraded Account Features</a></span>
-</div>
-<div class="field-group">
-<p class="tab"><strong>Instructor Email Settings</strong></p>
-<p class="tab">Email results to Instructor: <span class="bold " id="instructor_send_message">NO</span></p>
-<hr class="tab">
-</div>
-<div class="field-group editor">
-<input disabled="disabled" type="hidden" name="email_results" value="0"><div class="alert-box editor alert-center"><p>You must verify your email address to have results sent.</p><p><strong>bsef14a522@pucit.edu.pk</strong> (Edit via the My Account section)</p><p><a href="Welcome" class="popup">Send verification email now</a><br>(Link opens in a new browser window)</p></div></div>
-<div class="clear"></div>
-<div class="field-group"><span class="form-field-title not-input">Email settings:</span>
-<input disabled="disabled" type="radio" name="disabled" checked="checked" value="0" id="er_1"> <label for="er_1">Off</label>
-<br><input class="tab" disabled="disabled" type="radio" name="disabled" value="3" id="er_2"> <label for="er_2">Email score only</label>
-<br><input class="tab" disabled="disabled" type="radio" name="disabled" value="2" id="er_3"> <label for="er_3">Email score, and incorrectly answered Questions only</label>
-<br><input class="tab" disabled="disabled" type="radio" name="disabled" value="1" id="er_4"> <label for="er_4">Email score, and all answered Questions</label> </div>
-<div class="clearheight5"></div><hr><div class="field-group">
-<p class="tab"><strong>Test Taker Email Settings</strong></p>
-<p class="tab">Email results to Test Takers: <span class="bold " id="email_student_results_message">NO</span>
-<span class="showTooltipHTML tooltip" title="Check at least one of the checkboxes in the following fields to activate:&lt;br /&gt;&lt;br /&gt;Score&lt;br /&gt;Feedback&lt;br /&gt;Questions&lt;br /&gt;Categories&lt;br /&gt;A Certificate download link will be included if a Certificate is set.">Tip</span>
-<span id="turnoff_emailstudents" class="little hide"><a href="Add new registered user group" id="turnoff_emailstudents_link">Turn off</a></span></p><hr class="tab">
-</div>
-<input type="hidden" name="email_student" id="email_student" value="0"><div class="clearheight"></div><div class="field-group">
-<span class="form-field-title not-input">Score:</span>
-<input disabled="disabled" type="checkbox" class="email_student_checkbox" name="email_student_show_score_points" value="0" id="email_student_ssp"> <label for="email_student_ssp">Points</label>
-<span class="showTooltipHTML tooltip" title="Example:&lt;br/&gt; Points: 88 out of 100&lt;br/&gt;&lt;br/&gt;Note:&lt;br/&gt;This setting applies to:&lt;br/&gt;1. Total points scored&lt;br/&gt;2. Points scored per Question&lt;br/&gt;3. Points scored per category ">Tip</span>
-<br>
-<input disabled="disabled" class="tab email_student_checkbox" type="checkbox" name="email_student_show_score_percentage" value="0" id="email_student_ssp2"> <label for="email_student_ssp2">Percentage</label>
-<span class="showTooltipHTML tooltip" title="Example:&lt;br/&gt; Percentage: 88%">Tip</span>
-<br>
-</div><div class="field-group">
-<span class="form-field-title not-input">Feedback:</span>
-<input disabled="disabled" type="checkbox" class="email_student_checkbox" name="email_student_show_test_feedback" value="0" id="email_student_stf">
-<label for="email_student_stf">Custom Feedback as set above</label> <span class="showTooltip tooltip" title="Display custom Feedback you add above. Tip: You can hide Test takers scores but set a separate Pass and Fail Feedback message above instead.">Tip</span>
-<br>
-</div><div class="field-group">
-<span class="form-field-title not-input">Questions:</span>
-<input disabled="disabled" type="checkbox" class="email_student_checkbox" name="email_student_show_answers" value="0" id="email_student_gq">
-<label for="email_student_gq">Graded Questions</label> <span class="showTooltipHTML tooltip" title="Graded Questions will displayed for instant review.">Tip</span>
-<br>
-<span class="tab">
-<input disabled="disabled" class="sub-checkbox email_student_checkbox" type="checkbox" name="email_student_show_correct_answers" value="0" id="email_student_sca2_">
-<label for="email_student_sca2_">Reveal correct answers</label> <span class="showTooltipHTML tooltip" title="Correct answers will be revealed if answered incorrectly.">Tip</span>
-</span>
-<br>
-<span class="tab">
-<input disabled="disabled" class="sub-checkbox email_student_checkbox" type="checkbox" name="email_student_show_incorrect_only" value="0" id="email_student_daqin_"> <label for="email_student_daqin_">Display incorrect Questions only.</label>
-<span class="showTooltip tooltip" title="Show only incorrectly answered Questions in Test results.">Tip</span>
-</span>
-</div><div class="field-group">
-<span class="form-field-title not-input">Categories:</span>
-<input disabled="disabled" type="checkbox" class="email_student_checkbox" name="email_student_show_category_stats" id="email_student_vr_8">
-<label for="email_student_vr_8">Results by category</label>
-<span class="showTooltip tooltip" title="Display the percentage correct from Question categories in the Test.">Tip</span>
-</div><div id="send_email_details_fields" class="hide"><hr class="tab"><div class="field-group">
-<label for="email_student_from" class="form-field-title">From:</label>
-<input disabled="disabled" type="text" placeholder="Your Name or Organization" name="email_student_from" maxlength="50" size="30" id="email_student_from" value="">
-<span class="showTooltip tooltip" title="Displayed in the email &#39;From&#39; field. eg: Your Name or Organizations Name.">Tip</span>
-<br>
-<label for="email_student_subject" class="form-field-title">Subject:</label>
-<input disabled="disabled" type="text" placeholder="The Email Subject" name="email_student_subject" maxlength="78" size="30" id="email_student_subject" value="">
-<span class="showTooltip tooltip" title="Displayed in the email &#39;Subject&#39; field.">Tip</span>
-</div><div class="clearheight5"></div><div class="field-group">
-<span class="form-field-title not-input">Send Emails:</span>
-<input disabled="disabled" type="radio" title="Choose from one of the options" name="email_student_send_type" id="email_student_send_manual" value="manual">
-<label for="email_student_send_manual">Manually <span class="showTooltip tooltip" title="You can send emails to Test takers individually from their results pages at a later date. This works well if you need to grade Essay Questions for example before emailing their results. Email will still be sent by this site">Tip</span></label>
-<br>
-<input disabled="disabled" class="tab" type="radio" title="Choose from one of the options" name="email_student_send_type" id="email_student_send_auto" value="auto">
-<label for="email_student_send_auto">Automatically <span class="showTooltip tooltip" title="Emails will be sent automatically.">Tip</span></label>
-<div id="email_student_send_auto_options_section" class="hide">
-<div class="tab">
-<input disabled="disabled" class="sub-checkbox " type="radio" title="Choose from one of the options" name="email_student_send_type_auto" id="email_student_send_type_auto_on_completion_to_email_queue" value="auto" checked="checked">
-<label for="email_student_send_type_auto_on_completion_to_email_queue">After Test completion</label>
-<br>
-<input disabled="disabled" class="sub-checkbox" type="radio" title="Choose from one of the options" name="email_student_send_type_auto" id="email_student_send_type_auto_date" value="date">
-<label for="email_student_send_type_auto_date">After date</label>
-</div><div id="email_student_send_date_section" class="hide">
-<div class="tab">
-<div class="sub-checkbox">
-<div class="sub-checkbox">
-<span class="littledark">mm/dd/yyyy</span><br>
-<input disabled="disabled" type="text" name="email_student_send_date_date" readonly="readonly" id="email_student_send_date_datepickerfrom" value="" size="15" maxlength="10" class="hasDatepicker">&nbsp;<select name="email_student_send_date_h" id="email_student_send_date_h"><option value="12">12</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option></select> <select name="email_student_send_date_m" id="email_student_send_date_m"><option value="00">00</option><option value="05">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55">55</option></select> <select name="email_student_send_date_ampm" id="email_student_send_date_ampm"><option value="am">am</option><option value="pm">pm</option></select>&nbsp;<span class="showTooltip tooltip" title="Set the date and time after which emails are sent to Test takers.">Tip</span>
-</div>
-</div>
-</div>
-</div><br><div class="tab">
-<input disabled="disabled" type="checkbox" class="sub-checkbox email_student_checkbox" name="email_student_send_if_not_graded" id="email_student_send_if_not_graded">
-<label for="email_student_send_if_not_graded">Do not send if Test contains ungraded Questions. </label>
-<span class="showTooltip tooltip" title="Only send email if all Questions are graded. This is only applicable if Questions that need to be manually graded, such as Essay Questions, are given in the Test, in which case you can send emails from the results pages when you manually grade those Questions.">Tip</span>
-</div></div></div></div>
-</div>
-</div>
-<div class="settings-box">
-<div class="accordion-toggle scroll_printing setting-print closed">
-<h3 class="form-field-title">Printing</h3>
-<div class="settings-status">No</div><div class="caret">&nbsp;</div>
-</div>
-<div class="accordion-fold">
-<div class="field-group">
-<input type="checkbox" name="allow_printing" value="1" id="pp_2" class="tab">
-<label for="pp_2">Allow printing of Question and results pages</label>
-<span class="showTooltip tooltip" title="You can enable printing of Question and results pages.">Tip</span>
-</div>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
 <div class="clearheight"></div>
 <button  id="b1">SAVECHANGES</button>
 <p><input type="checkbox" value="1" name="save_as_default" id="save_as_defaults"> <label for="save_as_defaults">Save as my default settings.</label> <span class="showTooltipHTML tooltip" title="Each time you assign a Test, these settings will be preset for you.&lt;br/&gt;&lt;br/&gt;Note: Saving as Default settings will not affect any of your Existing Assigned Settings.">Tip</span></p>
