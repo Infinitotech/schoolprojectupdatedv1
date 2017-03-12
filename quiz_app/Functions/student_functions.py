@@ -110,8 +110,7 @@ def get_test_questions(request):
     }
 
     if 'test' in request.session:
-        if context['counter'] == test['counter'] and context['teacher_usernameR'] == test['teacher_username'] and context['school_id'] == test[
-            'school_id'] and context['branch_id'] == test['branch_id']:
+        if context['counter'] == test['counter'] and context['teacher_usernameR'] == test['teacher_username'] and context['school_id'] == test['school_id'] and context['branch_id'] == test['branch_id']:
              context = {'questions': context['questions'], 'options': context['options'], 'test_name': context['test_name'], 'duration': context['duration']}
              return True, context
         else:
