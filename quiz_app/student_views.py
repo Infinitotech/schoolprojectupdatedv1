@@ -17,7 +17,7 @@ class StudentViewGroupTests(View):
     @login_required
     def get(self, request):
         test_names, test_score, test_duration, school_id, branch_id, counter, teacher_username = group_test_data(request)
-        return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score,school_id,branch_id,counter,teacher_username)})
+        return render(request, 'student view group tests.html',{'names':zip(test_names,test_duration,test_score,counter,teacher_username),'school_id':school_id,'branch_id':branch_id})
 
 
 class StudentViewMyCourses(View):
