@@ -11,6 +11,8 @@ from django.utils.decorators import method_decorator
 import random,json
 from pymongo import MongoClient
 from v1.decorators import login_required
+from django.http import HttpResponseRedirect, HttpResponse
+from django.http import Http404
 
 
 class BasePage(View):
@@ -418,10 +420,11 @@ class MyTests(View):
         mongo = MongoClient()
         user = request.session['user']
         db = mongo['dummy_school_project_v1']
-        course_name = request.POST.get('test_id')
-        tests = db.tests.find({"teacher_username": user['name']})
+
+        cursor = db.courses.find({"school_id":user['school_id'],"branch_id":user['branch_id'],"current_year.teachers": {"$elemMatch": {"username": user['name']}}})
+        tests = db.tests.find({"school_id":user['school_id'],"branch_id":user['branch_id'],"teacher_username": user['name']})
         print("In tests")
-        return render(request,'My tests.html')
+        return render(request,'My tests.html',{'tests':tests,'user':user,'courses':cursor})
 
 
 class OnlineTestingFreeQuizMakerCreateTheBestWebBasedQuizzesClassMarker(View):
@@ -532,3 +535,48 @@ class assigntestgroup(View):
 
 
         return render(request, "assign test group.html", {'courses':cursor,'user':user})
+
+class searchby(View):
+    def get(self):
+        print("fddfg")
+
+    def post(self,request):
+        print("ajax3434")
+        mongo = MongoClient()
+        user = request.session['user']
+        db = mongo['dummy_school_project_v1']
+        testname=request.POST.get("name")
+        print(testname)
+        tests = db.tests.find({"school_id": user['school_id'], "branch_id": user['branch_id'], "teacher_username": user['name'],"test_name":{'$regex': testname}})
+
+
+
+        if request.is_ajax():
+
+           return HttpResponse(tests)
+        else:
+           raise Http404
+
+
+
+class bycourse(View):
+    def get(self):
+        print("fddfg")
+
+    def post(self,request):
+        print("ajax34341")
+        mongo = MongoClient()
+        user = request.session['user']
+        db = mongo['dummy_school_project_v1']
+        coursename=request.POST.get("name")
+        print(coursename)
+        selectedtest = db.tests.find({"school_id": user['school_id'], "branch_id": user['branch_id'], "teacher_username": user['name'],"course.course_name":coursename})
+
+
+
+        if request.is_ajax():
+
+           return HttpResponse(selectedtest)
+        else:
+           raise Http404
+
