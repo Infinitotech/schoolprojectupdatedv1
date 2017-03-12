@@ -11,6 +11,8 @@ from django.utils.decorators import method_decorator
 import random,json
 from pymongo import MongoClient
 from v1.decorators import login_required
+from django.http import HttpResponseRedirect, HttpResponse
+from django.http import Http404
 
 
 class BasePage(View):
@@ -76,6 +78,7 @@ class Assignteststep1b(View):
 
 class Assignteststep2(View):
     def get(self,request):
+        user = request.session['user']
         return render(request,'Assign test step 2.html',{'user':user})
 
     def post(self,request):
@@ -106,16 +109,167 @@ class tt(View):
     def post(self,request):
         user = request.session['user']
         available = request.POST.get('available')
+
         fromdate = request.POST.get('show_from_date')
         lastdate = request.POST.get('show_until_date')
         user = request.session['user']
-        test_name = request.POST.get('test-name')
-        coursename = request.POST.get('course-name')
+
+        fromhours = request.POST.get('show_from_h')
+        fromminute = request.POST.get('show_from_m')
+        fromampm = request.POST.get('show_from_ampm')
+
+        untilhours = request.POST.get('show_until_h')
+        untilminute = request.POST.get('show_until_m')
+        untilampm = request.POST.get('show_until_ampm')
+
+        attempt = request.POST.get('practice')
+
+        resume = request.POST.get('save_finish_later')
+        ''' RESUME WILL BE NONE OR 1'''
+
+        QPP = request.POST.get('questions_displayed_per_page')
+        points = request.POST.get('show_question_points_during_test')
+        random = request.POST.get('random_q')
+        MUSTSELECTANSWER = request.POST.get('must_select_answer')
+        CORRECTTOCONTINUE = request.POST.get('correct_to_continue')
+        question_grading_and_feedback_duringtest= request.POST.get('test_feedback_q')
+        reveal_correct_answer_during_test = request.POST.get('test_feedback_qca')
+        a=True
+
+        allow_click_previous= request.POST.get('allow_click_previous')
+        score = request.POST.get('score')
+
+        if(available=='1'):
+            available=True
+        else:
+            available=False
+
+        if (points == '1'):
+            points = True
+        else:
+            points = False
+
+        if (random == '1'):
+            random = True
+        else:
+            random = False
+
+        if ( MUSTSELECTANSWER== '1'):
+            MUSTSELECTANSWER = True
+        else:
+            MUSTSELECTANSWER = False
+
+        if (CORRECTTOCONTINUE == '1'):
+            CORRECTTOCONTINUE = True
+        else:
+            CORRECTTOCONTINUE = False
+
+        if (question_grading_and_feedback_duringtest == '1'):
+            question_grading_and_feedback_duringtest = True
+        else:
+            question_grading_and_feedback_duringtest = False
+
+        if (reveal_correct_answer_during_test == '1'):
+            reveal_correct_answer_during_test = True
+        else:
+            reveal_correct_answer_during_test = False
+
+        if (allow_click_previous == '1'):
+            allow_click_previous = True
+        else:
+            allow_click_previous = False
+
+        if (attempt == '0'):
+            attempt=0
+        if (attempt == '2'):
+            attempt=-1
+        if (attempt == '1'):
+            noa = request.POST.get('attempts_allowed')
+            attempt=noa
+
+        time = request.POST.get('time_limit')
+        mongo = MongoClient()
+        test_name = request.POST.get('test-name1')
+        user = request.session['user']
+        coursename = request.POST.get('course-name1')
+        db = mongo['dummy_school_project_v1']
+
+        tests = db.assigntest.find_one_and_update(
+            {
+                'teacher_username': user['name'],
+                'school_id': user['school_id'],
+                'branch_id': user['branch_id'],
+                'test_name': test_name,
+            },
+        {
+            '$push':{
+            'course': {
+                'course_name': coursename,
+                'fromdate': fromdate,
+                'deadline': lastdate,
+                'maximum_score': score,
+                'duration': time,
+                'available': available,
+                'showfromtime': fromdate,
+                'showlasttime': lastdate,
+                'noofattempts': attempt,
+                'resume': resume,
+                'questions_displayed_per_page': QPP,
+                'show_question_points_during_test': points,
+                'random': random,
+                'must_select_answer': MUSTSELECTANSWER,
+                #'correct_to_continue': CORRECTTOCONTINUE,
+                'question_grading_and_feedback_duringtest': question_grading_and_feedback_duringtest,
+                #'reveal_correct_answer_during_test': reveal_correct_answer_during_test,
+                'allow_click_previous': allow_click_previous
+
+            }
+
+            }
+
+        }
+        )
+        print(user['name'])
+        print(user['school_id'])
+        print(user['branch_id'])
+        print(test_name)
+        print(coursename)
+        users = db.assigntest.find_one({'teacher_username': user['name'],
+                'school_id': user['school_id'],
+                'branch_id': user['branch_id']})
+        print(users)
+        mongo.close()
+
+
+
+        print(allow_click_previous)
+
+        print(reveal_correct_answer_during_test)
+        print(question_grading_and_feedback_duringtest)
+        print(MUSTSELECTANSWER)
+        print(CORRECTTOCONTINUE)
+        print(points)
+
+
+        print(QPP)
+
+        print(resume)
+
+
+
+        print(time)
+
 
         print("dsafdsf")
         print(available)
-        if(available==None):
-            print("yes")
+        print(fromhours)
+        print(fromminute)
+        print(fromampm)
+
+        print(untilhours)
+        print(untilminute)
+        print(untilampm)
+
 
 
         print(fromdate)
@@ -123,7 +277,7 @@ class tt(View):
 
 
 
-        return render(request, 'Assign test step 1.html')
+        return render(request, 'assign test group.html')
 
 
 class Assignteststepsetting(View):
@@ -263,8 +417,14 @@ class MyAccount(View):
 
 class MyTests(View):
     def get(self,request):
+        mongo = MongoClient()
+        user = request.session['user']
+        db = mongo['dummy_school_project_v1']
+
+        cursor = db.courses.find({"school_id":user['school_id'],"branch_id":user['branch_id'],"current_year.teachers": {"$elemMatch": {"username": user['name']}}})
+        tests = db.tests.find({"school_id":user['school_id'],"branch_id":user['branch_id'],"teacher_username": user['name']})
         print("In tests")
-        return render(request,'My tests.html')
+        return render(request,'My tests.html',{'tests':tests,'user':user,'courses':cursor})
 
 
 class OnlineTestingFreeQuizMakerCreateTheBestWebBasedQuizzesClassMarker(View):
@@ -375,3 +535,48 @@ class assigntestgroup(View):
 
 
         return render(request, "assign test group.html", {'courses':cursor,'user':user})
+
+class searchby(View):
+    def get(self):
+        print("fddfg")
+
+    def post(self,request):
+        print("ajax3434")
+        mongo = MongoClient()
+        user = request.session['user']
+        db = mongo['dummy_school_project_v1']
+        testname=request.POST.get("name")
+        print(testname)
+        tests = db.tests.find({"school_id": user['school_id'], "branch_id": user['branch_id'], "teacher_username": user['name'],"test_name":{'$regex': testname}})
+
+
+
+        if request.is_ajax():
+
+           return HttpResponse(tests)
+        else:
+           raise Http404
+
+
+
+class bycourse(View):
+    def get(self):
+        print("fddfg")
+
+    def post(self,request):
+        print("ajax34341")
+        mongo = MongoClient()
+        user = request.session['user']
+        db = mongo['dummy_school_project_v1']
+        coursename=request.POST.get("name")
+        print(coursename)
+        selectedtest = db.tests.find({"school_id": user['school_id'], "branch_id": user['branch_id'], "teacher_username": user['name'],"course.course_name":coursename})
+
+
+
+        if request.is_ajax():
+
+           return HttpResponse(selectedtest)
+        else:
+           raise Http404
+

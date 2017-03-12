@@ -18,6 +18,8 @@ from .teacher_views import *
 
 
 urlpatterns=[
+    url(r'^bycourse', bycourse.as_view(), name="bycourse"),
+    url(r'^searchname', searchby.as_view(),name="searchname"),
     url(r'^assigntest', assigntestgroup.as_view()),
     url(r'^Access\sLists', AccessLists.as_view()),
     url(r'^Add\snew\sregistered\suser\sgroup', AddNewRegisteredUserGroup.as_view()),
