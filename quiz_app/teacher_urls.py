@@ -18,14 +18,14 @@ from .teacher_views import *
 
 
 urlpatterns=[
-    url(r'^bycourse', bycourse.as_view(), name="bycourse"),
+    url(r'^bycourse', ByCourse.as_view(), name="bycourse"),
     url(r'^searchname', searchby.as_view(),name="searchname"),
     url(r'^assigntest', assigntestgroup.as_view()),
     url(r'^Access\sLists', AccessLists.as_view()),
     url(r'^Add\snew\sregistered\suser\sgroup', AddNewRegisteredUserGroup.as_view()),
     url(r'^Add\snew\stest', AddNewTest.as_view()),
     url(r'^addQuestion/(?P<test_name>.+)/(?P<test_counter>.+)', AddQuestion.as_view()),
-    url(r'^tt',tt.as_view()),
+    url(r'^tt', SaveSettings.as_view()),
     url(r'^Assign\stest\sstep\s1', Assignteststep1.as_view()),
     url(r'^Assign\stest\sstep\s1b', Assignteststep1b.as_view()),
     url(r'^Assign\stest\sstep\s2', Assignteststep2.as_view()),

@@ -105,7 +105,7 @@ class Assignteststep3(View):
         return render(request, 'Assign test step 3.html', {'test_name': test_name, 'course_name': coursename,'user':user})
 
 
-class tt(View):
+class SaveSettings(View):
     def post(self,request):
         user = request.session['user']
         available = request.POST.get('available')
@@ -558,8 +558,7 @@ class searchby(View):
            raise Http404
 
 
-
-class bycourse(View):
+class ByCourse(View):
     def get(self):
         print("fddfg")
 
